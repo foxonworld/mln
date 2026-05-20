@@ -154,83 +154,121 @@ const THEORY_ITEMS = [
 # GROUP_ITEMS → PHAMTRU_ITEMS (Card grid + Modal — Cặp phạm trù)
 
 Section tag: `Công cụ triết học`
-Section title: `Bốn cặp phạm trù nhìn từ đời sinh viên`
+Section title: `Sáu cặp phạm trù cơ bản nhìn từ đời sinh viên`
 Section sub: `Nhấn từng thẻ để xem phân tích chi tiết qua trải nghiệm thực tế của Sinh viên T.`
 
 ```javascript
 const GROUP_ITEMS = [
   {
-    id: "nguyen-nhan",
+    id: "cai-rieng",
     sector: "Cặp phạm trù 1",
+    name: "Cái riêng — Cái chung",
+    fullName: "Quan hệ giữa cái riêng và cái chung",
+    summary:
+      "Cái riêng là một sự vật, cái chung là những thuộc tính lặp lại trong nhiều sự vật. Cái chung chỉ tồn tại trong cái riêng và ngược lại.",
+    role:
+      "Cái chung biểu hiện tính phổ biến, cái riêng biểu hiện tính cá biệt và phong phú. Trong học tập: một phương pháp học có thể là chung, nhưng cách áp dụng với từng sinh viên là cái riêng.",
+    monopoly:
+      "Nguy cơ là coi cái chung là toàn bộ thực tế và ép cái riêng phải giống y hệt. Hiểu đúng là lấy cái chung để điều chỉnh cái riêng một cách linh hoạt.",
+    twoSide:
+      "Tích cực: Hiểu cái chung giúp rút kinh nghiệm; tiêu cực: áp đặt phương thức chung lên mọi người có thể gây phản tác dụng.",
+    example:
+      "Một 'cách học hiệu quả' chung có thể không phù hợp cho T vì hoàn cảnh, sức khỏe, và thời gian của T là cái riêng cần điều chỉnh.",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1300&q=80",
+    alt: "Cái riêng và cái chung trong học tập",
+  },
+  {
+    id: "nguyen-nhan",
+    sector: "Cặp phạm trù 2",
     name: "Nguyên nhân — Kết quả",
     fullName: "Quan hệ nhân quả trong học tập",
     summary:
       "Mọi kết quả đều có nguyên nhân. Nhưng cùng nguyên nhân, hoàn cảnh khác nhau có thể dẫn đến kết quả khác nhau.",
     role:
-      "Nguyên nhân là cái sinh ra kết quả. Kết quả do nguyên nhân quyết định nhưng có thể tác động ngược lại nguyên nhân. Trong học tập: không ngủ đủ giấc (nguyên nhân) → mất tập trung → điểm thấp (kết quả). Nhưng kết quả đó lại trở thành nguyên nhân của stress mới.",
+      "Nguyên nhân có trước và sinh ra kết quả; kết quả có thể trở thành nguyên nhân cho sự phát triển tiếp theo. Trong học tập: thiếu ngủ → mất tập trung → điểm thấp.",
     monopoly:
-      "Quan hệ nhân quả không phải tuyến tính đơn giản. T thức đêm nhiều (nguyên nhân gần) nhưng gốc rễ là áp lực phải hoàn hảo (nguyên nhân xa). Chữa ngọn mà không chữa gốc — thức đêm ít hơn mà không giảm áp lực — kết quả không thay đổi.",
+      "Không có quan hệ nhân quả đơn tuyến; có nguyên nhân gần và nguyên nhân xa. Giải quyết gốc rễ mới có hiệu quả lâu dài.",
     twoSide:
-      "Tích cực: Nhận ra nguyên nhân thực sự giúp T tìm giải pháp đúng chỗ. Tiêu cực: Khi không hiểu chuỗi nhân quả, T cứ vòng lặp mãi — cố gắng nhiều hơn mà không thay đổi cách tiếp cận.",
+      "Tích cực: Phân tích chuỗi nhân quả giúp can thiệp chính xác; tiêu cực: chỉ chữa ngọn mà bỏ qua nguyên nhân sâu xa.",
     example:
-      "Case study: T học 14 tiếng/ngày suốt 2 tuần trước thi (nguyên nhân). Kết quả: điểm thi môn đó tệ hơn mọi khi vì não quá tải. T nhận ra: vấn đề không phải số giờ học mà là chất lượng và cách phân bổ.",
+      "T học quá nhiều trước kỳ thi (nguyên nhân gần) nhưng nguyên nhân xa là áp lực tự đặt ra để hoàn hảo — phải giải quyết cả hai.",
     image:
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1300&q=80",
     alt: "Chuỗi nhân quả trong quá trình học tập",
   },
   {
-    id: "ban-chat",
-    sector: "Cặp phạm trù 2",
-    name: "Bản chất — Hiện tượng",
-    fullName: "Bề mặt và chiều sâu của Hustle Culture",
+    id: "tat-nhien",
+    sector: "Cặp phạm trù 3",
+    name: "Tất nhiên — Ngẫu nhiên",
+    fullName: "Mối quan hệ giữa tất nhiên và ngẫu nhiên",
     summary:
-      "Hiện tượng là biểu hiện bên ngoài, bản chất là nội dung bên trong. Cùng hiện tượng có thể che giấu bản chất khác nhau.",
+      "Tất nhiên là cái do những nguyên nhân chủ yếu bên trong quyết định; ngẫu nhiên là cái do nhiều điều kiện bên ngoài kết hợp mà thành.",
     role:
-      "Bản chất là tổng hợp các mối liên hệ tất nhiên, tương đối ổn định bên trong. Hiện tượng là biểu hiện ra bên ngoài của bản chất — phong phú hơn, sinh động hơn nhưng không phải lúc nào cũng phản ánh đúng bản chất.",
+      "Các sự kiện tất nhiên được tạo thành từ nhiều ngẫu nhiên; hiểu mối quan hệ này giúp phân tích diễn biến thực tế trong học tập.",
     monopoly:
-      "Hustle culture trên mạng (hiện tượng): productive vlogs, 5AM routines, perfect notes — tất cả trông rất tốt. Bản chất bên dưới: áp lực đồng trang lứa, sự so sánh độc hại, và nhiều khi là biểu diễn productivity chứ không thực sự hiệu quả.",
+      "Quan niệm sai lầm là coi ngẫu nhiên là tuyệt đối hoặc phủ nhận vai trò của ngẫu nhiên — cả hai đều thiếu biện chứng.",
     twoSide:
-      "Nguy hiểm khi chỉ nhìn hiện tượng: T thấy bạn post ảnh học đêm → nghĩ mình phải làm vậy → bỏ qua bản chất (bạn đó có thể đang ép bản thân và không ổn chút nào). Nhìn xuyên hiện tượng: hiểu rằng \"look productive\" ≠ productive thật sự.",
+      "Tích cực: Nhận ra vai trò của ngẫu nhiên giúp linh hoạt; tiêu cực: đổ lỗi hoàn toàn cho ngẫu nhiên và không tìm nguyên nhân sâu.",
     example:
-      "T đăng lên mạng ảnh setup học đẹp, caption \"grind never stops\" — hiện tượng tích cực. Bản chất: T đang kiệt sức hoàn toàn, đăng để thuyết phục chính mình rằng mọi thứ ổn. Phép biện chứng đòi hỏi nhìn xuyên qua hiện tượng.",
+      "Bị bệnh đúng lúc ôn thi là ngẫu nhiên, nhưng hệ thống sức khỏe, chuẩn bị ôn luyện là những yếu tố tất nhiên có thể giảm rủi ro.",
     image:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1300&q=80",
-    alt: "Bề mặt hoàn hảo và thực tế phía sau",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=80",
+    alt: "Tất nhiên và ngẫu nhiên",
   },
   {
     id: "noi-dung",
-    sector: "Cặp phạm trù 3",
+    sector: "Cặp phạm trù 4",
     name: "Nội dung — Hình thức",
     fullName: "Hustle: Hình thức che khuất Nội dung",
     summary:
-      "Hình thức là cách thức tổ chức và biểu hiện của nội dung. Nội dung quyết định hình thức, nhưng hình thức cũng tác động ngược lại.",
+      "Nội dung là tổng hợp các yếu tố cấu thành sự vật; hình thức là phương thức tồn tại và biểu hiện của nội dung.",
     role:
-      "Nội dung là tổng hợp tất cả các yếu tố cấu thành sự vật. Hình thức là phương thức tồn tại và biểu hiện của nội dung. Không có nội dung nào tồn tại ngoài một hình thức nhất định và ngược lại.",
+      "Nội dung quyết định hình thức nhưng hình thức có tác động trở lại nội dung trong điều kiện nhất định.",
     monopoly:
-      "Học thật (nội dung) ≠ trông như đang học (hình thức). Nhiều sinh viên tốn công xây dựng hình thức: đồ dùng học đẹp, thời gian biểu màu sắc, bullet journal hoàn hảo — nhưng nội dung thực tế (sự hiểu biết, kỹ năng) lại trống rỗng.",
+      "Rủi ro là chú trọng hình thức đến mức làm mất nội dung thực sự; hình thức cần phục vụ nội dung chứ không thay thế.",
     twoSide:
-      "Hình thức quan trọng: môi trường học tốt, thói quen rõ ràng hỗ trợ nội dung. Hình thức trở thành vấn đề khi nó trở thành cứu cánh — khi T dành nhiều thời gian chỉnh sửa bảng Notion hơn là thực sự học.",
+      "Hình thức có thể hỗ trợ (tạo thói quen, môi trường) nhưng khi nó trở thành mục đích thì nội dung bị tổn hại.",
     example:
-      "T dành 2 tiếng viết to-do list chi tiết, color-coded, đẹp như Pinterest. Còn lại 30 phút thực sự ngồi học. Hình thức đã nuốt nội dung. Triết học gọi đây là sự mất cân bằng giữa hình thức và nội dung.",
+      "Dành nhiều thời gian trang trí sổ tay, nhưng không dành đủ thời gian ôn tập thực chất — hình thức nuốt nội dung.",
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1300&q=80",
     alt: "Hình thức và nội dung trong học tập",
   },
   {
+    id: "ban-chat",
+    sector: "Cặp phạm trù 5",
+    name: "Bản chất — Hiện tượng",
+    fullName: "Bề mặt và chiều sâu của Hustle Culture",
+    summary:
+      "Bản chất là tổng hợp các mối liên hệ khách quan bên trong; hiện tượng là biểu hiện bên ngoài của bản chất.",
+    role:
+      "Bản chất quy định vận động của sự vật; hiện tượng là cách bản chất xuất hiện dưới điều kiện lịch sử cụ thể.",
+    monopoly:
+      "Nguy hiểm khi chỉ nhìn hiện tượng mà không tìm bản chất — có thể bị lừa bởi vẻ bề ngoài.",
+    twoSide:
+      "Hiểu bản chất giúp can thiệp đúng, nhưng chỉ nhìn bản chất mà bỏ qua hiện tượng cụ thể cũng là phiến diện.",
+    example:
+      "Một bài đăng 'productive' có thể là hiện tượng; bản chất phía sau có thể là ép buộc hoặc stress cao.",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1300&q=80",
+    alt: "Bề mặt hoàn hảo và thực tế phía sau",
+  },
+  {
     id: "kha-nang",
-    sector: "Cặp phạm trù 4",
+    sector: "Cặp phạm trù 6",
     name: "Khả năng — Hiện thực",
     fullName: "Từ tiềm năng đến kết quả thực tế",
     summary:
-      "Khả năng là cái chưa có nhưng có thể xuất hiện. Hiện thực là cái đang tồn tại. Thực tiễn là cầu nối biến khả năng thành hiện thực.",
+      "Khả năng là những tiền đề chưa hiện thực; hiện thực là những gì đang tồn tại. Thực tiễn là cầu nối biến khả năng thành hiện thực.",
     role:
-      "Khả năng là cái hiện chưa tồn tại nhưng có những tiền đề, điều kiện để trở thành hiện thực. Hiện thực là tổng hợp tất cả những gì đang tồn tại thực sự. Không phải mọi khả năng đều trở thành hiện thực — cần có điều kiện và hành động.",
+      "Không phải mọi khả năng đều thành hiện thực — cần điều kiện, hành động và thời gian để hiện thực hóa.",
     monopoly:
-      "Mọi sinh viên đều có khả năng thành công — nhưng khả năng ≠ hiện thực. Hustle culture nhầm lẫn: tin rằng chỉ cần cố gắng đủ là khả năng tự chuyển thành hiện thực. Thực tế: cần điều kiện phù hợp, chiến lược đúng, và đôi khi cần may mắn.",
+      "Lỗi phổ biến là nhầm lẫn khả năng với hiện thực và bỏ qua điều kiện cần thiết để hiện thực hóa khả năng.",
     twoSide:
-      "Lạc quan hợp lý: nhận ra mình có khả năng → tạo điều kiện để hiện thực hóa. Lạc quan sai lầm: tin rằng \"mình có thể làm tất cả\" mà không tính đến điều kiện thực tế → overcommit → burnout.",
+      "Lạc quan hợp lý giúp tạo điều kiện; lạc quan mù quáng dẫn đến overcommit và kiệt sức.",
     example:
-      "T có khả năng học xuất sắc (thể hiện qua năng lực thực sự). Nhưng T đang đồng thời: làm part-time, tham gia 4 câu lạc bộ, có dự án freelance. Khả năng vẫn là khả năng — không đủ điều kiện (thời gian, sức khỏe) để hiện thực hóa toàn bộ.",
+      "T có năng lực nhưng thiếu thời gian và điều kiện — khả năng chưa thể chuyển thành hiện thực ngay lập tức.",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1300&q=80",
     alt: "Tiềm năng sinh viên và con đường hiện thực hóa",
@@ -239,6 +277,65 @@ const GROUP_ITEMS = [
 ```
 
 ---
+
+# CHƯƠNG 2: CHỦ NGHĨA DUY VẬT BIỆN CHỨNG
+
+## II. Phép biện chứng duy vật
+
+### 2. Nội dung của phép biện chứng duy vật
+
+Phép biện chứng duy vật là phương pháp triết học khoa học nghiên cứu các quy luật chung nhất của sự vận động và phát triển của thế giới khách quan. Phần "Nội dung của phép biện chứng duy vật" bao gồm các phạm trù, khái niệm và nguyên lý cơ bản dùng để phân tích mối quan hệ giữa các sự vật và hiện tượng.
+
+Các cặp phạm trù cơ bản của phép biện chứng duy vật:
+- Cái riêng — Cái chung
+- Nguyên nhân — Kết quả
+- Tất nhiên — Ngẫu nhiên
+- Nội dung — Hình thức
+- Bản chất — Hiện tượng
+- Khả năng — Hiện thực
+
+Phần trên cần xuất hiện rõ ràng trong tài liệu để đảm bảo khớp với giáo trình MLN111 (Chương II — Phép biện chứng duy vật).
+
+---
+
+## II. Lý luận nhận thức
+
+### 1. Quan niệm về nhận thức trong lịch sử triết học
+
+Trong lịch sử triết học có một số quan niệm tiêu biểu về nhận thức:
+- Chủ nghĩa duy tâm: coi nhận thức là phản ánh của ý niệm hoặc là kết quả của các cảm giác; hạn chế vai trò của thế giới vật chất khách quan.
+- Thuyết bất khả tri (Agnosticism / Kant): cho rằng con người chỉ biết được vẻ ngoài, không thể biết được bản chất tuyệt đối của sự vật.
+- Chủ nghĩa duy vật trước Mác (siêu hình): thừa nhận khả năng nhận thức nhưng xem nhận thức là phản ánh thụ động, chưa thấy được vai trò sáng tạo và thực tiễn.
+
+### 2. Lý luận nhận thức duy vật biện chứng
+
+Lý luận nhận thức duy vật biện chứng khẳng định rằng:
+- Thế giới vật chất tồn tại khách quan, độc lập với ý thức.
+- Con người có khả năng nhận thức thế giới; nhận thức là quá trình năng động, sáng tạo, mang tính lịch sử và biện chứng.
+- Thực tiễn là cơ sở, động lực và mục đích của nhận thức; thực tiễn là tiêu chuẩn kiểm nghiệm chân lý.
+
+Quá trình nhận thức bao gồm các giai đoạn: nhận thức cảm tính (trực quan sinh động) → nhận thức lý tính (tư duy trừu tượng) → kiểm nghiệm bằng thực tiễn. Nhận thức có tính tương đối và tuyệt đối: tri thức phát triển qua các cấp độ và được thực tiễn kiểm nghiệm, điều chỉnh.
+
+---
+
+### Ba quy luật biện chứng (tóm tắt)
+
+Ba quy luật cơ bản của phép biện chứng duy vật (thường được trình bày trong Chương II của giáo trình) là:
+
+1) Thống nhất và đấu tranh của các mặt đối lập
+- Giải thích ngắn: Mọi sự vật, hiện tượng đều chứa đựng các mặt đối lập, mâu thuẫn giữa các mặt này là nguồn gốc của vận động và phát triển.
+- Ví dụ sinh viên: mâu thuẫn giữa nhu cầu đạt điểm cao và nhu cầu bảo vệ sức khỏe tâm thần — chính mâu thuẫn này buộc sinh viên phải tìm cách giải quyết hoặc cân bằng.
+
+2) Chuyển hóa lượng thành chất (và ngược lại)
+- Giải thích ngắn: Sự tích lũy các biến đổi lượng sẽ dẫn tới sự biến đổi chất của sự vật khi đạt tới ngưỡng nhất định.
+- Ví dụ sinh viên: tích lũy kinh nghiệm, kỹ năng qua thời gian (lượng) sẽ dẫn tới thay đổi thực chất trong trình độ học tập (chất).
+
+3) Phủ định của phủ định
+- Giải thích ngắn: Quá trình phát triển là chuỗi phủ định; sự phủ định của một trạng thái mang lại trạng thái mới cao hơn (không phải trở lại nguyên bản), thể hiện tính xoáy ốc của quá trình lịch sử.
+- Ví dụ sinh viên: vượt qua một giai đoạn khủng hoảng (phủ định) tạo điều kiện cho một phiên bản trưởng thành hơn của bản thân (phủ định của phủ định).
+
+Nguồn/ghi chú: Nội dung tóm tắt trên phù hợp với các giáo trình Triết học Mác–Lênin (Bộ GD&ĐT, 2019/2021). Tôi có thể thêm trích dẫn trang chính xác (ví dụ: trang cụ thể trong bản 2019/2021) nếu bạn cung cấp PDF/scan; hiện tại tôi để chú thích chung.
+
 
 # SOLUTION_ITEMS → LYLUAN_ITEMS (Accordion — Lý luận nhận thức)
 
