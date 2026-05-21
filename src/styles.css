@@ -5,17 +5,17 @@
   --ink: #e2e8f0;
   --ink-soft: #94a3b8;
   --ink-mute: #64748b;
-  --border: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.15);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
   --blue: #6366f1;
   --blue-deep: #1e1b4b;
   --red: #ef4444;
   --red-soft: #1f0a0a;
   --green: #22c55e;
   --amber: #f59e0b;
-  --shadow-sm: 0 6px 18px rgba(0,0,0,0.3);
-  --shadow-md: 0 14px 35px rgba(0,0,0,0.4);
-  --shadow-lg: 0 22px 50px rgba(0,0,0,0.5);
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 14px 35px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 22px 50px rgba(0, 0, 0, 0.5);
   --radius-lg: 22px;
   --radius-md: 14px;
   --radius-sm: 10px;
@@ -130,10 +130,16 @@ a {
   place-items: center;
   background: linear-gradient(140deg, var(--blue), #1f5f9e);
   color: white;
-  font-size: 0.82rem;
+  font-size: 28px;
   font-weight: 800;
   letter-spacing: 0.04em;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.brand-badge-ico {
+  color: whitesmoke;
+  margin-top: -8px;
+  margin-right: -2px;
 }
 
 .nav-links {
@@ -186,8 +192,7 @@ a {
   inset: 0;
   background:
     linear-gradient(110deg, rgba(4, 18, 34, 0.94), rgba(6, 26, 46, 0.58) 52%, rgba(4, 16, 28, 0.86)),
-    url("https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1900&q=80")
-      center / cover no-repeat;
+    url("https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1900&q=80") center / cover no-repeat;
   z-index: -2;
   transform: scale(1.03);
 }
@@ -465,6 +470,7 @@ a {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -746,7 +752,7 @@ section {
   letter-spacing: 0.04em;
 }
 
-.group-body > p:not(.group-full) {
+.group-body>p:not(.group-full) {
   margin: 6px 0 0;
   color: var(--ink-soft);
   font-size: 0.97rem;
@@ -1106,7 +1112,7 @@ section {
   overflow: hidden;
 }
 
-.tv-bar > span {
+.tv-bar>span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #f3c9a5, #c3282d);
@@ -1557,6 +1563,7 @@ section {
     opacity: 0;
     transform: translateY(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1567,6 +1574,7 @@ section {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1717,7 +1725,7 @@ section {
   position: relative;
 }
 
-.meter-track > span {
+.meter-track>span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #f3c9a5, #c3282d);
@@ -1725,12 +1733,12 @@ section {
   box-shadow: 0 0 12px rgba(195, 40, 45, 0.4);
 }
 
-.meter-track > span.meter-green {
+.meter-track>span.meter-green {
   background: linear-gradient(90deg, #6bc089, #2f7a4f);
   box-shadow: 0 0 12px rgba(47, 122, 79, 0.4);
 }
 
-.meter-track > span.meter-amber {
+.meter-track>span.meter-amber {
   background: linear-gradient(90deg, #f3c9a5, #b07426);
   box-shadow: 0 0 12px rgba(176, 116, 38, 0.4);
 }
@@ -1768,9 +1776,11 @@ section {
   0% {
     box-shadow: 0 0 0 0 rgba(244, 167, 170, 0.65);
   }
+
   70% {
     box-shadow: 0 0 0 14px rgba(244, 167, 170, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(244, 167, 170, 0);
   }
@@ -1792,7 +1802,7 @@ section {
   position: relative;
 }
 
-.loading-bar > span {
+.loading-bar>span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #f3c9a5, #c3282d);
@@ -1803,12 +1813,10 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.35),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent);
   animation: shimmer 1.6s linear infinite;
 }
 
@@ -1816,6 +1824,7 @@ section {
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(100%);
   }
@@ -1868,9 +1877,11 @@ section {
 .dot-r {
   background: #ff5c5c;
 }
+
 .dot-y {
   background: #f2c14e;
 }
+
 .dot-g {
   background: #5bc98b;
 }
@@ -2008,6 +2019,7 @@ section {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 1120px) {
+
   .hero-grid,
   .theory-grid,
   .solution-layout,
@@ -2035,6 +2047,7 @@ section {
 }
 
 @media (max-width: 860px) {
+
   .reality-grid,
   .analysis-wrap,
   .stats,

@@ -324,8 +324,8 @@ const SCENARIOS = [
     description:
       "Một công ty offer internship lương tốt, nhưng sẽ ảnh hưởng đến GPA học kỳ này. T nên làm gì?",
     options: [
-      { key: "a", label: "A. Nhận internship — trải nghiệm thực tế quan trọng hơn điểm số", result: "mixed" },
-      { key: "b", label: "B. Cân nhắc kỹ: đây là khả năng hay hiện thực? Điều kiện có đủ không?", result: "good" },
+      { key: "a", label: "A. Cân nhắc kỹ: đây là khả năng hay hiện thực? Điều kiện có đủ không?", result: "good" },
+      { key: "b", label: "B. Nhận internship — trải nghiệm thực tế quan trọng hơn điểm số", result: "mixed" },
     ],
   },
   {
@@ -999,7 +999,7 @@ function PolicySimGame() {
       <div style={{ ...pgStyle, justifyContent: "center", alignItems: "center", position: "relative", overflow: "hidden", padding: "40px 20px" }}>
         <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(195,40,45,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} />
         <div style={{ zIndex: 10, background: "rgba(15,23,42,0.6)", backdropFilter: "blur(20px)", padding: "clamp(32px, 5vw, 64px)", borderRadius: "32px", border: "1px solid rgba(255,255,255,0.08)", maxWidth: "850px", textAlign: "center", boxShadow: "0 40px 100px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div style={{ display: "inline-block", padding: "6px 16px", borderRadius: "999px", background: "rgba(30,127,212,0.15)", color: "#3b82f6", fontWeight: 900, marginBottom: "20px", letterSpacing: "0.1em", fontSize: "0.8rem" }}>NHÓM 4 MLN111</div>
+          <div style={{ display: "inline-block", padding: "6px 16px", borderRadius: "999px", background: "rgba(30,127,212,0.15)", color: "#3b82f6", fontWeight: 900, marginBottom: "20px", letterSpacing: "0.1em", fontSize: "0.8rem" }}>NHÓM 7 MLN111</div>
 
           <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, margin: "0 0 20px", lineHeight: 1.1, background: "linear-gradient(to right, #ffffff, #94a3b8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             MÔ PHỎNG VĨ MÔ
@@ -1331,7 +1331,7 @@ function App() {
       <header className="site-nav">
         <div className="nav-inner">
           <div className="brand">
-            <span className="brand-badge">ML</span>
+            <span className="brand-badge"><div className="brand-badge-ico">☭</div></span>
             <span>Triết học Mác–Lênin</span>
           </div>
           <nav className="nav-links">
@@ -1352,7 +1352,7 @@ function App() {
         <section className="hero" id="hero">
           <div className="hero-grid">
             <div className="hero-copy" data-reveal="">
-              <p className="kicker">MLN111 · Nhóm 4 · Chương II</p>
+              <p className="kicker">MLN111 · Nhóm 7 · Chương II</p>
               <h1 className="hero-title">
                 Sinh viên T và vòng xoáy Hustle:
                 <span className="hero-title-alt"> khi lượng tích lũy đủ</span>
@@ -1505,70 +1505,75 @@ function App() {
               </p>
             </div>
 
-            <div className="analysis-wrap">
-              <article className="analysis-col" data-reveal="">
+            {/* Ghi đè CSS grid cũ để tự động chia thành 3 cột đều nhau */}
+            <div className="analysis-wrap" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "30px" }}>
+
+              <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
                 <div className="analysis-image">
                   <img
-                    src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80"
-                    alt="Điện khí đến khu vực nông thôn và phát triển hạ tầng công cộng"
+                    src="public/assets/events/vi-du-ve-mat-doi-lap-cua-mau-thuan_1.webp"
+                    alt="Quy luật mâu thuẫn"
                   />
                 </div>
                 <div className="analysis-content">
-                  <h3>Vai trò tích cực trong điều tiết</h3>
+                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>1. Thống nhất & Đấu tranh của các mặt đối lập</h3>
                   <ul>
                     <li>
-                      <span className="dot plus">+</span>
-                      <span>Giảm sốc giá đầu vào trong giai đoạn lạm phát và biến động quốc tế.</span>
+                      <span className="dot plus">›</span>
+                      <span><b>Lý thuyết:</b> Mọi sự vật đều chứa mặt đối lập; mâu thuẫn là động lực phát triển.</span>
                     </li>
                     <li>
-                      <span className="dot plus">+</span>
-                      <span>
-                        Bảo đảm dịch vụ công ích ở khu vực lợi nhuận thấp nhưng nhu cầu xã hội cao.
-                      </span>
-                    </li>
-                    <li>
-                      <span className="dot plus">+</span>
-                      <span>Tạo năng lực triển khai nhanh các dự án hạ tầng chiến lược quy mô lớn.</span>
-                    </li>
-                    <li>
-                      <span className="dot plus">+</span>
-                      <span>Hỗ trợ mục tiêu an ninh năng lượng và tự chủ kinh tế dài hạn.</span>
+                      <span className="dot plus">›</span>
+                      <span><b>Thực tiễn:</b> Mâu thuẫn giữa việc cày điểm (hustle) và nhu cầu nghỉ ngơi (balance) buộc sinh viên phải tìm ra cách quản lý bản thân hiệu quả hơn.</span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="analysis-col" data-reveal="">
+              <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
                 <div className="analysis-image">
                   <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-                    alt="Không gian đô thị công nghiệp phản ánh áp lực hiệu quả và cạnh tranh"
+                    src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80"
+                    alt="Lượng đổi chất đổi"
                   />
                 </div>
                 <div className="analysis-content">
-                  <h3>Rủi ro của cấu trúc độc quyền</h3>
+                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>2. Chuyển hóa Lượng thành Chất</h3>
                   <ul>
                     <li>
-                      <span className="dot minus">−</span>
-                      <span>Động lực cải tiến suy giảm khi cạnh tranh bị giới hạn.</span>
+                      <span className="dot plus">›</span>
+                      <span><b>Lý thuyết:</b> Tích lũy đủ về lượng sẽ dẫn đến sự nhảy vọt về chất khi đạt điểm nút.</span>
                     </li>
                     <li>
-                      <span className="dot minus">−</span>
-                      <span>Chi phí quản trị cao dễ chuyển hóa thành gánh nặng giá và ngân sách.</span>
-                    </li>
-                    <li>
-                      <span className="dot minus">−</span>
-                      <span>Quy trình ra quyết định chậm, kém linh hoạt trước công nghệ mới.</span>
-                    </li>
-                    <li>
-                      <span className="dot minus">−</span>
-                      <span>
-                        Nguy cơ xung đột giữa mục tiêu chính sách và mục tiêu hiệu quả doanh nghiệp.
-                      </span>
+                      <span className="dot plus">›</span>
+                      <span><b>Thực tiễn:</b> Học nhồi nhét 1 đêm không thể giỏi ngay. Tích lũy từng bài học nhỏ mỗi ngày (Lượng) mới tạo ra tư duy nhạy bén thực sự (Chất).</span>
                     </li>
                   </ul>
                 </div>
               </article>
+
+              <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
+                <div className="analysis-image">
+                  <img
+                    src="public/assets/events/phu-dinh.webp"
+                    alt="Phủ định của phủ định"
+                  />
+                </div>
+                <div className="analysis-content">
+                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>3. Phủ định của Phủ định</h3>
+                  <ul>
+                    <li>
+                      <span className="dot plus">›</span>
+                      <span><b>Lý thuyết:</b> Sự phát triển mang tính xoáy ốc; cái mới ra đời từ cái cũ nhưng ở trình độ cao hơn.</span>
+                    </li>
+                    <li>
+                      <span className="dot plus">›</span>
+                      <span><b>Thực tiễn:</b> Trải qua burnout (phủ định) → Thay đổi lối sống → Trở thành một phiên bản trưởng thành hơn chứ không quay lại làm sinh viên năm nhất ngây thơ.</span>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
             </div>
           </div>
         </section>
@@ -1784,7 +1789,7 @@ function App() {
                   và biết rằng mọi phủ định đều mở ra khả năng mới — cao hơn, sâu hơn, trưởng thành hơn.
                 </p>
                 <p className="conclusion-meta">
-                  Nhóm 4 · MLN111 · Chương II — Phép biện chứng duy vật
+                  Nhóm 7 · MLN111 · Chương II — Phép biện chứng duy vật
                 </p>
               </div>
             </div>
@@ -1794,7 +1799,7 @@ function App() {
 
       <footer className="footer">
         Bản trình bày tương tác cho thảo luận lớp học · Sinh viên T và Phép biện chứng duy vật
-        · Nhóm 4 MLN111.
+        · Nhóm 7 MLN111.
       </footer>
 
       <div
