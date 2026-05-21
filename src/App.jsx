@@ -485,13 +485,13 @@ function useRoute() {
 // ═══════════════════════════════════════════════════════════════════════════
 // GAME CONSTANTS
 // ═══════════════════════════════════════════════════════════════════════════
-const BLACK_SWAN_SPAWN_RATE = 0.2;
+const BLACK_SWAN_SPAWN_RATE = 0.12;
 const POLICY_CLUB_GPA_BUFF = 0.1;
-const POLICY_DETOX_STRESS_REDUCTION = 5;
-const POLICY_DETOX_GPA_PENALTY = 0.1;
+const POLICY_DETOX_STRESS_REDUCTION = 8;
+const POLICY_DETOX_GPA_PENALTY = 0.05;
 const POLICY_PARTTIME_MONEY_BOOST = 8000;
-const POLICY_PARTTIME_STRESS_PENALTY = 20;
-const POLICY_PARTTIME_GPA_PENALTY = 0.3;
+const POLICY_PARTTIME_STRESS_PENALTY = 14;
+const POLICY_PARTTIME_GPA_PENALTY = 0.25;
 const SAVE_KEY = "hustleLoopSave";
 const DEFAULT_STATS = { gpa: 3.0, mental: 80, money: 5000, stress: 30 };
 const DEFAULT_LOGS = [
@@ -591,7 +591,7 @@ const GAME_EVENTS = [
         rationale: "GPA giữ được nhưng sức khỏe tâm thần chịu cú đánh lớn.",
         previewAnimation: "rising-chart",
         tone: "orange",
-        impact: { gpa: 0.3, mental: -25, money: 0, stress: 35 },
+        impact: { gpa: 0.25, mental: -18, money: 0, stress: 22 },
         logStr:
           "[DEADLINE] Thức trắng. GPA giữ được nhưng T kiệt sức hoàn toàn.",
       },
@@ -603,7 +603,7 @@ const GAME_EVENTS = [
           "GPA thấp hơn chút nhưng mental được bảo vệ — quyết định biện chứng hơn.",
         previewAnimation: "money-flow",
         tone: "green",
-        impact: { gpa: 0.1, mental: -8, money: 0, stress: 15 },
+        impact: { gpa: 0.08, mental: -4, money: 0, stress: 8 },
         logStr:
           "[DEADLINE] T ưu tiên đúng. GPA giảm nhẹ nhưng mental được giữ.",
       },
@@ -629,7 +629,7 @@ const GAME_EVENTS = [
         rationale: "Tiền về ngay nhưng nợ và stress dài hạn tăng.",
         previewAnimation: "money-flow",
         tone: "blue",
-        impact: { gpa: 0, mental: -5, money: 8000, stress: 15 },
+        impact: { gpa: 0, mental: -2, money: 8000, stress: 8 },
         logStr:
           "[TÀI CHÍNH] Vay được tiền. Học phí ổn nhưng nợ bắt đầu tích lũy.",
       },
@@ -639,7 +639,7 @@ const GAME_EVENTS = [
         rationale: "Tiền kiếm được nhưng GPA học kỳ này bị ảnh hưởng nặng.",
         previewAnimation: "rising-chart",
         tone: "orange",
-        impact: { gpa: -0.4, mental: -15, money: 6000, stress: 25 },
+        impact: { gpa: -0.3, mental: -10, money: 6000, stress: 18 },
         logStr: "[TÀI CHÍNH] Làm thêm cấp tốc. Có tiền nhưng GPA trượt mạnh.",
       },
     ],
@@ -666,7 +666,7 @@ const GAME_EVENTS = [
           "Tiền tốt và kinh nghiệm tốt — nhưng GPA và mental chịu áp lực.",
         previewAnimation: "rising-chart",
         tone: "green",
-        impact: { gpa: -0.5, mental: -10, money: 12000, stress: 20 },
+        impact: { gpa: -0.35, mental: -8, money: 12000, stress: 14 },
         logStr:
           "[CƠ HỘI] Nhận internship. Tiền về nhưng áp lực học kỳ tăng vọt.",
       },
@@ -677,7 +677,7 @@ const GAME_EVENTS = [
           "GPA được bảo vệ, mental ổn hơn — nhưng mất cơ hội kiếm tiền và kinh nghiệm.",
         previewAnimation: "money-flow",
         tone: "blue",
-        impact: { gpa: 0.2, mental: 5, money: 0, stress: -10 },
+        impact: { gpa: 0.15, mental: 8, money: 0, stress: -15 },
         logStr: "[CƠ HỘI] Từ chối internship. Tập trung học, GPA cải thiện.",
       },
     ],
@@ -702,7 +702,7 @@ const GAME_EVENTS = [
         rationale: "Tự lập hơn nhưng stress và áp lực tăng mạnh.",
         previewAnimation: "falling-chart",
         tone: "orange",
-        impact: { gpa: -0.2, mental: -20, money: 2000, stress: 30 },
+        impact: { gpa: -0.15, mental: -12, money: 2500, stress: 18 },
         logStr:
           "[GIA ĐÌNH] T tự xoay xở. Độc lập hơn nhưng sức khỏe tâm thần suy giảm.",
       },
@@ -712,7 +712,7 @@ const GAME_EVENTS = [
         rationale: "Có tiền nhưng cảm giác tội lỗi và áp lực gia đình tăng.",
         previewAnimation: "money-flow",
         tone: "blue",
-        impact: { gpa: 0, mental: -10, money: 4000, stress: 10 },
+        impact: { gpa: 0, mental: -4, money: 3500, stress: 4 },
         logStr:
           "[GIA ĐÌNH] Gọi về xin hỗ trợ. Tiền được giải quyết nhưng T cảm thấy guilt.",
       },
@@ -739,7 +739,7 @@ const GAME_EVENTS = [
         rationale: "GPA tốt nhưng thời gian các môn khác bị cắt, stress tăng.",
         previewAnimation: "rising-chart",
         tone: "green",
-        impact: { gpa: 0.3, mental: -12, money: -500, stress: 25 },
+        impact: { gpa: 0.25, mental: -8, money: -300, stress: 16 },
         logStr: "[HỌC VỤ] Project chất lượng. GPA tốt nhưng T kiệt sức sau đó.",
       },
       {
@@ -749,7 +749,7 @@ const GAME_EVENTS = [
         rationale: "GPA project thấp hơn nhưng tổng thể được cân bằng hơn.",
         previewAnimation: "money-flow",
         tone: "blue",
-        impact: { gpa: 0.1, mental: -5, money: 0, stress: 10 },
+        impact: { gpa: 0.08, mental: -2, money: 0, stress: 5 },
         logStr: "[HỌC VỤ] Làm vừa đủ. Cân bằng ổn hơn, không quá tải.",
       },
     ],
@@ -776,7 +776,7 @@ const GAME_EVENTS = [
           "Stress ngắn hạn nhưng sau đó mental có thể phục hồi nếu thi đậu.",
         previewAnimation: "money-flow",
         tone: "green",
-        impact: { gpa: 0.1, mental: -15, money: -300, stress: 30 },
+        impact: { gpa: 0.12, mental: -8, money: -300, stress: 18 },
         logStr: "[KẾT QUẢ] T học lại nghiêm túc. Vượt qua được kỳ thi lại.",
       },
       {
@@ -786,7 +786,7 @@ const GAME_EVENTS = [
         rationale: "Mental được bảo vệ ngắn hạn nhưng GPA chịu thiệt hại lớn.",
         previewAnimation: "falling-chart",
         tone: "red",
-        impact: { gpa: -0.8, mental: 10, money: 0, stress: -10 },
+        impact: { gpa: -0.5, mental: 15, money: 0, stress: -18 },
         logStr:
           "[KẾT QUẢ] T chọn nghỉ ngơi. GPA rớt mạnh nhưng mental phục hồi dần.",
       },
@@ -807,7 +807,7 @@ const BLACK_SWANS = [
     emoji: "🤒",
     modeNote: "Biến cố chen ngang: bệnh tật không đợi lịch học.",
     desc: "Nhập viện khẩn cấp. 3 ngày không học được, miss 1 buổi kiểm tra giữa kỳ. Tiền viện phí và tinh thần đều bị ảnh hưởng.",
-    impact: { gpa: -0.3, mental: -25, money: -2000, stress: 25 },
+    impact: { gpa: -0.2, mental: -15, money: -1500, stress: 15 },
     logStr: "[⚠ BẤT NGỜ] Bệnh đột ngột. Tất cả kế hoạch học bị đổ vỡ.",
   },
   {
@@ -822,7 +822,7 @@ const BLACK_SWANS = [
     modeNote:
       "Biến cố chen ngang: môi trường sống ảnh hưởng trực tiếp đến học tập.",
     desc: "Không thể ở cùng phòng nữa. Phải tìm phòng mới gấp, đặt cọc, dọn đồ — tất cả trong khi vẫn phải đi học.",
-    impact: { gpa: -0.1, mental: -20, money: -3000, stress: 20 },
+    impact: { gpa: -0.05, mental: -12, money: -2200, stress: 12 },
     logStr:
       "[⚠ BẤT NGỜ] Conflict roommate. Chi phí và stress leo thang đột ngột.",
   },
@@ -837,7 +837,7 @@ const BLACK_SWANS = [
     emoji: "🎉",
     modeNote: "Biến cố tích cực: không phải mọi bất ngờ đều xấu.",
     desc: "Học bổng khuyến học 15 triệu được duyệt. Tiền về trong 2 tuần. T thở phào — áp lực tài chính giảm mạnh.",
-    impact: { gpa: 0.1, mental: 20, money: 15000, stress: -20 },
+    impact: { gpa: 0.1, mental: 18, money: 12000, stress: -25 },
     logStr:
       "[✓ MAY MẮN] Học bổng được duyệt! Tài chính ổn định, T tập trung học hơn.",
   },
@@ -858,20 +858,20 @@ const MACRO_POLICIES = [
     id: "p_detox",
     icon: "🧘",
     title: "Thiền định & Digital Detox",
-    desc: "Cam kết 30 phút thiền mỗi ngày, giảm mạng xã hội. Stress giảm 5% mỗi tuần tự động — đổi lại tốn thêm thời gian.",
+    desc: "Cam kết 30 phút thiền mỗi ngày, giảm mạng xã hội. Stress giảm 8% mỗi tuần tự động — đổi lại tốn thêm thời gian.",
     effect:
-      "Hiệu lực dài hạn: sau mỗi quyết định, stress tự giảm thêm 5% nhưng GPA buff giảm 0.1.",
+      "Hiệu lực dài hạn: sau mỗi quyết định, stress tự giảm thêm 8% nhưng GPA buff giảm 0.05.",
     isBuff: "cpi",
-    summary: "stress -5/tuần",
+    summary: "stress -8/tuần",
   },
   {
     id: "p_parttime",
     icon: "💼",
     title: "Nhận việc part-time ổn định",
     desc: "Nhận job part-time cố định 20 tiếng/tuần. Tiền vào ổn định ngay — nhưng thời gian học bị cắt mạnh từ đây.",
-    effect: "Hiệu lực tức thời: money +8000K, stress +20, GPA -0.3.",
+    effect: "Hiệu lực tức thời: money +8000K, stress +14, GPA -0.25.",
     isBuff: "bud",
-    summary: "+8M, stress +20, GPA -0.3",
+    summary: "+8M, stress +14, GPA -0.25",
   },
 ];
 
@@ -944,20 +944,39 @@ function getFeedbackTone(impact = {}) {
   return risk > relief ? "bad" : "good";
 }
 
+function getOutcomeHeadline(before = {}, after = {}, title = "") {
+  const deltas = {
+    gpa: (after.gpa ?? before.gpa ?? 0) - (before.gpa ?? 0),
+    mental: (after.mental ?? before.mental ?? 0) - (before.mental ?? 0),
+    money: (after.money ?? before.money ?? 0) - (before.money ?? 0),
+    stress: (after.stress ?? before.stress ?? 0) - (before.stress ?? 0),
+  };
+
+  if (deltas.stress >= 25) return "Deadline được xử lý, nhưng cơ thể bắt đầu báo động đỏ.";
+  if (deltas.mental <= -20) return "T vẫn đi tiếp, đổi lại là một đêm rất khó ngủ.";
+  if (deltas.gpa <= -0.4) return "GPA tụt thấy rõ; lựa chọn này mua thời gian bằng điểm số.";
+  if (deltas.money <= -1000) return "Ví mỏng đi, áp lực sinh hoạt xuất hiện ngay sau quyết định.";
+  if (deltas.stress <= -10) return "Nhịp thở nhẹ hơn; T lấy lại một chút quyền kiểm soát.";
+  if (deltas.mental >= 10) return "Tinh thần hồi lại; học kỳ bớt giống một cuộc chạy trốn.";
+  if (deltas.money >= 5000) return "Tài chính dễ thở hơn, nhưng cái giá vẫn cần được theo dõi.";
+  if (deltas.gpa > 0) return "Bảng điểm sáng hơn, nhưng cân bằng vẫn là bài toán mở.";
+  return `${title || "Lựa chọn"} tạo một dịch chuyển nhỏ trong thế cân bằng.`;
+}
+
 function calculateLeadershipStyle(stats, history) {
-  if (stats.mental >= 70 && stats.gpa >= 3.0 && stats.stress <= 60)
+  if (stats.mental >= 60 && stats.gpa >= 2.8 && stats.stress <= 70)
     return {
       label: "NGƯỜI HỌC BIỆN CHỨNG",
       style: "dialectics",
       desc: "Bạn hiểu mâu thuẫn và giải quyết nó bằng tư duy biện chứng — không cực đoan, không bỏ cuộc. T phiên bản của bạn đã tìm được cân bằng thực sự.",
     };
-  if (stats.gpa >= 3.5 && stats.mental <= 40)
+  if (stats.gpa >= 3.3 && stats.mental <= 50)
     return {
       label: "HUSTLER MẤT CÂN BẰNG",
       style: "hustle",
       desc: "GPA cao nhưng trả giá bằng sức khỏe tâm thần. Mâu thuẫn giữa hiệu suất và sức khỏe vẫn chưa được giải — cần vòng phủ định tiếp theo để tìm cân bằng cao hơn.",
     };
-  if (stats.stress <= 40 && stats.mental >= 80)
+  if (stats.stress <= 50 && stats.mental >= 70 && stats.gpa >= 2.3)
     return {
       label: "NGƯỜI CÂN BẰNG",
       style: "balanced",
@@ -1013,6 +1032,172 @@ function CompactStatPill({ def, value }) {
   );
 }
 
+const SEMESTER_PHASES = [
+  { from: 1, to: 3, life: "Deadline + sinh hoạt", topic: "Mâu thuẫn" },
+  { from: 4, to: 4, life: "Chiến lược sống sót", topic: "Lượng–chất" },
+  { from: 5, to: 7, life: "Tiền + quan hệ", topic: "Phủ định biện chứng" },
+  { from: 8, to: 8, life: "Điều chỉnh giữa kỳ", topic: "Thực tiễn–nhận thức" },
+  { from: 9, to: 12, life: "Crisis + ending", topic: "Cân bằng động" },
+];
+
+function getSemesterPhase(week = 1) {
+  return SEMESTER_PHASES.find((phase) => week >= phase.from && week <= phase.to) || SEMESTER_PHASES[0];
+}
+
+function getEventContradiction(event = {}) {
+  if (event.contradiction) return event.contradiction;
+  const text = `${event.entity || ""} ${event.title || ""} ${event.description || ""} ${event.desc || ""}`.toLowerCase();
+  if (text.includes("bệnh") || text.includes("sốt")) return "Điều kiện khách quan vs kế hoạch chủ quan";
+  if (text.includes("roommate") || text.includes("cùng phòng") || text.includes("chỗ ở")) return "Cá nhân vs môi trường sống";
+  if (text.includes("học bổng")) return "Lợi ích trước mắt vs áp lực dài hạn";
+  if (text.includes("rớt") || text.includes("thi lại") || text.includes("kết quả")) return "Thất bại tạm thời vs tái cấu trúc chiến lược";
+  if (text.includes("deadline")) return "Thành tích vs sức khỏe";
+  if (text.includes("học phí") || text.includes("tài chính") || text.includes("tiền")) return "Tiền bạc vs thời gian";
+  if (text.includes("internship") || text.includes("cơ hội")) return "Cơ hội vs năng lực chịu đựng";
+  if (text.includes("gia đình") || text.includes("bố mẹ")) return "Trách nhiệm cá nhân vs kỳ vọng xã hội";
+  if (text.includes("học vụ") || text.includes("project") || text.includes("đề tài")) return "Kết quả trước mắt vs phát triển lâu dài";
+  return "Mục tiêu trước mắt vs cân bằng dài hạn";
+}
+
+const CONCEPT_CARDS = {
+  quantityQuality: {
+    id: "quantityQuality",
+    name: "Lượng – chất",
+    text: "Stress nhỏ không phá hủy T ngay. Nhưng tích lũy đủ lâu có thể đổi trạng thái thành burnout.",
+  },
+  mainContradiction: {
+    id: "mainContradiction",
+    name: "Mâu thuẫn chủ yếu",
+    text: "Không phải áp lực nào cũng quan trọng như nhau. Ở mỗi giai đoạn, một mâu thuẫn có thể nổi lên chi phối toàn bộ lựa chọn.",
+  },
+  dynamicBalance: {
+    id: "dynamicBalance",
+    name: "Cân bằng động",
+    text: "Cân bằng không phải đứng yên. Nó là quá trình liên tục điều chỉnh giữa học tập, sức khỏe, tiền bạc và áp lực.",
+  },
+};
+
+function getPrimaryContradiction(stats = {}) {
+  if (stats.stress >= 75) return "Thành tích vs sức khỏe";
+  if (stats.money <= 1500) return "Nhu cầu sinh hoạt vs thời gian học";
+  if (stats.gpa <= 2.2) return "Nghỉ ngơi trước mắt vs kết quả dài hạn";
+  if (stats.mental <= 45) return "Kỳ vọng xã hội vs năng lực chịu đựng cá nhân";
+  return "Giữ nhịp ổn định vs áp lực mới";
+}
+
+function getFinalReflectionFeedback(stats = {}) {
+  if (stats.gpa >= 3.3 && (stats.stress >= 75 || stats.mental <= 45)) {
+    return "Run này tối ưu thành tích, nhưng sức khỏe bị đem ra trao đổi. Cân bằng động cần điều chỉnh trước khi stress đổi chất.";
+  }
+  if (stats.money >= 4500 && stats.gpa <= 2.3) {
+    return "T sống sót tài chính khá tốt, nhưng đầu tư dài hạn cho học tập bị thiếu nhịp.";
+  }
+  if (stats.gpa >= 2.7 && stats.mental >= 55 && stats.money > 1200 && stats.stress <= 70) {
+    return "Các chỉ số chưa hoàn hảo, nhưng có điều chỉnh liên tục. Đây là cân bằng động tốt.";
+  }
+  return "Nhiều chỉ số bị kéo xuống cùng lúc. T bị cuốn theo mâu thuẫn hơn là chủ động điều chỉnh.";
+}
+
+function getRunIdentity(stats = {}) {
+  if (stats.gpa >= 3.3 && (stats.stress >= 75 || stats.mental <= 45)) return "Người tối ưu thành tích";
+  if (stats.money >= 4500 && stats.gpa <= 2.3) return "Người giữ tiền trọ nhưng mất nhịp học";
+  if (stats.gpa >= 2.7 && stats.mental >= 55 && stats.money > 1200 && stats.stress <= 70) return "Người sống sót bằng cân bằng";
+  if (stats.stress >= 90 || stats.mental <= 30) return "Người bị burnout cuốn đi";
+  return "Người vượt khó đang điều chỉnh";
+}
+
+function getReflectionForMilestone(milestone, stats = {}) {
+  if (milestone === "week4") {
+    return {
+      id: "week4",
+      conceptId: "quantityQuality",
+      question: "Vì sao T có thể kiệt sức dù GPA tăng?",
+      options: [
+        { id: "a", text: "Vì GPA tăng luôn làm tinh thần giảm." },
+        { id: "b", text: "Vì stress tích lũy qua nhiều tuần có thể vượt ngưỡng chịu đựng." },
+        { id: "c", text: "Vì làm thêm luôn là lựa chọn sai." },
+      ],
+      correctId: "b",
+      feedback: "Bạn đang nhìn hiện tượng. Nguyên nhân nằm ở tích lũy stress qua nhiều tuần. Khi stress vượt ngưỡng, T có thể đổi chất thành burnout.",
+    };
+  }
+  if (milestone === "week8") {
+    const answer = getPrimaryContradiction(stats);
+    return {
+      id: "week8",
+      conceptId: "mainContradiction",
+      question: "Đâu là mâu thuẫn chủ yếu hiện tại của T?",
+      options: [
+        { id: "a", text: answer },
+        { id: "b", text: "Cố gắng nhiều hơn vs bỏ qua mọi điều kiện cụ thể" },
+        { id: "c", text: "Chọn một chỉ số rồi quên phần còn lại" },
+      ],
+      correctId: "a",
+      feedback: "Mâu thuẫn chủ yếu không cố định. Nó thay đổi theo điều kiện cụ thể của T trong từng giai đoạn.",
+    };
+  }
+  return {
+    id: "final",
+    conceptId: "dynamicBalance",
+    question: "Lựa chọn nào thể hiện cân bằng động tốt nhất?",
+    options: [
+      { id: "a", text: "Luôn tối đa GPA, xử lý hậu quả sau." },
+      { id: "b", text: "Liên tục điều chỉnh giữa học, sức khỏe, tiền bạc và stress." },
+      { id: "c", text: "Chỉ giữ một chỉ số an toàn là đủ." },
+    ],
+    correctId: null,
+    feedback: getFinalReflectionFeedback(stats),
+  };
+}
+
+function ReflectionModal({ reflection, selectedAnswer, concept, onSelect, onContinue }) {
+  if (!reflection) return null;
+  const answered = Boolean(selectedAnswer);
+
+  return (
+    <div className="psim-reflection-overlay" role="dialog" aria-modal="true" aria-labelledby="reflection-title">
+      <section className="psim-reflection-modal">
+        <div className="psim-reflection-kicker">Phản tư nhanh</div>
+        <h2 id="reflection-title">{reflection.question}</h2>
+        <div className="psim-reflection-options">
+          {reflection.options.map((option) => {
+            const isSelected = selectedAnswer === option.id;
+            const isCorrect = reflection.correctId && option.id === reflection.correctId;
+            return (
+              <button
+                key={option.id}
+                type="button"
+                className={`psim-reflection-option ${isSelected ? "is-selected" : ""} ${answered && isCorrect ? "is-correct" : ""}`}
+                disabled={answered}
+                onClick={() => onSelect(option.id)}
+              >
+                <span>{option.id.toUpperCase()}</span>
+                {option.text}
+              </button>
+            );
+          })}
+        </div>
+        {answered && (
+          <div className="psim-reflection-feedback">
+            <strong>{reflection.correctId ? (selectedAnswer === reflection.correctId ? "Nhìn đúng hướng" : "Gần đúng — thử nhìn sâu hơn") : "Ghi nhận run này"}</strong>
+            <p>{reflection.feedback}</p>
+          </div>
+        )}
+        {answered && concept && (
+          <div className="psim-concept-card">
+            <span>Concept unlocked</span>
+            <h3>{concept.name}</h3>
+            <p>{concept.text}</p>
+          </div>
+        )}
+        <button className="psim-reflection-continue" type="button" disabled={!answered} onClick={onContinue}>
+          Tiếp tục
+        </button>
+      </section>
+    </div>
+  );
+}
+
 // ═══════════════════════════════════════════════════════════════════════════
 // MAIN COMPONENT — PolicySimGame
 // ═══════════════════════════════════════════════════════════════════════════
@@ -1024,7 +1209,11 @@ function PolicySimGame() {
   const [logs, setLogs] = useState(DEFAULT_LOGS);
   const [eventIndex, setEventIndex] = useState(0);
   const [activePolicies, setActivePolicies] = useState([]);
-
+  const [activeReflection, setActiveReflection] = useState(null);
+  const [selectedReflectionAnswer, setSelectedReflectionAnswer] = useState(null);
+  const [unlockedConcepts, setUnlockedConcepts] = useState([]);
+  const [pendingGameState, setPendingGameState] = useState(null);
+ 
   const [shuffledEvents, setShuffledEvents] = useState(
     shuffleArray(GAME_EVENTS),
   );
@@ -1084,7 +1273,32 @@ function PolicySimGame() {
     setTransitioning(false);
     setFeedback(null);
     setLastOutcome(null);
+    setActiveReflection(null);
+    setSelectedReflectionAnswer(null);
+    setUnlockedConcepts([]);
+    setPendingGameState(null);
     localStorage.removeItem(SAVE_KEY);
+  };
+
+  const openReflection = (milestone, nextState = "playing", reflectionStats = stats) => {
+    setActiveReflection(getReflectionForMilestone(milestone, reflectionStats));
+    setSelectedReflectionAnswer(null);
+    setPendingGameState(nextState);
+  };
+
+  const handleReflectionSelect = (answerId) => {
+    SFX.click();
+    setSelectedReflectionAnswer(answerId);
+  };
+
+  const handleReflectionContinue = () => {
+    if (!activeReflection) return;
+    const conceptId = activeReflection.conceptId;
+    setUnlockedConcepts((prev) => (prev.includes(conceptId) ? prev : [...prev, conceptId]));
+    setActiveReflection(null);
+    setSelectedReflectionAnswer(null);
+    if (pendingGameState) setGameState(pendingGameState);
+    setPendingGameState(null);
   };
 
   const commitTurn = (newStats, logStrings, stayPhase = false) => {
@@ -1099,7 +1313,7 @@ function PolicySimGame() {
       );
       logStrings = [
         ...logStrings,
-        "[HIỆU LỰC ĐẠO LUẬT] Thiền định giảm stress 5%, nhưng GPA hao 0.1.",
+        "[CHIẾN LƯỢC SỐNG SÓT] Detox giảm stress 8%, đổi lại GPA hao 0.05.",
       ];
     }
 
@@ -1144,10 +1358,10 @@ function PolicySimGame() {
         "[SỰ CỐ NGHIÊM TRỌNG] Tiền sinh hoạt cạn kiệt. Phải rời trường tạm thời.";
       SFX.lose();
     } else if (quarter >= 12) {
-      if (fStats.mental >= 70 && fStats.gpa >= 3.0 && fStats.stress <= 60)
+      if (fStats.mental >= 60 && fStats.gpa >= 2.8 && fStats.stress <= 70)
         nextSt = "won_perfect";
-      else if (fStats.gpa >= 3.5 && fStats.mental <= 40) nextSt = "won_hustle";
-      else if (fStats.stress <= 40 && fStats.mental >= 80) nextSt = "won_chill";
+      else if (fStats.gpa >= 3.3 && fStats.mental <= 50) nextSt = "won_hustle";
+      else if (fStats.stress <= 50 && fStats.mental >= 70 && fStats.gpa >= 2.3) nextSt = "won_chill";
       else nextSt = "won_survive";
       sLog = "[HỆ THỐNG] ✓ Hoàn tất 12 tuần học kỳ. Đánh giá thành tích.";
       SFX.win();
@@ -1159,6 +1373,7 @@ function PolicySimGame() {
       SFX.bgm(false);
       setGameState(nextSt);
       setTransitioning(false);
+      window.setTimeout(() => openReflection("final", nextSt, fStats), 500);
       return;
     }
     if (stayPhase) {
@@ -1172,21 +1387,30 @@ function PolicySimGame() {
       setQuarter(nQ);
       setEventIndex((p) => p + 1);
 
-      if (nQ === 4 || nQ === 8) {
+      if (nQ === 5) {
+        openReflection("week4", "playing", fStats);
+      } else if (nQ === 9) {
+        openReflection("week8", "playing", fStats);
+      } else if (nQ === 4 || nQ === 8) {
         setGameState("policy");
         setLogs((p) => [
           ...p,
-          `› [ĐIỂM NGUYNG DỪNG PHẢN SỰ] Thời điểm lựa chọn thay đổi lối sống lâu dài.`,
+          `› [MỐC SỐNG SÓT] Tuần ${nQ}: chọn một chiến lược để qua phần còn lại của học kỳ.`,
         ]);
       } else {
-        if (Math.random() < BLACK_SWAN_SPAWN_RATE && nQ < 12) {
+        const isCritical =
+          fStats.stress >= 75 ||
+          fStats.mental <= 35 ||
+          fStats.money <= 1000 ||
+          fStats.gpa <= 1.5;
+        if (nQ >= 4 && Math.random() < BLACK_SWAN_SPAWN_RATE && nQ < 12 && !isCritical) {
           const swan =
             BLACK_SWANS[Math.floor(Math.random() * BLACK_SWANS.length)];
           setCurrentBlackSwan(swan);
           setGameState("blackswan");
           setLogs((p) => [
             ...p,
-            `› [⚠️ CẢNH BÁO TỐI KHẨN CẤP] Biến cố bất ngờ xuất hiện, cần xử lý trước khi tiếp tục tuần hiện tại.`,
+            `› [⚠️ CẢNH BÁO] Biến cố bất ngờ xuất hiện, cần xử lý trước khi tiếp tục tuần hiện tại.`,
           ]);
           SFX.alert();
         } else {
@@ -1220,8 +1444,10 @@ function PolicySimGame() {
       stress: parseFloat((stats.stress + imp.stress).toFixed(2)),
     };
     showOutcome({
-      kind: "Báo cáo sau quyết định",
+      kind: "Hệ quả sau quyết định",
       title: opt.label,
+      headline: getOutcomeHeadline(stats, ns, opt.label),
+      reflection: "Bạn vừa ưu tiên một mặt của mâu thuẫn. Mặt còn lại không biến mất.",
       tone: getFeedbackTone(opt.impact),
       before: stats,
       after: ns,
@@ -1236,11 +1462,11 @@ function PolicySimGame() {
   const handlePolicy = (pol) => {
     SFX.law();
     setActivePolicies((p) => [...p, pol.id]);
-    setExecutingLabel(`Áp dụng: ${pol.title}...`);
+    setExecutingLabel(`Kích hoạt chiến lược: ${pol.title}...`);
     window.setTimeout(() => {
       setExecutingLabel("");
       setGameState("playing");
-      setLogs((p) => [...p, `[LỐI SỐNG] Áp dụng: ${pol.title}`]);
+      setLogs((p) => [...p, `[CHIẾN LƯỢC SỐNG SÓT] Áp dụng: ${pol.title}`]);
       if (pol.id === "p_parttime") {
         const ns = {
           ...stats,
@@ -1249,13 +1475,14 @@ function PolicySimGame() {
           gpa: stats.gpa - POLICY_PARTTIME_GPA_PENALTY,
         };
         showOutcome({
-          kind: "Hiệu lực lối sống",
+          kind: "Hiệu lực chiến lược",
           title: pol.title,
+          headline: getOutcomeHeadline(stats, ns, pol.title),
           tone: getFeedbackTone({
-            gpa: -0.3,
+            gpa: -0.25,
             mental: 0,
             money: 8000,
-            stress: 20,
+            stress: 14,
           }),
           before: stats,
           after: ns,
@@ -1281,14 +1508,16 @@ function PolicySimGame() {
     setFeedback({ id: `${Date.now()}-${sw.title}`, tone: swanTone });
     window.setTimeout(() => setFeedback(null), 900);
     const ns = {
-      cpi: parseFloat((stats.cpi + sw.impact.cpi).toFixed(2)),
-      cov: parseFloat((stats.cov + sw.impact.cov).toFixed(1)),
-      roic: parseFloat((stats.roic + sw.impact.roic).toFixed(2)),
-      bud: parseFloat((stats.bud + sw.impact.bud).toFixed(1)),
+      gpa: parseFloat((stats.gpa + sw.impact.gpa).toFixed(2)),
+      mental: parseFloat((stats.mental + sw.impact.mental).toFixed(1)),
+      money: parseFloat((stats.money + sw.impact.money).toFixed(1)),
+      stress: parseFloat((stats.stress + sw.impact.stress).toFixed(2)),
     };
     showOutcome({
       kind: swanTone === "good" ? "Cơ hội từ biến cố" : "Thiệt hại từ biến cố",
       title: sw.title,
+      headline: getOutcomeHeadline(stats, ns, sw.title),
+      reflection: "Bạn vừa ưu tiên một mặt của mâu thuẫn. Mặt còn lại không biến mất.",
       tone: swanTone,
       before: stats,
       after: ns,
@@ -1352,10 +1581,13 @@ function PolicySimGame() {
       },
     };
     const c = isWin ? dict[gameState] : { ...loss[gameState], c: "#ef4444" };
+    const finalStats = history[history.length - 1];
     const style = isWin
-      ? calculateLeadershipStyle(history[history.length - 1], history)
+      ? calculateLeadershipStyle(finalStats, history)
       : null;
-
+    const runIdentity = getRunIdentity(finalStats);
+    const conceptNames = unlockedConcepts.map((id) => CONCEPT_CARDS[id]?.name).filter(Boolean);
+ 
     return (
       <div
         style={{
@@ -1438,6 +1670,16 @@ function PolicySimGame() {
         >
           {style ? style.desc : c.d}
         </p>
+
+        <div className="psim-ending-debrief">
+          <span>Run identity</span>
+          <h3>{runIdentity}</h3>
+          <p>{getFinalReflectionFeedback(finalStats)}</p>
+          <p>
+            Run này mở khóa: {conceptNames.length ? conceptNames.join(", ") : "chưa có concept"}.
+          </p>
+          <strong>Bạn đã mở {conceptNames.length}/3 concept. Chơi lại để thử một cách xử lý mâu thuẫn khác.</strong>
+        </div>
 
         <div
           style={{
@@ -1614,20 +1856,45 @@ function PolicySimGame() {
             HUSTLE LOOP
           </h1>
 
+          <div className="psim-start-hooks" aria-label="Mở đầu học kỳ">
+            {[
+              "12 tuần để qua kỳ.",
+              "Mỗi quyết định đều có mặt đối lập.",
+              "Không có lựa chọn hoàn hảo — chỉ có cân bằng động.",
+            ].map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </div>
+
+          <div className="psim-intro-story" aria-label="Intro sinh viên T">
+            <p>Tuần 1. T mở laptop lúc 1:37 sáng.</p>
+            <p>Deadline nhóm chưa xong. Tiền trọ còn 5 ngày. Bạn cùng lớp rủ đi làm thêm.</p>
+            <strong>Không. Mọi thứ vận động bằng mâu thuẫn.</strong>
+          </div>
+
           <p
             style={{
               fontSize: "1.1rem",
               color: "#94a3b8",
-              marginBottom: "32px",
+              marginBottom: "20px",
               lineHeight: 1.7,
               fontFamily: "Source Serif 4, serif",
               maxWidth: "90%",
             }}
           >
-            Bạn là Sinh viên T — năm 2 đại học. Phải cân bằng GPA, sức khỏe tâm
-            thần, tài chính và stress qua 12 tuần học kỳ. Mỗi quyết định phản
-            ánh một khái niệm triết học.
+            Bạn đã đọc về mâu thuẫn. Giờ thử sống trong một mâu thuẫn cụ thể:
+            kỳ học của T.
           </p>
+
+          <div className="psim-semester-map" aria-label="Bản đồ học kỳ MLN111">
+            {SEMESTER_PHASES.map((phase) => (
+              <div className="psim-semester-phase" key={`${phase.from}-${phase.to}`}>
+                <span>Tuần {phase.from === phase.to ? phase.from : `${phase.from}–${phase.to}`}</span>
+                <strong>{phase.life}</strong>
+                <em>{phase.topic}</em>
+              </div>
+            ))}
+          </div>
 
           <div
             style={{
@@ -1784,7 +2051,7 @@ function PolicySimGame() {
               </li>
               <li style={{ marginBottom: "8px" }}>
                 Ở <b>Tuần 4</b> và <b>Tuần 8</b>, bạn được chọn 1{" "}
-                <b>thay đổi lối sống</b> để hỗ trợ học kỳ.
+                <b>chiến lược sống sót</b> để giữ nhịp học kỳ.
               </li>
               <li>
                 Mục tiêu: Vượt qua <b>12 tuần</b> mà không để chỉ số nào chạm
@@ -1842,7 +2109,14 @@ function PolicySimGame() {
     <div className="psim-cinema-root">
       <EffectOverlay feedback={feedback} />
       <OutcomePanel outcome={lastOutcome} />
-
+      <ReflectionModal
+        reflection={activeReflection}
+        selectedAnswer={selectedReflectionAnswer}
+        concept={activeReflection ? CONCEPT_CARDS[activeReflection.conceptId] : null}
+        onSelect={handleReflectionSelect}
+        onContinue={handleReflectionContinue}
+      />
+ 
       {/* ── Fullscreen Background Scene ── */}
       <EventScene
         event={sceneEvent}
@@ -1860,6 +2134,10 @@ function PolicySimGame() {
         >
           ← VỀ TRANG CHỦ
         </a>
+
+        <div className="psim-phase-badge" title={`Tuần ${quarter}: ${getSemesterPhase(quarter).life}`}>
+          MLN111 · {getSemesterPhase(quarter).topic}
+        </div>
 
         <div className="psim-hud-timeline">
           {Array.from({ length: 12 }, (_, i) => i + 1).map((q) => {
@@ -1931,6 +2209,12 @@ function PolicySimGame() {
                 </span>
                 <span className="psim-quarter-chip">TUẦN {quarter} / 12</span>
               </div>
+              <div className="psim-contradiction-tag">
+                Mâu thuẫn chính: {getEventContradiction(ce)}
+              </div>
+              <p className="psim-learning-copy">
+                Mâu thuẫn chính tuần này: {getEventContradiction(ce)}.
+              </p>
               <h1 className="psim-cinema-title">{ce.title}</h1>
               <p className="psim-cinema-desc">{ce.desc || ce.description}</p>
             </div>
@@ -1956,6 +2240,9 @@ function PolicySimGame() {
               <div className="psim-cinema-badges">
                 <span className="psim-crisis-label">⚠ SỰ KIỆN BẤT NGỜ </span>
               </div>
+              <div className="psim-contradiction-tag">
+                Mâu thuẫn chính: {getEventContradiction(currentBlackSwan)}
+              </div>
               <h1 className="psim-cinema-title">
                 {currentBlackSwan.title} {currentBlackSwan.emoji}
               </h1>
@@ -1976,8 +2263,8 @@ function PolicySimGame() {
                 onMouseOver={() => SFX.hover()}
               >
                 {getFeedbackTone(currentBlackSwan.impact) === "good"
-                  ? "✓ TIẾP NHẬN CƠ HỘI"
-                  : "⚡ KÍCH HOẠT QUY TRÌNH CHỐNG CHỊU"}
+                  ? "✓ NẮM LẤY CƠ HỘI"
+                  : "⚡ GIỮ NHỊP ĐỂ SỐNG SÓT"}
               </button>
             </div>
           </div>
@@ -1987,11 +2274,12 @@ function PolicySimGame() {
         {gameState === "policy" && (
           <div className="psim-cinema-policy">
             <div className="psim-policy-label">
-              📋 THAY ĐỔI LỐI SỐNG · TUẦN {quarter}
+              🧭 CHIẾN LƯỢC SỐNG SÓT · TUẦN {quarter}
             </div>
-            <h1 className="psim-cinema-title">Lựa chọn Lối sống Lâu dài</h1>
+            <h1 className="psim-cinema-title">Chọn nhịp sống cho phần còn lại</h1>
             <p className="psim-cinema-desc" style={{ marginBottom: "24px" }}>
-              Chọn 1 thay đổi lối sống. Hiệu lực kéo dài đến hết học kỳ.
+              Một chiến lược duy nhất sẽ theo T đến hết học kỳ. Chọn cách sống sót,
+              không phải cách hoàn hảo.
             </p>
             <div className="psim-policy-grid">
               {MACRO_POLICIES.filter((p) => !activePolicies.includes(p.id)).map(
@@ -2220,7 +2508,7 @@ function App() {
                   Bắt đầu chuyên đề
                 </a>
                 <a href="#/game" className="btn-ghost">
-                  GAME GÔ
+                  Chơi Hustle Loop
                 </a>
               </div>
 
@@ -2493,7 +2781,7 @@ function App() {
               <figure className="solution-image" data-reveal="">
                 <img
                   src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80"
-                  alt="Bối cảnh hoạch định chính sách và cải cách thể chế kinh tế"
+                  alt="Sinh viên lập kế hoạch học tập và tự quản lý áp lực"
                 />
                 <figcaption className="solution-note">
                   Cải cách hiệu quả không chỉ là bán vốn, mà là thiết kế lại cơ
@@ -2540,20 +2828,20 @@ function App() {
               <div className="teaser-left">
                 <p className="section-tag light">Trải nghiệm tương tác</p>
                 <h2 className="teaser-title">
-                  Bước vào ghế điều hành — và thử cân bằng ba mục tiêu trong 12
-                  quý.
+                  Bước vào 12 tuần học kỳ — và thử giữ cân bằng trước deadline,
+                  burnout và tiền sinh hoạt.
                 </h2>
                 <p className="teaser-sub">
-                  Một mini-game mô phỏng đang được phát triển: bạn đóng vai
-                  người hoạch định chính sách của một tập đoàn nhà nước, điều
-                  chỉnh giá, đầu tư, trợ cấp trước các cú sốc vĩ mô.
+                  Một mini-game lựa chọn nhanh: bạn là Sinh viên T, cân bằng GPA,
+                  Mental, Money và Stress trước các tình huống không có đáp án
+                  hoàn hảo.
                 </p>
                 <div className="teaser-actions">
                   <a href="#/game" className="btn-primary">
-                    Vào trang chờ mini-game
+                    Chơi thử học kỳ 12 tuần
                   </a>
                   <span className="teaser-chip">
-                    Engine đang phát triển · nhóm kỹ thuật
+                    UX P0 · thấy hệ quả trước khi chọn
                   </span>
                 </div>
               </div>

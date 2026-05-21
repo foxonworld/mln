@@ -48,6 +48,12 @@ export default function OutcomePanel({ outcome }) {
             <span>{outcome.kind || "Báo cáo tác động"}</span>
             <strong>{outcome.title}</strong>
           </div>
+          {outcome.headline && (
+            <p className="psim-outcome-headline">{outcome.headline}</p>
+          )}
+          {outcome.reflection && (
+            <p className="psim-outcome-reflection">{outcome.reflection}</p>
+          )}
           <div className="psim-outcome-grid">
             {METRICS.map((metric) => {
               const before = outcome.before?.[metric.key] ?? 0;

@@ -2,10 +2,25 @@ import { useEffect } from "react";
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 
 const IMPACT_META = [
-  // { key: "cpi", label: "CPI", suffix: "%", badWhen: (value) => value > 0.5 },
-  // { key: "cov", label: "An sinh", suffix: "%", badWhen: (value) => value < 0 },
-  // { key: "roic", label: "ROIC", suffix: "%", badWhen: (value) => value < 0 },
-  // { key: "bud", label: "Ngân sách", suffix: " tỷ", badWhen: (value) => value < 0 },
+  { key: "gpa", label: "GPA", suffix: "", badWhen: (value) => value < 0 },
+  {
+    key: "mental",
+    label: "Mental",
+    suffix: "%",
+    badWhen: (value) => value < 0,
+  },
+  {
+    key: "money",
+    label: "Money",
+    suffix: "K",
+    badWhen: (value) => value < 0,
+  },
+  {
+    key: "stress",
+    label: "Stress",
+    suffix: "%",
+    badWhen: (value) => value > 0,
+  },
 ];
 
 function getTone(meta, value) {

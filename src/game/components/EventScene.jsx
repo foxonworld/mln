@@ -127,7 +127,7 @@ function normalizeScene(event) {
   const typeScene = TYPE_DEFAULTS[type] || TYPE_DEFAULTS.economic;
 
   return {
-    title: event?.title || "Tín hiệu chính sách",
+    title: event?.title || "Tín hiệu học kỳ",
     description: event?.description || event?.desc || "",
     entity: event?.entity || event?.sceneLabel || "HỆ THỐNG",
     type,
@@ -361,7 +361,7 @@ export default function EventScene({ event, quarter, transitioning = false }) {
         </figcaption>
         <div className="psim-scene-readout" aria-hidden="true">
           <span>{scene.entity}</span>
-          <span>Quý {quarter}/12</span>
+          <span>Tuần {quarter}/12</span>
         </div>
         <SignalMiniGame />
       </motion.figure>
