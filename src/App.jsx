@@ -2606,7 +2606,7 @@ function App() {
                 <p>{modalGroup.role}</p>
               </div>
               <div>
-                <h5>Yếu tố độc quyền tự nhiên</h5>
+                <h5>Sai lầm thường gặp</h5>
                 <p>{modalGroup.monopoly}</p>
               </div>
               <div>
