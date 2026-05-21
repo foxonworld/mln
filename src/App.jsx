@@ -1511,7 +1511,7 @@ function App() {
               <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
                 <div className="analysis-image">
                   <img
-                    src="public/assets/events/vi-du-ve-mat-doi-lap-cua-mau-thuan_1.webp"
+                    src="/assets/events/vi-du-ve-mat-doi-lap-cua-mau-thuan_1.webp"
                     alt="Quy luật mâu thuẫn"
                   />
                 </div>
@@ -1555,7 +1555,7 @@ function App() {
               <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
                 <div className="analysis-image">
                   <img
-                    src="public/assets/events/phu-dinh.webp"
+                    src="/assets/events/phu-dinh.webp"
                     alt="Phủ định của phủ định"
                   />
                 </div>
