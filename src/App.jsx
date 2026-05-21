@@ -34,7 +34,7 @@ const playTone = (freq, type, duration, vol = 0.1) => {
     gain.connect(audioCtx.destination);
     osc.start();
     osc.stop(audioCtx.currentTime + duration);
-  } catch (e) {}
+  } catch (e) { }
 };
 
 let bgmNode = null;
@@ -94,7 +94,7 @@ export const SFX = {
         osc2.start();
         lfo.start();
         bgmNode = { osc1, osc2, lfo, gain, filter };
-      } catch (e) {}
+      } catch (e) { }
     } else if (!play && bgmNode) {
       try {
         bgmNode.gain.gain.linearRampToValueAtTime(
@@ -110,9 +110,9 @@ export const SFX = {
             n.lfo.stop();
             n.gain.disconnect();
             n.filter.disconnect();
-          } catch (e) {}
+          } catch (e) { }
         }, 2100);
-      } catch (e) {}
+      } catch (e) { }
     }
   },
 };
@@ -1933,6 +1933,24 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(NAV_ITEMS[0].id);
 
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) return savedTheme;
+      return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    }
+    return "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   const activeTheory = useMemo(
     () =>
       THEORY_ITEMS.find((item) => item.id === activeTheoryId) ||
@@ -2065,6 +2083,14 @@ function App() {
                 {item.label}
               </a>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="nav-link"
+              style={{ background: "transparent", border: "1px solid var(--border)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", padding: "6px 12px" }}
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-760v-160h80v160h-80Zm266 110-55-55 112-115 56 57-113 113Zm54 210v-80h160v80H760ZM440-40v-160h80v160h-80ZM254-652 140-763l57-56 113 113-56 54Zm508 512L651-255l54-54 114 110-57 59ZM40-440v-80h160v80H40Zm157 300-56-57 112-112 29 27 29 28-114 114Zm113-170q-70-70-70-170t70-170q70-70 170-70t170 70q70 70 70 170t-70 170q-70 70-170 70t-170-70Zm283-57q47-47 47-113t-47-113q-47-47-113-47t-113 47q-47 47-47 113t47 113q47 47 113 47t113-47ZM480-480Z" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z" /></svg>}
+            </button>
           </nav>
         </div>
       </header>
@@ -2368,7 +2394,7 @@ function App() {
                   người hoạch định chính sách của một tập đoàn nhà nước, điều
                   chỉnh giá, đầu tư, trợ cấp trước các cú sốc vĩ mô.
                 </p>
-            <div className="teaser-actions">
+                <div className="teaser-actions">
                   <a href="#/game" className="btn-primary">
                     Vào trang chờ mini-game
                   </a>
@@ -2446,9 +2472,8 @@ function App() {
                       ))}
                     </div>
                     <div
-                      className={`scenario-result ${answer ? "show" : ""} ${
-                        answer?.result === "good" ? "good" : ""
-                      }`}
+                      className={`scenario-result ${answer ? "show" : ""} ${answer?.result === "good" ? "good" : ""
+                        }`}
                     >
                       {answer ? QUIZ_FEEDBACK[answer.result] : ""}
                     </div>
