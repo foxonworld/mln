@@ -21,6 +21,34 @@
   --radius-sm: 10px;
   --container: min(1240px, 92vw);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --marquee-bg: var(--blue-deep);
+  --marquee-color: #f5d7a1;
+  --nav-bg: rgba(13, 13, 24, 0.85);
+  --nav-link-hover: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-warm: #f1f5f9;
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --ink-mute: #64748b;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --blue: #4f46e5;
+  --blue-deep: #e0e7ff;
+  --red: #dc2626;
+  --red-soft: #fef2f2;
+  --green: #16a34a;
+  --amber: #d97706;
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 14px 35px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 22px 50px rgba(0, 0, 0, 0.12);
+  --marquee-bg: #e0e7ff;
+  --marquee-color: #312e81;
+  --nav-bg: rgba(248, 250, 252, 0.85);
+  --nav-link-hover: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -95,7 +123,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(13, 13, 24, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
@@ -169,7 +197,7 @@ a {
 
 .nav-link:hover,
 .nav-link.active {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--nav-link-hover);
   color: var(--blue);
 }
 
@@ -192,7 +220,7 @@ a {
   inset: 0;
   background:
     linear-gradient(110deg, rgba(4, 18, 34, 0.94), rgba(6, 26, 46, 0.58) 52%, rgba(4, 16, 28, 0.86)),
-    url("https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1900&q=80") center / cover no-repeat;
+    url("https://cdn.diemnhangroup.com/mospa.edu.vn/2023/02/sinh-vien-chay-deadline-la-gi-2.jpg") center / cover no-repeat;
   z-index: -2;
   transform: scale(1.03);
 }
@@ -202,11 +230,9 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      circle at 78% 18%,
+    radial-gradient(circle at 78% 18%,
       rgba(195, 40, 45, 0.28),
-      transparent 42%
-    ),
+      transparent 42%),
     radial-gradient(circle at 8% 92%, rgba(11, 80, 150, 0.28), transparent 44%),
     linear-gradient(to top, rgba(4, 16, 28, 0.9), rgba(6, 24, 42, 0.2));
   z-index: -1;
@@ -419,8 +445,8 @@ a {
 .marquee {
   position: relative;
   overflow: hidden;
-  background: var(--blue-deep);
-  color: #f5d7a1;
+  background: var(--marquee-bg);
+  color: var(--marquee-color);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -438,12 +464,12 @@ a {
 
 .marquee::before {
   left: 0;
-  background: linear-gradient(to right, var(--blue-deep), transparent);
+  background: linear-gradient(to right, var(--marquee-bg), transparent);
 }
 
 .marquee::after {
   right: 0;
-  background: linear-gradient(to left, var(--blue-deep), transparent);
+  background: linear-gradient(to left, var(--marquee-bg), transparent);
 }
 
 .marquee-track {
@@ -835,11 +861,9 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(6, 22, 38, 0.72),
-    rgba(6, 22, 38, 0.2)
-  );
+  background: linear-gradient(to top,
+      rgba(6, 22, 38, 0.72),
+      rgba(6, 22, 38, 0.2));
 }
 
 .analysis-content {
@@ -923,11 +947,9 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(4, 22, 38, 0.78),
-    rgba(4, 22, 38, 0.12)
-  );
+  background: linear-gradient(to top,
+      rgba(4, 22, 38, 0.78),
+      rgba(4, 22, 38, 0.12));
 }
 
 .solution-note {
@@ -1117,11 +1139,9 @@ section {
 }
 
 .tv-tile.tv-accent {
-  background: linear-gradient(
-    160deg,
-    rgba(195, 40, 45, 0.18),
-    rgba(195, 40, 45, 0.04)
-  );
+  background: linear-gradient(160deg,
+      rgba(195, 40, 45, 0.18),
+      rgba(195, 40, 45, 0.04));
   border-color: rgba(255, 200, 180, 0.26);
 }
 
@@ -1413,11 +1433,9 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(3, 18, 32, 0.62),
-    rgba(3, 18, 32, 0.1)
-  );
+  background: linear-gradient(to top,
+      rgba(3, 18, 32, 0.62),
+      rgba(3, 18, 32, 0.1));
 }
 
 .conclusion-text {
@@ -1633,16 +1651,12 @@ section {
 .game-page {
   min-height: 100dvh;
   background:
-    radial-gradient(
-      900px 600px at 10% -10%,
+    radial-gradient(900px 600px at 10% -10%,
       rgba(243, 201, 165, 0.1),
-      transparent 60%
-    ),
-    radial-gradient(
-      700px 500px at 100% 110%,
+      transparent 60%),
+    radial-gradient(700px 500px at 100% 110%,
       rgba(11, 80, 150, 0.15),
-      transparent 60%
-    ),
+      transparent 60%),
     #05101c;
   color: #e4ecf7;
   display: flex;
@@ -2021,11 +2035,9 @@ section {
 
 .bento-card.wide {
   grid-column: span 2;
-  background: linear-gradient(
-    160deg,
-    rgba(195, 40, 45, 0.16),
-    rgba(4, 16, 28, 0.6)
-  );
+  background: linear-gradient(160deg,
+      rgba(195, 40, 45, 0.16),
+      rgba(4, 16, 28, 0.6));
   border-color: rgba(255, 200, 180, 0.22);
 }
 
