@@ -219,8 +219,13 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, rgba(4, 18, 34, 0.94), rgba(6, 26, 46, 0.58) 52%, rgba(4, 16, 28, 0.86)),
-    url("https://cdn.diemnhangroup.com/mospa.edu.vn/2023/02/sinh-vien-chay-deadline-la-gi-2.jpg") center / cover no-repeat;
+    linear-gradient(
+      110deg,
+      rgba(2, 8, 18, 0.94),
+      rgba(30, 27, 75, 0.56) 52%,
+      rgba(2, 8, 18, 0.88)
+    ),
+    url("/assets/events/deadline-night.webp") center / cover no-repeat;
   z-index: -2;
   transform: scale(1.03);
 }
@@ -230,11 +235,13 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 78% 18%,
-      rgba(195, 40, 45, 0.28),
-      transparent 42%),
-    radial-gradient(circle at 8% 92%, rgba(11, 80, 150, 0.28), transparent 44%),
-    linear-gradient(to top, rgba(4, 16, 28, 0.9), rgba(6, 24, 42, 0.2));
+    radial-gradient(
+      circle at 72% 20%,
+      rgba(245, 158, 11, 0.2),
+      transparent 38%
+    ),
+    radial-gradient(circle at 8% 92%, rgba(79, 70, 229, 0.28), transparent 44%),
+    linear-gradient(to top, rgba(2, 8, 18, 0.92), rgba(15, 23, 42, 0.22));
   z-index: -1;
 }
 
@@ -794,7 +801,7 @@ section {
   letter-spacing: 0.04em;
 }
 
-.group-body>p:not(.group-full) {
+.group-body > p:not(.group-full) {
   margin: 6px 0 0;
   color: var(--ink-soft);
   font-size: 0.97rem;
@@ -861,9 +868,11 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(6, 22, 38, 0.72),
-      rgba(6, 22, 38, 0.2));
+  background: linear-gradient(
+    to top,
+    rgba(6, 22, 38, 0.72),
+    rgba(6, 22, 38, 0.2)
+  );
 }
 
 .analysis-content {
@@ -947,9 +956,11 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(4, 22, 38, 0.78),
-      rgba(4, 22, 38, 0.12));
+  background: linear-gradient(
+    to top,
+    rgba(4, 22, 38, 0.78),
+    rgba(4, 22, 38, 0.12)
+  );
 }
 
 .solution-note {
@@ -1068,7 +1079,11 @@ section {
   border-radius: 28px;
   overflow: hidden;
   background:
-    radial-gradient(600px 400px at 110% -10%, rgba(240, 200, 140, 0.14), transparent 60%),
+    radial-gradient(
+      600px 400px at 110% -10%,
+      rgba(240, 200, 140, 0.14),
+      transparent 60%
+    ),
     linear-gradient(135deg, #16162a 0%, #0f0f1d 100%);
   color: #e7eef9;
   padding: clamp(30px, 4vw, 56px);
@@ -1139,9 +1154,11 @@ section {
 }
 
 .tv-tile.tv-accent {
-  background: linear-gradient(160deg,
-      rgba(195, 40, 45, 0.18),
-      rgba(195, 40, 45, 0.04));
+  background: linear-gradient(
+    160deg,
+    rgba(195, 40, 45, 0.18),
+    rgba(195, 40, 45, 0.04)
+  );
   border-color: rgba(255, 200, 180, 0.26);
 }
 
@@ -1170,7 +1187,7 @@ section {
   overflow: hidden;
 }
 
-.tv-bar>span {
+.tv-bar > span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #f3c9a5, #c3282d);
@@ -1433,9 +1450,11 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(3, 18, 32, 0.62),
-      rgba(3, 18, 32, 0.1));
+  background: linear-gradient(
+    to top,
+    rgba(3, 18, 32, 0.62),
+    rgba(3, 18, 32, 0.1)
+  );
 }
 
 .conclusion-text {
@@ -1651,12 +1670,16 @@ section {
 .game-page {
   min-height: 100dvh;
   background:
-    radial-gradient(900px 600px at 10% -10%,
+    radial-gradient(
+      900px 600px at 10% -10%,
       rgba(243, 201, 165, 0.1),
-      transparent 60%),
-    radial-gradient(700px 500px at 100% 110%,
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 500px at 100% 110%,
       rgba(11, 80, 150, 0.15),
-      transparent 60%),
+      transparent 60%
+    ),
     #05101c;
   color: #e4ecf7;
   display: flex;
@@ -1795,7 +1818,7 @@ section {
   position: relative;
 }
 
-.meter-track>span {
+.meter-track > span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #f3c9a5, #c3282d);
@@ -1803,12 +1826,12 @@ section {
   box-shadow: 0 0 12px rgba(195, 40, 45, 0.4);
 }
 
-.meter-track>span.meter-green {
+.meter-track > span.meter-green {
   background: linear-gradient(90deg, #6bc089, #2f7a4f);
   box-shadow: 0 0 12px rgba(47, 122, 79, 0.4);
 }
 
-.meter-track>span.meter-amber {
+.meter-track > span.meter-amber {
   background: linear-gradient(90deg, #f3c9a5, #b07426);
   box-shadow: 0 0 12px rgba(176, 116, 38, 0.4);
 }
@@ -1872,7 +1895,7 @@ section {
   position: relative;
 }
 
-.loading-bar>span {
+.loading-bar > span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, #f3c9a5, #c3282d);
@@ -1883,10 +1906,12 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.35),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
   animation: shimmer 1.6s linear infinite;
 }
 
@@ -2035,9 +2060,11 @@ section {
 
 .bento-card.wide {
   grid-column: span 2;
-  background: linear-gradient(160deg,
-      rgba(195, 40, 45, 0.16),
-      rgba(4, 16, 28, 0.6));
+  background: linear-gradient(
+    160deg,
+    rgba(195, 40, 45, 0.16),
+    rgba(4, 16, 28, 0.6)
+  );
   border-color: rgba(255, 200, 180, 0.22);
 }
 
@@ -2091,7 +2118,6 @@ section {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 1120px) {
-
   .hero-grid,
   .theory-grid,
   .solution-layout,
@@ -2119,7 +2145,6 @@ section {
 }
 
 @media (max-width: 860px) {
-
   .reality-grid,
   .analysis-wrap,
   .stats,

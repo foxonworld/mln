@@ -3,37 +3,37 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const SCENE_BY_ENTITY = {
   DEADLINE: {
-    background: "library.webp",
+    background: "deadline-night.webp",
     type: "telecom",
     label: "Thư viện đêm khuya",
     accent: "#818cf8",
   },
   "TÀI CHÍNH": {
-    background: "cafe.webp",
+    background: "finance-wallet.webp",
     type: "economic",
     label: "Cà phê làm việc",
     accent: "#f59e0b",
   },
   "CƠ HỘI": {
-    background: "job.webp",
+    background: "internship-office.webp",
     type: "aviation",
     label: "Phỏng vấn internship",
     accent: "#34d399",
   },
   "GIA ĐÌNH": {
-    background: "dorm.webp",
+    background: "family-call-dorm.webp",
     type: "coal",
     label: "Ký túc xá",
     accent: "#a78bfa",
   },
   "HỌC VỤ": {
-    background: "exam.webp",
+    background: "academic-project.webp",
     type: "power",
     label: "Phòng thi",
     accent: "#60a5fa",
   },
   "KẾT QUẢ": {
-    background: "exam.webp",
+    background: "failed-exam.webp",
     type: "economic",
     label: "Bảng điểm học kỳ",
     accent: "#f87171",
@@ -42,48 +42,48 @@ const SCENE_BY_ENTITY = {
 
 const TYPE_DEFAULTS = {
   storm: {
-    background: "storm.webp",
-    label: "Ứng phó thiên tai",
+    background: "illness-rain-desk.webp",
+    label: "Đêm mưa trong ký túc xá",
     accent: "#93c5fd",
   },
   economic: {
-    background: "finance.webp",
-    label: "Thị trường tài chính",
-    accent: "#ff5c6c",
+    background: "finance-wallet.webp",
+    label: "Áp lực học phí",
+    accent: "#f59e0b",
   },
   aviation: {
-    background: "God.webp",
-    label: "Hành lang hàng không",
+    background: "failed-exam.webp",
+    label: "Bảng điểm học kỳ",
     accent: "#7dd3fc",
   },
   power: {
-    background: "Black.webp",
-    label: "Lưới điện quốc gia",
+    background: "deadline-night.webp",
+    label: "Deadline lúc 3 giờ sáng",
     accent: "#f2c14e",
   },
   oil: {
-    background: "oil.webp",
-    label: "Dầu khí ngoài khơi",
-    accent: "#7dd3fc",
+    background: "finance-wallet.webp",
+    label: "Ví tiền cuối tháng",
+    accent: "#f59e0b",
   },
   coal: {
-    background: "coal.webp",
-    label: "Mỏ than và nhiên liệu",
-    accent: "#f2c14e",
+    background: "family-call-dorm.webp",
+    label: "Cuộc gọi từ nhà",
+    accent: "#a78bfa",
   },
   telecom: {
-    background: "telecom.webp",
-    label: "Mạng viễn thông",
+    background: "internship-office.webp",
+    label: "Cơ hội internship",
     accent: "#86efac",
   },
   shipping: {
-    background: "shipping.webp",
-    label: "Vận tải biển",
+    background: "roommate-conflict.webp",
+    label: "Ký túc xá căng thẳng",
     accent: "#60a5fa",
   },
   tech: {
-    background: "telecom.webp",
-    label: "Đột phá công nghệ",
+    background: "scholarship-morning.webp",
+    label: "Tin tốt buổi sáng",
     accent: "#86efac",
   },
 };

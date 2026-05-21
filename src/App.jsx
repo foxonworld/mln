@@ -580,7 +580,7 @@ const GAME_EVENTS = [
     description:
       'Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều "quan trọng". T không biết bắt đầu từ đâu.',
     desc: "3 ngày nữa: báo cáo thực tập, bài tập nhóm, bài kiểm tra giữa kỳ, essay tiếng Anh, và presentation. Ngủ hay học?",
-    background: "Black.webp",
+    background: "deadline-night.webp",
     type: "power",
     intensity: "high",
     sceneLabel: "Thư viện đêm khuya",
@@ -618,7 +618,7 @@ const GAME_EVENTS = [
     description:
       "Thông báo từ phòng tài vụ. Học phí học kỳ sau tăng đột biến. Gia đình T không đủ bù.",
     desc: "Thiếu 8 triệu để đóng học phí đúng hạn. Quỹ sinh hoạt của T đang cạn dần. Làm gì trong 2 tuần tới?",
-    background: "oil.webp",
+    background: "finance-wallet.webp",
     type: "oil",
     intensity: "medium",
     sceneLabel: "Áp lực tài chính",
@@ -653,7 +653,7 @@ const GAME_EVENTS = [
     description:
       "Công ty lớn offer internship part-time, lương ổn. Deadline nộp hồ sơ: ngày mai.",
     desc: "3 tháng internship, 8 triệu/tháng. Nhưng sẽ chiếm 20 tiếng/tuần — học kỳ này sẽ rất căng. Nhận không?",
-    background: "telecom.webp",
+    background: "internship-office.webp",
     type: "telecom",
     intensity: "low",
     sceneLabel: "Phỏng vấn internship",
@@ -691,7 +691,7 @@ const GAME_EVENTS = [
     description:
       "Gia đình gặp khó khăn tài chính. Trợ cấp hàng tháng bị cắt đột ngột không báo trước.",
     desc: "Không còn 3 triệu/tháng từ gia đình nữa. Tiền sinh hoạt T chỉ đủ 1 tháng nữa. Phải xoay xở ngay.",
-    background: "God.webp",
+    background: "family-call-dorm.webp",
     type: "coal",
     intensity: "medium",
     sceneLabel: "Khủng hoảng tài chính",
@@ -727,7 +727,7 @@ const GAME_EVENTS = [
     description:
       "Giảng viên thông báo thêm 1 project lớn vào tuần 10 — không nằm trong đề cương ban đầu.",
     desc: "Project 30% điểm, nộp sau 3 tuần. T đã lên kế hoạch học kỳ nhưng phần này không có trong tính toán ban đầu.",
-    background: "Gar.webp",
+    background: "academic-project.webp",
     type: "economic",
     intensity: "medium",
     sceneLabel: "Áp lực học vụ",
@@ -763,7 +763,7 @@ const GAME_EVENTS = [
     description:
       "Bảng điểm hiện ra. 1 môn dưới 5.0. T phải thi lại cuối kỳ — thêm áp lực và chi phí.",
     desc: "Môn Triết học cơ sở: 4.2/10. Phải thi lại trong 2 tuần. Phí thi lại 300K. Mental T đang rất thấp.",
-    background: "God.webp",
+    background: "failed-exam.webp",
     type: "aviation",
     intensity: "high",
     sceneLabel: "Phòng thi vấn đáp",
@@ -800,7 +800,7 @@ const BLACK_SWANS = [
     title: "Bệnh đột ngột giữa mùa thi",
     description:
       "T sốt cao 39 độ, phải nằm viện 3 ngày đúng tuần ôn thi quan trọng nhất.",
-    background: "storm.webp",
+    background: "illness-rain-desk.webp",
     type: "storm",
     intensity: "high",
     sceneLabel: "Khủng hoảng sức khỏe",
@@ -814,7 +814,7 @@ const BLACK_SWANS = [
     title: "Roommate xung đột — phải dọn ra ngoài",
     description:
       "Mâu thuẫn với bạn cùng phòng leo thang. T phải tìm chỗ ở mới trong 1 tuần.",
-    background: "shipping.webp",
+    background: "roommate-conflict.webp",
     type: "shipping",
     intensity: "high",
     sceneLabel: "Khủng hoảng chỗ ở",
@@ -830,7 +830,7 @@ const BLACK_SWANS = [
     title: "Học bổng bất ngờ được duyệt",
     description:
       "Đơn học bổng T nộp từ tháng trước bất ngờ được chấp thuận. Tin tốt đến đúng lúc.",
-    background: "telecom.webp",
+    background: "scholarship-morning.webp",
     type: "tech",
     intensity: "low",
     sceneLabel: "Tin tức tốt bất ngờ",
