@@ -2,7 +2,7 @@
 
 ## Kiến trúc
 
-1. `PolicySimGame` vẫn giữ cấu trúc cũ: 12 quý, CPI, An sinh, ROIC, Ngân sách, lựa chọn A/B, Thiên Nga Đen và quyền ban hành đạo luật ở quý 4/8.
+1. `PolicySimGame` vẫn giữ cấu trúc cũ: 12 quý, CPI, An sinh, ROIC, Ngân sách, lựa chọn A/B, Sự Kiện Bất Ngờ và quyền ban hành đạo luật ở quý 4/8.
 2. `EventScene` là bộ dựng cảnh: tự nạp ảnh `.webp` từ `/assets/events/`, có nền dự phòng, và chọn hiệu ứng theo ngành.
 3. `DecisionCard` thay nút A/B bằng thẻ quyết định có hover phóng to, viền phát sáng, minh họa động và preview tác động.
 4. `ImpactPreview` hoạt ảnh hóa các chỉ số CPI, An sinh, ROIC và Ngân sách.

@@ -52,12 +52,12 @@ const TYPE_DEFAULTS = {
     accent: "#ff5c6c",
   },
   aviation: {
-    background: "aviation.webp",
+    background: "God.webp",
     label: "Hành lang hàng không",
     accent: "#7dd3fc",
   },
   power: {
-    background: "energy.webp",
+    background: "Black.webp",
     label: "Lưới điện quốc gia",
     accent: "#f2c14e",
   },

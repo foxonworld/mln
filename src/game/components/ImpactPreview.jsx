@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 
 const IMPACT_META = [
-  { key: "cpi", label: "CPI", suffix: "%", badWhen: (value) => value > 0.5 },
-  { key: "cov", label: "An sinh", suffix: "%", badWhen: (value) => value < 0 },
-  { key: "roic", label: "ROIC", suffix: "%", badWhen: (value) => value < 0 },
-  { key: "bud", label: "Ngân sách", suffix: " tỷ", badWhen: (value) => value < 0 },
+  // { key: "cpi", label: "CPI", suffix: "%", badWhen: (value) => value > 0.5 },
+  // { key: "cov", label: "An sinh", suffix: "%", badWhen: (value) => value < 0 },
+  // { key: "roic", label: "ROIC", suffix: "%", badWhen: (value) => value < 0 },
+  // { key: "bud", label: "Ngân sách", suffix: " tỷ", badWhen: (value) => value < 0 },
 ];
 
 function getTone(meta, value) {
@@ -34,13 +34,15 @@ function AnimatedImpactNumber({ value, suffix }) {
   return <motion.span className="psim-impact-value">{formatted}</motion.span>;
 }
 
-export default function ImpactPreview({ impact = {}, compact = false, showZero = true }) {
-  const entries = IMPACT_META
-    .map((meta) => ({
-      ...meta,
-      value: Number(impact[meta.key] || 0),
-    }))
-    .filter((entry) => showZero || entry.value !== 0);
+export default function ImpactPreview({
+  impact = {},
+  compact = false,
+  showZero = true,
+}) {
+  const entries = IMPACT_META.map((meta) => ({
+    ...meta,
+    value: Number(impact[meta.key] || 0),
+  })).filter((entry) => showZero || entry.value !== 0);
 
   return (
     <div className={`psim-impact-preview ${compact ? "is-compact" : ""}`}>

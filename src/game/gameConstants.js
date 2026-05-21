@@ -2,7 +2,7 @@
 // HUSTLE LOOP GAME — Game Constants & Data
 // ═══════════════════════════════════════════════════════════════════════════
 
-export const SAVE_KEY = 'hustleLoopSave';
+export const SAVE_KEY = "hustleLoopSave";
 export const INIT_STATS = { gpa: 3.0, mental: 80, money: 5000, stress: 30 };
 
 export const INIT_LOGS = [
@@ -22,9 +22,9 @@ export const GAME_EVENTS = [
     entityBg: "rgba(129,140,248,0.15)",
     title: "5 deadline trong 3 ngày",
     description:
-      "Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều \"quan trọng\". T không biết bắt đầu từ đâu.",
+      'Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều "quan trọng". T không biết bắt đầu từ đâu.',
     desc: "3 ngày nữa: báo cáo thực tập, bài tập nhóm, bài kiểm tra giữa kỳ, essay tiếng Anh, và presentation. Ngủ hay học?",
-    background: "energy.webp",
+    background: "Black.webp",
     type: "power",
     intensity: "high",
     sceneLabel: "Thư viện đêm khuya",
@@ -36,11 +36,13 @@ export const GAME_EVENTS = [
         previewAnimation: "rising-chart",
         tone: "orange",
         impact: { gpa: 0.3, mental: -25, money: 0, stress: 35 },
-        logStr: "[DEADLINE] Thức trắng. GPA giữ được nhưng T kiệt sức hoàn toàn.",
+        logStr:
+          "[DEADLINE] Thức trắng. GPA giữ được nhưng T kiệt sức hoàn toàn.",
       },
       {
         label: "Ưu tiên quan trọng nhất, xin gia hạn phần còn lại",
-        description: "Liên hệ giảng viên, thương lượng, tập trung vào điều cốt lõi.",
+        description:
+          "Liên hệ giảng viên, thương lượng, tập trung vào điều cốt lõi.",
         rationale:
           "GPA thấp hơn chút nhưng mental được bảo vệ — quyết định biện chứng hơn.",
         previewAnimation: "money-flow",
@@ -67,8 +69,7 @@ export const GAME_EVENTS = [
     options: [
       {
         label: "Vay tiền sinh viên — giải quyết ngay, trả dần sau",
-        description:
-          "Vay quỹ hỗ trợ sinh viên hoặc vay người thân.",
+        description: "Vay quỹ hỗ trợ sinh viên hoặc vay người thân.",
         rationale: "Tiền về ngay nhưng nợ và stress dài hạn tăng.",
         previewAnimation: "money-flow",
         tone: "blue",
@@ -78,15 +79,12 @@ export const GAME_EVENTS = [
       },
       {
         label: "Làm thêm cấp tốc — tự kiếm tiền trong 2 tuần",
-        description:
-          "Nhận gấp job freelance hoặc làm thêm tăng ca.",
-        rationale:
-          "Tiền kiếm được nhưng GPA học kỳ này bị ảnh hưởng nặng.",
+        description: "Nhận gấp job freelance hoặc làm thêm tăng ca.",
+        rationale: "Tiền kiếm được nhưng GPA học kỳ này bị ảnh hưởng nặng.",
         previewAnimation: "rising-chart",
         tone: "orange",
         impact: { gpa: -0.4, mental: -15, money: 6000, stress: 25 },
-        logStr:
-          "[TÀI CHÍNH] Làm thêm cấp tốc. Có tiền nhưng GPA trượt mạnh.",
+        logStr: "[TÀI CHÍNH] Làm thêm cấp tốc. Có tiền nhưng GPA trượt mạnh.",
       },
     ],
   },
@@ -118,15 +116,13 @@ export const GAME_EVENTS = [
       },
       {
         label: "Từ chối — tập trung học kỳ này, tìm cơ hội khác sau",
-        description:
-          "Từ chối offer, giữ nguyên focus cho việc học.",
+        description: "Từ chối offer, giữ nguyên focus cho việc học.",
         rationale:
           "GPA được bảo vệ, mental ổn hơn — nhưng mất cơ hội kiếm tiền và kinh nghiệm.",
         previewAnimation: "money-flow",
         tone: "blue",
         impact: { gpa: 0.2, mental: 5, money: 0, stress: -10 },
-        logStr:
-          "[CƠ HỘI] Từ chối internship. Tập trung học, GPA cải thiện.",
+        logStr: "[CƠ HỘI] Từ chối internship. Tập trung học, GPA cải thiện.",
       },
     ],
   },
@@ -139,15 +135,14 @@ export const GAME_EVENTS = [
     description:
       "Gia đình gặp khó khăn tài chính. Trợ cấp hàng tháng bị cắt đột ngột không báo trước.",
     desc: "Không còn 3 triệu/tháng từ gia đình nữa. Tiền sinh hoạt T chỉ đủ 1 tháng nữa. Phải xoay xở ngay.",
-    background: "coal.webp",
+    background: "Gar.webp",
     type: "coal",
     intensity: "medium",
     sceneLabel: "Khủng hoảng tài chính",
     options: [
       {
         label: "Tự xoay xở — cắt giảm chi tiêu, tìm việc làm thêm",
-        description:
-          "Cắt chi phí, ăn uống tiết kiệm, nhận thêm job nhỏ.",
+        description: "Cắt chi phí, ăn uống tiết kiệm, nhận thêm job nhỏ.",
         rationale: "Tự lập hơn nhưng stress và áp lực tăng mạnh.",
         previewAnimation: "falling-chart",
         tone: "orange",
@@ -156,12 +151,9 @@ export const GAME_EVENTS = [
           "[GIA ĐÌNH] T tự xoay xở. Độc lập hơn nhưng sức khỏe tâm thần suy giảm.",
       },
       {
-        label:
-          "Gọi về nhà xin hỗ trợ thêm 1 lần — chia sẻ khó khăn",
-        description:
-          "Solicit thêm từ gia đình, giải thích tình hình thực tế.",
-        rationale:
-          "Có tiền nhưng cảm giác tội lỗi và áp lực gia đình tăng.",
+        label: "Gọi về nhà xin hỗ trợ thêm 1 lần — chia sẻ khó khăn",
+        description: "Solicit thêm từ gia đình, giải thích tình hình thực tế.",
+        rationale: "Có tiền nhưng cảm giác tội lỗi và áp lực gia đình tăng.",
         previewAnimation: "money-flow",
         tone: "blue",
         impact: { gpa: 0, mental: -10, money: 4000, stress: 10 },
@@ -185,30 +177,24 @@ export const GAME_EVENTS = [
     sceneLabel: "Áp lực học vụ",
     options: [
       {
-        label:
-          "Làm nghiêm túc, đầu tư thời gian và chất lượng",
+        label: "Làm nghiêm túc, đầu tư thời gian và chất lượng",
         description:
           "Dành thêm thời gian, nghiên cứu kỹ, làm project chất lượng cao.",
-        rationale:
-          "GPA tốt nhưng thời gian các môn khác bị cắt, stress tăng.",
+        rationale: "GPA tốt nhưng thời gian các môn khác bị cắt, stress tăng.",
         previewAnimation: "rising-chart",
         tone: "green",
         impact: { gpa: 0.3, mental: -12, money: -500, stress: 25 },
-        logStr:
-          "[HỌC VỤ] Project chất lượng. GPA tốt nhưng T kiệt sức sau đó.",
+        logStr: "[HỌC VỤ] Project chất lượng. GPA tốt nhưng T kiệt sức sau đó.",
       },
       {
-        label:
-          "Làm đủ để qua — ưu tiên các môn khác quan trọng hơn",
+        label: "Làm đủ để qua — ưu tiên các môn khác quan trọng hơn",
         description:
           "Dành thời gian tối thiểu cho project, tập trung năng lượng có hạn vào đúng chỗ.",
-        rationale:
-          "GPA project thấp hơn nhưng tổng thể được cân bằng hơn.",
+        rationale: "GPA project thấp hơn nhưng tổng thể được cân bằng hơn.",
         previewAnimation: "money-flow",
         tone: "blue",
         impact: { gpa: 0.1, mental: -5, money: 0, stress: 10 },
-        logStr:
-          "[HỌC VỤ] Làm vừa đủ. Cân bằng ổn hơn, không quá tải.",
+        logStr: "[HỌC VỤ] Làm vừa đủ. Cân bằng ổn hơn, không quá tải.",
       },
     ],
   },
@@ -235,16 +221,13 @@ export const GAME_EVENTS = [
         previewAnimation: "money-flow",
         tone: "green",
         impact: { gpa: 0.1, mental: -15, money: -300, stress: 30 },
-        logStr:
-          "[KẾT QUẢ] T học lại nghiêm túc. Vượt qua được kỳ thi lại.",
+        logStr: "[KẾT QUẢ] T học lại nghiêm túc. Vượt qua được kỳ thi lại.",
       },
       {
-        label:
-          "Chấp nhận điểm F, bảo toàn sức khỏe tâm thần",
+        label: "Chấp nhận điểm F, bảo toàn sức khỏe tâm thần",
         description:
           "Không thi lại lần này, chờ học lại môn đó vào kỳ sau khi mental tốt hơn.",
-        rationale:
-          "Mental được bảo vệ ngắn hạn nhưng GPA chịu thiệt hại lớn.",
+        rationale: "Mental được bảo vệ ngắn hạn nhưng GPA chịu thiệt hại lớn.",
         previewAnimation: "falling-chart",
         tone: "red",
         impact: { gpa: -0.8, mental: 10, money: 0, stress: -10 },
@@ -271,8 +254,7 @@ export const BLACK_SWANS = [
     modeNote: "Biến cố chen ngang: bệnh tật không đợi lịch học.",
     desc: "Nhập viện khẩn cấp. 3 ngày không học được, miss 1 buổi kiểm tra giữa kỳ. Tiền viện phí và tinh thần đều bị ảnh hưởng.",
     impact: { gpa: -0.3, mental: -25, money: -2000, stress: 25 },
-    logStr:
-      "[⚠ BẤT NGỜ] Bệnh đột ngột. Tất cả kế hoạch học bị đổ vỡ.",
+    logStr: "[⚠ BẤT NGỜ] Bệnh đột ngột. Tất cả kế hoạch học bị đổ vỡ.",
   },
   {
     title: "Roommate xung đột — phải dọn ra ngoài",
@@ -283,7 +265,8 @@ export const BLACK_SWANS = [
     intensity: "high",
     sceneLabel: "Khủng hoảng chỗ ở",
     emoji: "🏠",
-    modeNote: "Biến cố chen ngang: môi trường sống ảnh hưởng trực tiếp đến học tập.",
+    modeNote:
+      "Biến cố chen ngang: môi trường sống ảnh hưởng trực tiếp đến học tập.",
     desc: "Không thể ở cùng phòng nữa. Phải tìm phòng mới gấp, đặt cọc, dọn đồ — tất cả trong khi vẫn phải đi học.",
     impact: { gpa: -0.1, mental: -20, money: -3000, stress: 20 },
     logStr:
@@ -298,8 +281,7 @@ export const BLACK_SWANS = [
     intensity: "low",
     sceneLabel: "Tin tức tốt bất ngờ",
     emoji: "🎉",
-    modeNote:
-      "Biến cố tích cực: không phải mọi bất ngờ đều xấu.",
+    modeNote: "Biến cố tích cực: không phải mọi bất ngờ đều xấu.",
     desc: "Học bổng khuyến học 15 triệu được duyệt. Tiền về trong 2 tuần. T thở phào — áp lực tài chính giảm mạnh.",
     impact: { gpa: 0.1, mental: 20, money: 15000, stress: -20 },
     logStr:
@@ -336,8 +318,7 @@ export const MACRO_POLICIES = [
     icon: "💼",
     title: "Nhận việc part-time ổn định",
     desc: "Nhận job part-time cố định 20 tiếng/tuần. Tiền vào ổn định ngay — nhưng thời gian học bị cắt mạnh từ đây.",
-    effect:
-      "Hiệu lực tức thời: money +8000K, stress +20, GPA -0.3.",
+    effect: "Hiệu lực tức thời: money +8000K, stress +20, GPA -0.3.",
     isBuff: "bud",
     summary: "+8M, stress +20, GPA -0.3",
   },
@@ -355,8 +336,7 @@ export const METER_DEFS = [
     markerPos: 10,
     hint: "Điểm trung bình học kỳ. Rớt xuống dưới 1.0 là cảnh báo học vụ.",
     getWidth: (v) => Math.min(Math.max((v / 4) * 100, 2), 100),
-    getColor: (v) =>
-      v <= 1.5 ? "#ef4444" : v <= 2.5 ? "#f59e0b" : "#22c55e",
+    getColor: (v) => (v <= 1.5 ? "#ef4444" : v <= 2.5 ? "#f59e0b" : "#22c55e"),
     format: (v) => v.toFixed(1),
     danger: (v) => v <= 1.5,
   },
@@ -368,8 +348,7 @@ export const METER_DEFS = [
     markerPos: 20,
     hint: "Sức khỏe tâm thần và cảm xúc. Xuống thấp dẫn đến burnout.",
     getWidth: (v) => Math.min(Math.max(v, 2), 100),
-    getColor: (v) =>
-      v <= 30 ? "#ef4444" : v <= 50 ? "#f59e0b" : "#22c55e",
+    getColor: (v) => (v <= 30 ? "#ef4444" : v <= 50 ? "#f59e0b" : "#22c55e"),
     format: (v) => v.toFixed(0) + "%",
     danger: (v) => v <= 30,
   },
@@ -381,8 +360,7 @@ export const METER_DEFS = [
     markerPos: 5,
     hint: "Tiền tiết kiệm (nghìn đồng). Hết tiền là phải bỏ học.",
     getWidth: (v) => Math.min(Math.max((v / 10000) * 100, 2), 100),
-    getColor: (v) =>
-      v <= 500 ? "#ef4444" : v <= 2000 ? "#f59e0b" : "#22c55e",
+    getColor: (v) => (v <= 500 ? "#ef4444" : v <= 2000 ? "#f59e0b" : "#22c55e"),
     format: (v) => (v >= 1000 ? (v / 1000).toFixed(1) + "M" : v + "K"),
     danger: (v) => v <= 500,
   },
@@ -394,8 +372,7 @@ export const METER_DEFS = [
     markerPos: 80,
     hint: "Mức độ căng thẳng tích lũy. Đạt 100% là burnout toàn diện.",
     getWidth: (v) => Math.min(Math.max(v, 2), 100),
-    getColor: (v) =>
-      v >= 80 ? "#ef4444" : v >= 60 ? "#f59e0b" : "#22c55e",
+    getColor: (v) => (v >= 80 ? "#ef4444" : v >= 60 ? "#f59e0b" : "#22c55e"),
     format: (v) => v.toFixed(0) + "%",
     danger: (v) => v >= 80,
   },

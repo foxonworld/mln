@@ -947,7 +947,7 @@ function PolicySimGame() {
   const INIT_STATS = { cpi: 3.8, cov: 90, roic: 5.0, bud: 100 };
   const INIT_LOGS = [
     "$ khởi-động --mô-phỏng-chính-sách --quốc-gia VN --phiên-bản V3",
-    "› [KHỞI TẠO] Module Ngân khố, Cây Chính sách & Thiên Nga Đen đã sẵn sàng.",
+    "› [KHỞI TẠO] Module Ngân khố, Cây Chính sách & Sự Kiện Bất Ngờ đã sẵn sàng.",
     "› Quý 1/12 đã sẵn sàng chờ lệnh điều hành.",
   ];
 
@@ -1553,7 +1553,7 @@ function PolicySimGame() {
           >
             Bạn là người điều hành vĩ mô trong 12 Quý. Nhiệm vụ của bạn là đưa
             ra các quyết định chính sách đối phó với khủng hoảng và{" "}
-            <b>Thiên Nga Đen</b>, đồng thời duy trì cân bằng các chỉ số quốc
+            <b>Sự Kiện Bất Ngờ</b>, đồng thời duy trì cân bằng các chỉ số quốc
             gia.
           </p>
 
@@ -1704,7 +1704,7 @@ function PolicySimGame() {
             >
               <li style={{ marginBottom: "8px" }}>
                 Mỗi Quý bạn sẽ đối mặt với một chính sách, hoặc một sự kiện{" "}
-                <b>Thiên Nga Đen</b> căng thẳng.
+                <b>Sự Kiện Bất Ngờ</b> căng thẳng.
               </li>
               <li style={{ marginBottom: "8px" }}>
                 Quyết định đưa ra luôn phải đánh đổi: ví dụ bảo vệ{" "}
@@ -1882,7 +1882,7 @@ function PolicySimGame() {
           <div className="psim-cinema-playing" aria-live="assertive">
             <div className="psim-cinema-event-info">
               <div className="psim-cinema-badges">
-                <span className="psim-crisis-label">⚠ THIÊN NGA ĐEN</span>
+                <span className="psim-crisis-label">⚠ SỰ KIỆN BẤT NGỜ</span>
               </div>
               <h1 className="psim-cinema-title">
                 {currentBlackSwan.title} {currentBlackSwan.emoji}
@@ -2123,7 +2123,7 @@ function App() {
                   Bắt đầu chuyên đề
                 </a>
                 <a href="#/game" className="btn-ghost">
-                  Mở mini-game mô phỏng
+                  GAME GÔ
                 </a>
               </div>
 

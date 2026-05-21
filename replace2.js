@@ -1,21 +1,23 @@
 // replace2.js
-const fs = require('fs');
+const fs = require("fs");
 
-let app = fs.readFileSync('src/App.jsx', 'utf8');
+let app = fs.readFileSync("src/App.jsx", "utf8");
 
-const regex2 = /const BLACK_SWAN_SPAWN_RATE = [\s\S]*?const SAVE_KEY = "policySimSave";/;
+const regex2 =
+  /const BLACK_SWAN_SPAWN_RATE = [\s\S]*?const SAVE_KEY = "policySimSave";/;
 const newConstants2 = `const BLACK_SWAN_SPAWN_RATE = 0.2;
 const SAVE_KEY = "hustleLoopSave";`;
 app = app.replace(regex2, newConstants2);
 
-const regex3 = /const GAME_EVENTS = \[[\s\S]*?\];\n\n\/\/ ═══════════════════════════════════════════════════════════════════════════\n\/\/ BLACK SWANS & POLICIES/g;
+const regex3 =
+  /const GAME_EVENTS = \[[\s\S]*?\];\n\n\/\/ ═══════════════════════════════════════════════════════════════════════════\n\/\/ BLACK SWANS & POLICIES/g;
 const newEvents = `const GAME_EVENTS = [
   {
     id: 1, entity: "DEADLINE", entityColor: "#818cf8", entityBg: "rgba(129,140,248,0.15)",
     title: "5 deadline trong 3 ngày",
     description: "Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều 'quan trọng'. T không biết bắt đầu từ đâu.",
     desc: "3 ngày nữa: báo cáo thực tập, bài tập nhóm, bài kiểm tra giữa kỳ, essay tiếng Anh, và presentation. Ngủ hay học?",
-    background: "energy.webp",
+    background: "Black.webp",
     type: "power",
     intensity: "high",
     sceneLabel: "Thư viện đêm khuya",
@@ -184,5 +186,5 @@ const newEvents = `const GAME_EVENTS = [
 // BLACK SWANS & POLICIES`;
 app = app.replace(regex3, newEvents);
 
-fs.writeFileSync('src/App.jsx', app, 'utf8');
-console.log('Replaced game events successfully.');
+fs.writeFileSync("src/App.jsx", app, "utf8");
+console.log("Replaced game events successfully.");

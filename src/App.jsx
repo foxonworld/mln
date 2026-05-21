@@ -145,9 +145,18 @@ const MARQUEE_TOKENS = [
 ];
 
 const HERO_STATS = [
-  { value: "83%", label: "Sinh viên Việt Nam từng trải qua lo âu học tập kéo dài" },
-  { value: "≈ 60%", label: "Sinh viên năm 2–3 cảm thấy mất cân bằng giữa học và sống" },
-  { value: "1 / 3", label: "Sinh viên có dấu hiệu kiệt sức (burnout) trước khi tốt nghiệp" },
+  {
+    value: "83%",
+    label: "Sinh viên Việt Nam từng trải qua lo âu học tập kéo dài",
+  },
+  {
+    value: "≈ 60%",
+    label: "Sinh viên năm 2–3 cảm thấy mất cân bằng giữa học và sống",
+  },
+  {
+    value: "1 / 3",
+    label: "Sinh viên có dấu hiệu kiệt sức (burnout) trước khi tốt nghiệp",
+  },
 ];
 
 const THEORY_ITEMS = [
@@ -549,9 +558,9 @@ const GAME_EVENTS = [
     entityBg: "rgba(129,140,248,0.15)",
     title: "5 deadline trong 3 ngày",
     description:
-      "Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều \"quan trọng\". T không biết bắt đầu từ đâu.",
+      'Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều "quan trọng". T không biết bắt đầu từ đâu.',
     desc: "3 ngày nữa: báo cáo thực tập, bài tập nhóm, bài kiểm tra giữa kỳ, essay tiếng Anh, và presentation. Ngủ hay học?",
-    background: "energy.webp",
+    background: "Black.webp",
     type: "power",
     intensity: "high",
     sceneLabel: "Thư viện đêm khuya",
@@ -607,13 +616,11 @@ const GAME_EVENTS = [
       {
         label: "Làm thêm cấp tốc — tự kiếm tiền trong 2 tuần",
         description: "Nhận gấp job freelance hoặc làm thêm tăng ca.",
-        rationale:
-          "Tiền kiếm được nhưng GPA học kỳ này bị ảnh hưởng nặng.",
+        rationale: "Tiền kiếm được nhưng GPA học kỳ này bị ảnh hưởng nặng.",
         previewAnimation: "rising-chart",
         tone: "orange",
         impact: { gpa: -0.4, mental: -15, money: 6000, stress: 25 },
-        logStr:
-          "[TÀI CHÍNH] Làm thêm cấp tốc. Có tiền nhưng GPA trượt mạnh.",
+        logStr: "[TÀI CHÍNH] Làm thêm cấp tốc. Có tiền nhưng GPA trượt mạnh.",
       },
     ],
   },
@@ -651,8 +658,7 @@ const GAME_EVENTS = [
         previewAnimation: "money-flow",
         tone: "blue",
         impact: { gpa: 0.2, mental: 5, money: 0, stress: -10 },
-        logStr:
-          "[CƠ HỘI] Từ chối internship. Tập trung học, GPA cải thiện.",
+        logStr: "[CƠ HỘI] Từ chối internship. Tập trung học, GPA cải thiện.",
       },
     ],
   },
@@ -665,7 +671,7 @@ const GAME_EVENTS = [
     description:
       "Gia đình gặp khó khăn tài chính. Trợ cấp hàng tháng bị cắt đột ngột không báo trước.",
     desc: "Không còn 3 triệu/tháng từ gia đình nữa. Tiền sinh hoạt T chỉ đủ 1 tháng nữa. Phải xoay xở ngay.",
-    background: "coal.webp",
+    background: "God.webp",
     type: "coal",
     intensity: "medium",
     sceneLabel: "Khủng hoảng tài chính",
@@ -682,8 +688,7 @@ const GAME_EVENTS = [
       },
       {
         label: "Gọi về nhà xin hỗ trợ thêm 1 lần — chia sẻ khó khăn",
-        description:
-          "Solicit thêm từ gia đình, giải thích tình hình thực tế.",
+        description: "Solicit thêm từ gia đình, giải thích tình hình thực tế.",
         rationale: "Có tiền nhưng cảm giác tội lỗi và áp lực gia đình tăng.",
         previewAnimation: "money-flow",
         tone: "blue",
@@ -702,7 +707,7 @@ const GAME_EVENTS = [
     description:
       "Giảng viên thông báo thêm 1 project lớn vào tuần 10 — không nằm trong đề cương ban đầu.",
     desc: "Project 30% điểm, nộp sau 3 tuần. T đã lên kế hoạch học kỳ nhưng phần này không có trong tính toán ban đầu.",
-    background: "finance.webp",
+    background: "Gar.webp",
     type: "economic",
     intensity: "medium",
     sceneLabel: "Áp lực học vụ",
@@ -715,8 +720,7 @@ const GAME_EVENTS = [
         previewAnimation: "rising-chart",
         tone: "green",
         impact: { gpa: 0.3, mental: -12, money: -500, stress: 25 },
-        logStr:
-          "[HỌC VỤ] Project chất lượng. GPA tốt nhưng T kiệt sức sau đó.",
+        logStr: "[HỌC VỤ] Project chất lượng. GPA tốt nhưng T kiệt sức sau đó.",
       },
       {
         label: "Làm đủ để qua — ưu tiên các môn khác quan trọng hơn",
@@ -726,8 +730,7 @@ const GAME_EVENTS = [
         previewAnimation: "money-flow",
         tone: "blue",
         impact: { gpa: 0.1, mental: -5, money: 0, stress: 10 },
-        logStr:
-          "[HỌC VỤ] Làm vừa đủ. Cân bằng ổn hơn, không quá tải.",
+        logStr: "[HỌC VỤ] Làm vừa đủ. Cân bằng ổn hơn, không quá tải.",
       },
     ],
   },
@@ -740,7 +743,7 @@ const GAME_EVENTS = [
     description:
       "Bảng điểm hiện ra. 1 môn dưới 5.0. T phải thi lại cuối kỳ — thêm áp lực và chi phí.",
     desc: "Môn Triết học cơ sở: 4.2/10. Phải thi lại trong 2 tuần. Phí thi lại 300K. Mental T đang rất thấp.",
-    background: "aviation.webp",
+    background: "God.webp",
     type: "aviation",
     intensity: "high",
     sceneLabel: "Phòng thi vấn đáp",
@@ -749,12 +752,12 @@ const GAME_EVENTS = [
         label: "Học lại nghiêm túc — quyết tâm vượt qua lần này",
         description:
           "Đầu tư 2 tuần học lại từ đầu, xem đây là cơ hội thật sự hiểu bài.",
-        rationale: "Stress ngắn hạn nhưng sau đó mental có thể phục hồi nếu thi đậu.",
+        rationale:
+          "Stress ngắn hạn nhưng sau đó mental có thể phục hồi nếu thi đậu.",
         previewAnimation: "money-flow",
         tone: "green",
         impact: { gpa: 0.1, mental: -15, money: -300, stress: 30 },
-        logStr:
-          "[KẾT QUẢ] T học lại nghiêm túc. Vượt qua được kỳ thi lại.",
+        logStr: "[KẾT QUẢ] T học lại nghiêm túc. Vượt qua được kỳ thi lại.",
       },
       {
         label: "Chấp nhận điểm F, bảo toàn sức khỏe tâm thần",
@@ -785,8 +788,7 @@ const BLACK_SWANS = [
     modeNote: "Biến cố chen ngang: bệnh tật không đợi lịch học.",
     desc: "Nhập viện khẩn cấp. 3 ngày không học được, miss 1 buổi kiểm tra giữa kỳ. Tiền viện phí và tinh thần đều bị ảnh hưởng.",
     impact: { gpa: -0.3, mental: -25, money: -2000, stress: 25 },
-    logStr:
-      "[⚠ BẤT NGỜ] Bệnh đột ngột. Tất cả kế hoạch học bị đổ vỡ.",
+    logStr: "[⚠ BẤT NGỜ] Bệnh đột ngột. Tất cả kế hoạch học bị đổ vỡ.",
   },
   {
     title: "Roommate xung đột — phải dọn ra ngoài",
@@ -813,8 +815,7 @@ const BLACK_SWANS = [
     intensity: "low",
     sceneLabel: "Tin tức tốt bất ngờ",
     emoji: "🎉",
-    modeNote:
-      "Biến cố tích cực: không phải mọi bất ngờ đều xấu.",
+    modeNote: "Biến cố tích cực: không phải mọi bất ngờ đều xấu.",
     desc: "Học bổng khuyến học 15 triệu được duyệt. Tiền về trong 2 tuần. T thở phào — áp lực tài chính giảm mạnh.",
     impact: { gpa: 0.1, mental: 20, money: 15000, stress: -20 },
     logStr:
@@ -848,8 +849,7 @@ const MACRO_POLICIES = [
     icon: "💼",
     title: "Nhận việc part-time ổn định",
     desc: "Nhận job part-time cố định 20 tiếng/tuần. Tiền vào ổn định ngay — nhưng thời gian học bị cắt mạnh từ đây.",
-    effect:
-      "Hiệu lực tức thời: money +8000K, stress +20, GPA -0.3.",
+    effect: "Hiệu lực tức thời: money +8000K, stress +20, GPA -0.3.",
     isBuff: "bud",
     summary: "+8M, stress +20, GPA -0.3",
   },
@@ -1106,11 +1106,13 @@ function PolicySimGame() {
     let sLog = null;
     if (fStats.stress >= 100) {
       nextSt = "gameover_stress";
-      sLog = "[SỰ CỐ NGHIÊM TRỌNG] Stress tích lũy vượt quá ngưỡng. Burnout toàn diện.";
+      sLog =
+        "[SỰ CỐ NGHIÊM TRỌNG] Stress tích lũy vượt quá ngưỡng. Burnout toàn diện.";
       SFX.lose();
     } else if (fStats.mental <= 20) {
       nextSt = "gameover_mental";
-      sLog = "[SỰ CỐ NGHIÊM TRỌNG] Sức khỏe tâm thần sụp đổ. Phải tạm dừng học.";
+      sLog =
+        "[SỰ CỐ NGHIÊM TRỌNG] Sức khỏe tâm thần sụp đổ. Phải tạm dừng học.";
       SFX.lose();
     } else if (fStats.gpa <= 1.0) {
       nextSt = "gameover_gpa";
@@ -1170,10 +1172,7 @@ function PolicySimGame() {
         } else {
           setGameState("playing");
           const ev = shuffledEvents[(eventIndex + 1) % shuffledEvents.length];
-          setLogs((p) => [
-            ...p,
-            `› TUẦN ${nQ}/12 — ${ev.title}`,
-          ]);
+          setLogs((p) => [...p, `› TUẦN ${nQ}/12 — ${ev.title}`]);
         }
       }
       setTransitioning(false);
@@ -1232,13 +1231,20 @@ function PolicySimGame() {
         showOutcome({
           kind: "Hiệu lực lối sống",
           title: pol.title,
-          tone: getFeedbackTone({ gpa: -0.3, mental: 0, money: 8000, stress: 20 }),
+          tone: getFeedbackTone({
+            gpa: -0.3,
+            mental: 0,
+            money: 8000,
+            stress: 20,
+          }),
           before: stats,
           after: ns,
         });
         commitTurn(
           ns,
-          ["[THỰC THI] Tiền về ổn định +8M. Stress tăng và GPA hao do bận rộn."],
+          [
+            "[THỰC THI] Tiền về ổn định +8M. Stress tăng và GPA hao do bận rộn.",
+          ],
           true,
         );
       }
@@ -1499,6 +1505,59 @@ function PolicySimGame() {
         <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(195,40,45,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} />
         <div style={{ zIndex: 10, background: "rgba(15,23,42,0.6)", backdropFilter: "blur(20px)", padding: "clamp(32px, 5vw, 64px)", borderRadius: "32px", border: "1px solid rgba(255,255,255,0.08)", maxWidth: "850px", textAlign: "center", boxShadow: "0 40px 100px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ display: "inline-block", padding: "6px 16px", borderRadius: "999px", background: "rgba(30,127,212,0.15)", color: "#3b82f6", fontWeight: 900, marginBottom: "20px", letterSpacing: "0.1em", fontSize: "0.8rem" }}>NHÓM 7 MLN111</div>
+      <div
+        style={{
+          ...pgStyle,
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+          padding: "40px 20px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "-20%",
+            right: "-10%",
+            width: "600px",
+            height: "600px",
+            background:
+              "radial-gradient(circle, rgba(195,40,45,0.15) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
+        <div
+          style={{
+            zIndex: 10,
+            background: "rgba(15,23,42,0.6)",
+            backdropFilter: "blur(20px)",
+            padding: "clamp(32px, 5vw, 64px)",
+            borderRadius: "32px",
+            border: "1px solid rgba(255,255,255,0.08)",
+            maxWidth: "850px",
+            textAlign: "center",
+            boxShadow: "0 40px 100px rgba(0,0,0,0.5)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "inline-block",
+              padding: "6px 16px",
+              borderRadius: "999px",
+              background: "rgba(30,127,212,0.15)",
+              color: "#3b82f6",
+              fontWeight: 900,
+              marginBottom: "20px",
+              letterSpacing: "0.1em",
+              fontSize: "0.8rem",
+            }}
+          >
+            NHÓM 7 MLN111
+          </div>
 
           <h1
             style={{
@@ -1524,8 +1583,9 @@ function PolicySimGame() {
               maxWidth: "90%",
             }}
           >
-            Bạn là Sinh viên T — năm 2 đại học. Phải cân bằng GPA, sức khỏe tâm thần,
-            tài chính và stress qua 12 tuần học kỳ. Mỗi quyết định phản ánh một khái niệm triết học.
+            Bạn là Sinh viên T — năm 2 đại học. Phải cân bằng GPA, sức khỏe tâm
+            thần, tài chính và stress qua 12 tuần học kỳ. Mỗi quyết định phản
+            ánh một khái niệm triết học.
           </p>
 
           <div
@@ -1548,7 +1608,7 @@ function PolicySimGame() {
               {
                 i: "🧠",
                 l: "MENTAL",
-                d: "Sức khỏe tâm thần",
+                d: "Sức khỏe",
                 w: "Thua nếu ≤ 20%",
                 c: "#06b6d4",
               },
@@ -1678,11 +1738,12 @@ function PolicySimGame() {
                 <b>bất ngờ</b> căng thẳng.
               </li>
               <li style={{ marginBottom: "8px" }}>
-                Quyết định đưa ra luôn phải đánh đổi: ví dụ bảo vệ{" "}
-                <b>Mental</b> thường lấy đi <b>GPA</b>.
+                Quyết định đưa ra luôn phải đánh đổi: ví dụ bảo vệ <b>Mental</b>{" "}
+                thường lấy đi <b>GPA</b>.
               </li>
               <li style={{ marginBottom: "8px" }}>
-                Ở <b>Tuần 4</b> và <b>Tuần 8</b>, bạn được chọn 1 <b>thay đổi lối sống</b> để hỗ trợ học kỳ.
+                Ở <b>Tuần 4</b> và <b>Tuần 8</b>, bạn được chọn 1{" "}
+                <b>thay đổi lối sống</b> để hỗ trợ học kỳ.
               </li>
               <li>
                 Mục tiêu: Vượt qua <b>12 tuần</b> mà không để chỉ số nào chạm
@@ -1724,7 +1785,7 @@ function PolicySimGame() {
                 "0 20px 50px rgba(195,40,45,0.4)";
             }}
           >
-            BẮT ĐẦU HỌC KỲ
+            BẮT ĐẦU
           </button>
         </div>
       </div>
@@ -1852,7 +1913,7 @@ function PolicySimGame() {
           <div className="psim-cinema-playing" aria-live="assertive">
             <div className="psim-cinema-event-info">
               <div className="psim-cinema-badges">
-                <span className="psim-crisis-label">⚠ THIÊN NGA ĐEN</span>
+                <span className="psim-crisis-label">⚠ SỰ KIỆN BẤT NGỜ </span>
               </div>
               <h1 className="psim-cinema-title">
                 {currentBlackSwan.title} {currentBlackSwan.emoji}
@@ -2089,7 +2150,7 @@ function App() {
                   Bắt đầu chuyên đề
                 </a>
                 <a href="#/game" className="btn-ghost">
-                  Mở mini-game mô phỏng
+                  GAME GÔ
                 </a>
               </div>
 
@@ -2368,7 +2429,7 @@ function App() {
                   người hoạch định chính sách của một tập đoàn nhà nước, điều
                   chỉnh giá, đầu tư, trợ cấp trước các cú sốc vĩ mô.
                 </p>
-            <div className="teaser-actions">
+                <div className="teaser-actions">
                   <a href="#/game" className="btn-primary">
                     Vào trang chờ mini-game
                   </a>
@@ -2601,4 +2662,3 @@ function App() {
 }
 
 export default App;
-
