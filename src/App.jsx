@@ -77,15 +77,15 @@ export const SFX = {
 };
 
 const NAV_ITEMS = [
-  { id: "hero",      label: "Mở đầu" },
+  { id: "hero", label: "Mở đầu" },
   { id: "bienchinh", label: "Biện chứng" },
-  { id: "phamtru",   label: "Phạm trù" },
-  { id: "quyluat",   label: "Quy luật" },
-  { id: "lyluan",    label: "Nhận thức" },
-  { id: "game",      label: "Mini-game" },
-  { id: "quiz",      label: "Thảo luận" },
+  { id: "phamtru", label: "Phạm trù" },
+  { id: "quyluat", label: "Quy luật" },
+  { id: "lyluan", label: "Nhận thức" },
+  { id: "game", label: "Mini-game" },
+  { id: "quiz", label: "Thảo luận" },
   { id: "nghiencuu", label: "Tài liệu" },
-  { id: "ketluan",   label: "Kết luận" },
+  { id: "ketluan", label: "Kết luận" },
 ];
 
 const MARQUEE_TOKENS = [
@@ -104,7 +104,7 @@ const MARQUEE_TOKENS = [
 ];
 
 const HERO_STATS = [
-  { value: "83%",   label: "Sinh viên Việt Nam từng trải qua lo âu học tập kéo dài" },
+  { value: "83%", label: "Sinh viên Việt Nam từng trải qua lo âu học tập kéo dài" },
   { value: "≈ 60%", label: "Sinh viên năm 2–3 cảm thấy mất cân bằng giữa học và sống" },
   { value: "1 / 3", label: "Sinh viên có dấu hiệu kiệt sức (burnout) trước khi tốt nghiệp" },
 ];
@@ -122,7 +122,7 @@ const THEORY_ITEMS = [
     example:
       "Sinh viên T: Khi gia đình cắt trợ cấp (vật chất thay đổi), T buộc phải thay đổi cách nhìn về tiền bạc, về giá trị của thời gian, và về mục tiêu học tập — ý thức thay đổi theo.",
     image:
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b6f72?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1400&q=80",
     alt: "Sinh viên học tập trong điều kiện áp lực",
   },
   {
@@ -445,7 +445,7 @@ const loadGame = (setGameState, setQuarter, setStats, setHistory, setLogs, setEv
       setEventIndex(data.eventIndex || 0);
       setActivePolicies(data.activePolicies || []);
     }
-  } catch (e) {}
+  } catch (e) { }
 };
 
 const saveGame = (gameState, quarter, stats, history, logs, eventIndex, activePolicies) => {
@@ -719,8 +719,8 @@ function CompactStatPill({ def, value }) {
         </span>
       </div>
       <div className="psim-stat-pill-bar-bg">
-        <div 
-          className="psim-stat-pill-bar-fill" 
+        <div
+          className="psim-stat-pill-bar-fill"
           style={{ width: `${progressWidth}%`, backgroundColor: color }}
         />
         <div className="psim-stat-pill-marker" style={{ left: `${def.markerPos}%` }} />
@@ -961,7 +961,7 @@ function PolicySimGame() {
             </div>
           )}
         </div>
-        
+
         <div style={{ display: "flex", gap: "20px", alignItems: "center", marginBottom: "16px" }}>
           <span style={{ fontSize: "5rem", filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.5))" }}>{c.i}</span>
           <h1 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "white", margin: 0, lineHeight: 1.1, fontFamily: "Manrope", fontWeight: 900 }}>{c.t}</h1>
