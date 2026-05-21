@@ -1,21 +1,21 @@
 :root {
-  --bg: #f7f8fb;
-  --bg-warm: #f3efe7;
-  --surface: #ffffff;
-  --ink: #0f172a;
-  --ink-soft: #475569;
+  --bg: #0d0d18;
+  --bg-warm: #12121f;
+  --surface: #1a1a2e;
+  --ink: #e2e8f0;
+  --ink-soft: #94a3b8;
   --ink-mute: #64748b;
-  --border: #e3e8f1;
-  --border-strong: #cfd6e4;
-  --blue: #0b2a4a;
-  --blue-deep: #061a2e;
-  --red: #c3282d;
-  --red-soft: #fdf3f3;
-  --green: #2f7a4f;
-  --amber: #b07426;
-  --shadow-sm: 0 6px 18px rgba(11, 30, 54, 0.06);
-  --shadow-md: 0 14px 35px rgba(11, 30, 54, 0.10);
-  --shadow-lg: 0 22px 50px rgba(11, 30, 54, 0.14);
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --blue: #6366f1;
+  --blue-deep: #1e1b4b;
+  --red: #ef4444;
+  --red-soft: #1f0a0a;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --shadow-sm: 0 6px 18px rgba(0,0,0,0.3);
+  --shadow-md: 0 14px 35px rgba(0,0,0,0.4);
+  --shadow-lg: 0 22px 50px rgba(0,0,0,0.5);
   --radius-lg: 22px;
   --radius-md: 14px;
   --radius-sm: 10px;
@@ -33,10 +33,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(900px 500px at 8% -10%, #eef4ff, transparent 60%),
-    radial-gradient(700px 500px at 110% 8%, #f7efe2, transparent 60%),
-    var(--bg);
+  background: var(--bg);
   color: var(--ink);
   font-family: "Source Serif 4", serif;
   line-height: 1.6;

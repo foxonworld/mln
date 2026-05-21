@@ -77,265 +77,325 @@ export const SFX = {
 };
 
 const NAV_ITEMS = [
-  { id: "hero", label: "Mở đầu" },
-  { id: "lyluan", label: "Lý luận" },
-  { id: "thuctrang", label: "Thực trạng" },
-  { id: "phantich", label: "Phân tích" },
-  { id: "giaiphap", label: "Giải pháp" },
-  { id: "game", label: "Mini-game" },
-  { id: "quiz", label: "Tranh luận" },
-  { id: "nghiencuu", label: "Nghiên cứu" },
-  { id: "ketluan", label: "Kết luận" }
+  { id: "hero",      label: "Mở đầu" },
+  { id: "bienchinh", label: "Biện chứng" },
+  { id: "phamtru",   label: "Phạm trù" },
+  { id: "quyluat",   label: "Quy luật" },
+  { id: "lyluan",    label: "Nhận thức" },
+  { id: "game",      label: "Mini-game" },
+  { id: "quiz",      label: "Thảo luận" },
+  { id: "nghiencuu", label: "Tài liệu" },
+  { id: "ketluan",   label: "Kết luận" },
 ];
 
 const MARQUEE_TOKENS = [
-  "Cạnh tranh",
-  "Độc quyền",
-  "Độc quyền tự nhiên",
-  "Độc quyền nhà nước",
-  "Giá cả độc quyền",
-  "Lợi nhuận độc quyền",
-  "Tích tụ tư bản",
-  "Tập trung sản xuất",
-  "Điều tiết vĩ mô",
-  "Hàng hóa công cộng",
-  "V.I.Lênin — 5 đặc điểm",
-  "Kinh tế thị trường định hướng XHCN"
+  "Biện chứng duy vật",
+  "Phủ định của phủ định",
+  "Lượng đổi chất đổi",
+  "Mâu thuẫn nội tại",
+  "Hustle culture",
+  "Burnout",
+  "Thực tiễn — Nhận thức",
+  "Bản chất — Hiện tượng",
+  "Nguyên nhân — Kết quả",
+  "Khả năng — Hiện thực",
+  "Nội dung — Hình thức",
+  "Áp lực học tập",
 ];
 
 const HERO_STATS = [
-  { value: "47.2%", label: "Tỉ trọng năng lượng sơ cấp từ dầu khí và điện lưới quốc gia" },
-  { value: "≈ 97", label: "Tập đoàn và tổng công ty nhà nước đang hoạt động" },
-  { value: "500 kV", label: "Trục truyền tải Bắc — Nam do Nhà nước nắm độc quyền tự nhiên" }
+  { value: "83%",   label: "Sinh viên Việt Nam từng trải qua lo âu học tập kéo dài" },
+  { value: "≈ 60%", label: "Sinh viên năm 2–3 cảm thấy mất cân bằng giữa học và sống" },
+  { value: "1 / 3", label: "Sinh viên có dấu hiệu kiệt sức (burnout) trước khi tốt nghiệp" },
 ];
 
 const THEORY_ITEMS = [
   {
-    id: "von-lon",
+    id: "vat-chat",
     index: "01",
-    cardTitle: "Vốn lớn & chu kỳ dài",
+    cardTitle: "Vật chất quyết định ý thức",
     cardSummary:
-      "Các ngành điện, dầu khí, truyền tải đòi hỏi vốn đầu tư rất lớn và sức chịu rủi ro ở tầm quốc gia.",
-    detailTitle: "Vốn lớn và chu kỳ đầu tư dài hạn",
+      "Điều kiện sống, tài chính, môi trường xung quanh định hình cách ta suy nghĩ và hành động.",
+    detailTitle: "Tồn tại xã hội quyết định ý thức xã hội",
     detailText:
-      "Theo Lênin, khi lực lượng sản xuất phát triển tới ngưỡng nhất định, tích tụ và tập trung tư bản tất yếu dẫn tới độc quyền. Ở Việt Nam, các dự án nguồn điện, truyền tải 500 kV hay thăm dò khai thác ngoài khơi có chi phí cố định ban đầu rất cao, thời gian thu hồi vốn kéo dài hàng chục năm và cần bảo lãnh tín dụng quy mô quốc gia.",
+      "Theo chủ nghĩa duy vật biện chứng, vật chất (điều kiện vật chất, kinh tế, xã hội) có trước và quyết định ý thức. Ý thức là sự phản ánh của vật chất vào bộ não người. Điều này không có nghĩa ý thức thụ động — ngược lại, ý thức có thể tác động ngược lại vật chất thông qua thực tiễn.",
     example:
-      "Ví dụ Việt Nam: Dự án đường dây 500 kV mạch 3 Quảng Trạch — Phố Nối đi qua 9 tỉnh, vượt năng lực tài chính và điều phối của đa số doanh nghiệp tư nhân đơn lẻ.",
+      "Sinh viên T: Khi gia đình cắt trợ cấp (vật chất thay đổi), T buộc phải thay đổi cách nhìn về tiền bạc, về giá trị của thời gian, và về mục tiêu học tập — ý thức thay đổi theo.",
     image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80",
-    alt: "Hạ tầng công nghiệp quy mô lớn"
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b6f72?auto=format&fit=crop&w=1400&q=80",
+    alt: "Sinh viên học tập trong điều kiện áp lực",
   },
   {
-    id: "ha-tang",
+    id: "mau-thuan",
     index: "02",
-    cardTitle: "Hạ tầng xương sống",
+    cardTitle: "Mâu thuẫn là động lực phát triển",
     cardSummary:
-      "Hạ tầng thiết yếu cần tính liên thông, chuẩn kỹ thuật đồng bộ, phục vụ cả vùng khó khăn.",
-    detailTitle: "Hạ tầng quốc gia cần tính liên thông",
+      "Bên trong mọi sự vật đều tồn tại mặt đối lập — chính sự đấu tranh này tạo ra sự vận động và phát triển.",
+    detailTitle: "Thống nhất và đấu tranh của các mặt đối lập",
     detailText:
-      "Độc quyền tự nhiên xuất hiện khi một doanh nghiệp duy nhất cung ứng hàng hóa/dịch vụ với chi phí trung bình thấp nhất, do hiệu ứng quy mô và tính không thể nhân bản của hạ tầng. Ở Việt Nam, lưới điện truyền tải, cáp quang trục quốc gia, hay ống dẫn khí là dạng hạ tầng không thể xây song song nhiều lần.",
+      "Mọi sự vật, hiện tượng đều chứa đựng những mặt đối lập thống nhất với nhau. Mâu thuẫn không phải điều xấu — đó là nguồn gốc của mọi sự vận động. Hustle culture tạo ra mâu thuẫn rõ ràng: giữa khao khát thành công và nhu cầu nghỉ ngơi, giữa cống hiến và sức khỏe.",
     example:
-      "Ví dụ Việt Nam: Chương trình điện khí hóa nông thôn đã đưa điện tới hơn 99% hộ dân — điều mà thị trường thuần túy khó tự giải quyết vì biên lợi nhuận ở vùng sâu rất thấp.",
+      "Sinh viên T mâu thuẫn nội tâm: muốn GPA cao (cần học nhiều) nhưng cũng cần sức khỏe tâm thần (cần nghỉ ngơi). Đây là mâu thuẫn không thể giải quyết bằng cách chọn một phía — cần tìm điểm cân bằng mới.",
     image:
-      "https://images.unsplash.com/photo-1518183214770-9cffbec72538?auto=format&fit=crop&w=1400&q=80",
-    alt: "Phát triển hạ tầng quốc gia"
+      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1400&q=80",
+    alt: "Hai chiều lực đối lập trong học tập",
   },
   {
-    id: "dieu-tiet",
+    id: "van-dong",
     index: "03",
-    cardTitle: "Điều tiết vĩ mô",
+    cardTitle: "Thế giới vận động không ngừng",
     cardSummary:
-      "Nhà nước cần công cụ bình ổn giá, giảm cú sốc chi phí lên đời sống khi thị trường biến động.",
-    detailTitle: "Độc quyền nhà nước như công cụ điều tiết",
+      "Không có gì là cố định — mọi thứ đều trong quá trình biến đổi, phát triển theo quy luật khách quan.",
+    detailTitle: "Quan điểm biện chứng về sự vận động và phát triển",
     detailText:
-      "Lênin chỉ rõ: chủ nghĩa tư bản độc quyền nhà nước là sự kết hợp giữa sức mạnh của tổ chức độc quyền với sức mạnh của nhà nước. Ở Việt Nam, tập đoàn nhà nước không chỉ là chủ thể kinh tế, mà còn là công cụ thực hiện chính sách an sinh và ổn định vĩ mô.",
+      "Phép biện chứng duy vật khẳng định thế giới luôn vận động, biến đổi và phát triển. Trái với quan điểm siêu hình học nhìn sự vật cô lập, tĩnh tại — phép biện chứng nhìn mọi thứ trong mối liên hệ và quá trình. Sinh viên không phải thực thể cố định — họ đang trong quá trình hình thành.",
     example:
-      "Ví dụ Việt Nam: Điều hành giá điện, xăng dầu theo lộ trình giúp hạn chế lan truyền cú sốc giá nhiên liệu thế giới vào chỉ số CPI, dù đánh đổi là tín hiệu thị trường bị làm mờ.",
+      "Sinh viên T năm 1 khác hoàn toàn T năm 3. Không phải vì thất bại, mà vì quá trình tích lũy lượng (kinh nghiệm, va chạm, bài học) đã dẫn đến sự biến đổi về chất — một phiên bản T trưởng thành hơn.",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
-    alt: "Không gian hoạch định chính sách"
-  }
+      "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80",
+    alt: "Hành trình phát triển của sinh viên theo thời gian",
+  },
 ];
 
 const GROUP_ITEMS = [
   {
-    id: "evn",
-    sector: "Năng lượng",
-    name: "EVN",
-    fullName: "Tập đoàn Điện lực Việt Nam",
+    id: "cai-rieng",
+    sector: "Cặp phạm trù 1",
+    name: "Cái riêng — Cái chung",
+    fullName: "Quan hệ giữa cái riêng và cái chung",
     summary:
-      "Trụ cột truyền tải, điều độ và bảo đảm cung ứng điện cho toàn hệ thống.",
+      "Cái riêng là một sự vật, cái chung là những thuộc tính lặp lại trong nhiều sự vật. Cái chung chỉ tồn tại trong cái riêng và ngược lại.",
     role:
-      "EVN nắm khâu truyền tải cao thế, điều độ hệ thống quốc gia (A0) và phân phối điện tại hầu hết địa phương, bên cạnh phần phát điện chia sẻ với nhiều nhà máy tư nhân, BOT.",
+      "Cái chung biểu hiện tính phổ biến, cái riêng biểu hiện tính cá biệt và phong phú. Trong học tập: một phương pháp học có thể là chung, nhưng cách áp dụng với từng sinh viên là cái riêng.",
     monopoly:
-      "Lưới truyền tải 500 kV và 220 kV là độc quyền tự nhiên điển hình: chi phí đầu tư lớn, không thể nhân bản song song, cần điều phối tập trung để tránh nghẽn mạch và sự cố lan rộng.",
+      "Nguy cơ là coi cái chung là toàn bộ thực tế và ép cái riêng phải giống y hệt. Hiểu đúng là lấy cái chung để điều chỉnh cái riêng một cách linh hoạt.",
     twoSide:
-      "Mặt tích cực: đảm bảo cung ứng điện, triển khai điện khí hóa nông thôn, trợ giá bậc thang cho hộ nghèo. Mặt rủi ro: thiếu cạnh tranh ở bán lẻ, giá điện khó phản ánh đúng chi phí nhiên liệu đầu vào.",
+      "Tích cực: Hiểu cái chung giúp rút kinh nghiệm; tiêu cực: áp đặt phương thức chung lên mọi người có thể gây phản tác dụng.",
     example:
-      "Tình huống thiếu điện cục bộ miền Bắc mùa hè 2023 cho thấy sức ép nâng cấp truyền tải và tách bạch rõ hơn chức năng điều độ — phát — phân phối.",
+      "Một 'cách học hiệu quả' chung có thể không phù hợp cho T vì hoàn cảnh, sức khỏe, và thời gian của T là cái riêng cần điều chỉnh.",
     image:
-      "https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1300&q=80",
-    alt: "Lưới điện cao thế và trạm biến áp"
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1300&q=80",
+    alt: "Cái riêng và cái chung trong học tập",
   },
   {
-    id: "pvn",
-    sector: "Dầu khí",
-    name: "PVN",
-    fullName: "Tập đoàn Dầu khí Việt Nam",
+    id: "nguyen-nhan",
+    sector: "Cặp phạm trù 2",
+    name: "Nguyên nhân — Kết quả",
+    fullName: "Quan hệ nhân quả trong học tập",
     summary:
-      "Tích hợp thượng nguồn — hạ nguồn, đóng góp lớn cho an ninh năng lượng và ngân sách.",
+      "Mọi kết quả đều có nguyên nhân. Nhưng cùng nguyên nhân, hoàn cảnh khác nhau có thể dẫn đến kết quả khác nhau.",
     role:
-      "PVN hoạt động xuyên suốt từ thăm dò, khai thác, vận chuyển khí, chế biến tới phân phối sản phẩm. Nhiều năm liên tục đóng góp 9–11% thu ngân sách nhà nước.",
+      "Nguyên nhân có trước và sinh ra kết quả; kết quả có thể trở thành nguyên nhân cho sự phát triển tiếp theo. Trong học tập: thiếu ngủ → mất tập trung → điểm thấp.",
     monopoly:
-      "Khai thác tài nguyên quốc gia, hoạt động ngoài khơi gắn với chủ quyền biển đảo, công nghệ và quản trị rủi ro phức tạp khiến vai trò nhà nước rất khó thay thế hoàn toàn.",
+      "Không có quan hệ nhân quả đơn tuyến; có nguyên nhân gần và nguyên nhân xa. Giải quyết gốc rễ mới có hiệu quả lâu dài.",
     twoSide:
-      "Mặt tích cực: chuỗi khí — điện — đạm tạo liên kết công nghiệp và việc làm. Mặt rủi ro: biến động giá dầu thế giới và mô hình quản trị đa ngành từng phát sinh dự án kém hiệu quả trong quá khứ.",
+      "Tích cực: Phân tích chuỗi nhân quả giúp can thiệp chính xác; tiêu cực: chỉ chữa ngọn mà bỏ qua nguyên nhân sâu xa.",
     example:
-      "Cụm dự án Nhơn Trạch 3 & 4 dùng khí LNG là bài kiểm tra về năng lực chuyển dịch năng lượng của PVN theo cam kết Net Zero 2050.",
+      "T học quá nhiều trước kỳ thi (nguyên nhân gần) nhưng nguyên nhân xa là áp lực tự đặt ra để hoàn hảo — phải giải quyết cả hai.",
     image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1300&q=80",
-    alt: "Giàn khoan ngoài khơi và công nghiệp lọc hóa dầu"
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1300&q=80",
+    alt: "Chuỗi nhân quả trong quá trình học tập",
   },
   {
-    id: "vnpt",
-    sector: "Viễn thông & số",
-    name: "VNPT / Viettel",
-    fullName: "Hạ tầng viễn thông quốc gia",
+    id: "tat-nhien",
+    sector: "Cặp phạm trù 3",
+    name: "Tất nhiên — Ngẫu nhiên",
+    fullName: "Mối quan hệ giữa tất nhiên và ngẫu nhiên",
     summary:
-      "Hạ tầng số phủ rộng, hỗ trợ dịch vụ công, chuyển đổi số và kết nối vùng sâu, vùng xa.",
+      "Tất nhiên là cái do những nguyên nhân chủ yếu bên trong quyết định; ngẫu nhiên là cái do nhiều điều kiện bên ngoài kết hợp mà thành.",
     role:
-      "VNPT và Viettel cùng cung cấp mạng băng rộng, di động và nền tảng số công. Khác với điện hay dầu khí, viễn thông ở Việt Nam có cạnh tranh tương đối rõ ở bán lẻ.",
+      "Các sự kiện tất nhiên được tạo thành từ nhiều ngẫu nhiên; hiểu mối quan hệ này giúp phân tích diễn biến thực tế trong học tập.",
     monopoly:
-      "Một số lớp hạ tầng lõi (truyền dẫn trục, trung tâm dữ liệu cấp quốc gia, hệ thống cáp quang biển) vẫn mang tính độc quyền tự nhiên do hiệu ứng mạng và chi phí cố định lớn.",
+      "Quan niệm sai lầm là coi ngẫu nhiên là tuyệt đối hoặc phủ nhận vai trò của ngẫu nhiên — cả hai đều thiếu biện chứng.",
     twoSide:
-      "Mặt tích cực: phổ cập băng rộng, hỗ trợ chính quyền số, y tế và giáo dục từ xa. Mặt rủi ro: nếu thiếu điều tiết dữ liệu và cạnh tranh, có thể xuất hiện độc quyền dữ liệu và bất đối xứng thông tin người dùng.",
+      "Tích cực: Nhận ra vai trò của ngẫu nhiên giúp linh hoạt; tiêu cực: đổ lỗi hoàn toàn cho ngẫu nhiên và không tìm nguyên nhân sâu.",
     example:
-      "Việc sớm triển khai 5G và hạ tầng đám mây nội địa là phép thử cho năng lực chuyển từ nhà mạng sang nền tảng công nghệ số.",
+      "Bị bệnh đúng lúc ôn thi là ngẫu nhiên, nhưng hệ thống sức khỏe, chuẩn bị ôn luyện là những yếu tố tất nhiên có thể giảm rủi ro.",
     image:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1300&q=80",
-    alt: "Hạ tầng viễn thông, cáp quang và mạng số"
-  }
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=80",
+    alt: "Tất nhiên và ngẫu nhiên",
+  },
+  {
+    id: "noi-dung",
+    sector: "Cặp phạm trù 4",
+    name: "Nội dung — Hình thức",
+    fullName: "Hustle: Hình thức che khuất Nội dung",
+    summary:
+      "Nội dung là tổng hợp các yếu tố cấu thành sự vật; hình thức là phương thức tồn tại và biểu hiện của nội dung.",
+    role:
+      "Nội dung quyết định hình thức nhưng hình thức có tác động trở lại nội dung trong điều kiện nhất định.",
+    monopoly:
+      "Rủi ro là chú trọng hình thức đến mức làm mất nội dung thực sự; hình thức cần phục vụ nội dung chứ không thay thế.",
+    twoSide:
+      "Hình thức có thể hỗ trợ (tạo thói quen, môi trường) nhưng khi nó trở thành mục đích thì nội dung bị tổn hại.",
+    example:
+      "Dành nhiều thời gian trang trí sổ tay, nhưng không dành đủ thời gian ôn tập thực chất — hình thức nuốt nội dung.",
+    image:
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1300&q=80",
+    alt: "Hình thức và nội dung trong học tập",
+  },
+  {
+    id: "ban-chat",
+    sector: "Cặp phạm trù 5",
+    name: "Bản chất — Hiện tượng",
+    fullName: "Bề mặt và chiều sâu của Hustle Culture",
+    summary:
+      "Bản chất là tổng hợp các mối liên hệ khách quan bên trong; hiện tượng là biểu hiện bên ngoài của bản chất.",
+    role:
+      "Bản chất quy định vận động của sự vật; hiện tượng là cách bản chất xuất hiện dưới điều kiện lịch sử cụ thể.",
+    monopoly:
+      "Nguy hiểm khi chỉ nhìn hiện tượng mà không tìm bản chất — có thể bị lừa bởi vẻ bề ngoài.",
+    twoSide:
+      "Hiểu bản chất giúp can thiệp đúng, nhưng chỉ nhìn bản chất mà bỏ qua hiện tượng cụ thể cũng là phiến diện.",
+    example:
+      "Một bài đăng 'productive' có thể là hiện tượng; bản chất phía sau có thể là ép buộc hoặc stress cao.",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1300&q=80",
+    alt: "Bề mặt hoàn hảo và thực tế phía sau",
+  },
+  {
+    id: "kha-nang",
+    sector: "Cặp phạm trù 6",
+    name: "Khả năng — Hiện thực",
+    fullName: "Từ tiềm năng đến kết quả thực tế",
+    summary:
+      "Khả năng là những tiền đề chưa hiện thực; hiện thực là những gì đang tồn tại. Thực tiễn là cầu nối biến khả năng thành hiện thực.",
+    role:
+      "Không phải mọi khả năng đều thành hiện thực — cần điều kiện, hành động và thời gian để hiện thực hóa.",
+    monopoly:
+      "Lỗi phổ biến là nhầm lẫn khả năng với hiện thực và bỏ qua điều kiện cần thiết để hiện thực hóa khả năng.",
+    twoSide:
+      "Lạc quan hợp lý giúp tạo điều kiện; lạc quan mù quáng dẫn đến overcommit và kiệt sức.",
+    example:
+      "T có năng lực nhưng thiếu thời gian và điều kiện — khả năng chưa thể chuyển thành hiện thực ngay lập tức.",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1300&q=80",
+    alt: "Tiềm năng sinh viên và con đường hiện thực hóa",
+  },
 ];
 
 const SOLUTION_ITEMS = [
   {
-    id: "co-phan-hoa",
-    title: "Cổ phần hóa có chọn lọc",
+    id: "truc-quan",
+    title: "Giai đoạn 1: Trực quan sinh động",
     explanation:
-      "Thu hút thêm vốn xã hội ở khâu có thể cạnh tranh (phát điện, bán lẻ, dịch vụ số), trong khi Nhà nước vẫn giữ cổ phần chi phối ở mắt xích chiến lược (truyền tải, điều độ, cáp trục).",
-    benefit: "Kỳ vọng: kỷ luật tài chính, minh bạch, áp lực hiệu quả.",
+      "T tiếp xúc với thế giới bằng cảm giác và tri giác trực tiếp. Nhìn thấy bạn bè thành công với hustle culture — GPA cao, nhiều hoạt động, trông có vẻ ổn. T cảm nhận áp lực mà chưa hiểu tại sao. Đây là nhận thức cảm tính — đúng nhưng chưa đủ sâu.",
+    benefit:
+      "Vai trò: Cảm giác và trực quan là điểm khởi đầu của mọi nhận thức. Không có trực quan sinh động thì không có nguyên liệu để tư duy.",
     implication:
-      "Hàm ý: xác định danh mục lĩnh vực Nhà nước chi phối tuyệt đối với lĩnh vực mở rộng sở hữu hỗn hợp trong Luật Quản lý, sử dụng vốn nhà nước sửa đổi."
+      "Giới hạn: Trực quan có thể bị đánh lừa bởi hiện tượng. T thấy bạn \"thành công\" nhưng chưa thấy được bản chất — bạn ấy có thể đang kiệt sức phía sau màn hình.",
   },
   {
-    id: "tach-quan-ly",
-    title: "Tách chức năng quản lý — chủ sở hữu — điều tiết",
+    id: "tu-duy",
+    title: "Giai đoạn 2: Tư duy trừu tượng",
     explanation:
-      "Cơ quan ban hành chính sách, cơ quan giám sát cạnh tranh và cơ quan đại diện vốn (Ủy ban Quản lý vốn) cần tách biệt rõ ràng để giảm xung đột lợi ích — vừa đá bóng vừa thổi còi.",
-    benefit: "Kỳ vọng: nâng chất lượng điều tiết và trách nhiệm giải trình.",
+      "T bắt đầu phân tích, khái quát hóa từ những gì quan sát được. \"Tại sao mình cố gắng mà không tiến?\" → \"Hustle nhiều nhưng không đúng hướng\" → \"Vấn đề là chiến lược, không phải nỗ lực\". Nhận thức vượt khỏi cảm giác, đi vào bản chất.",
+    benefit:
+      "Vai trò: Tư duy trừu tượng giúp nắm bắt quy luật, bản chất ẩn sau hiện tượng. Đây là bước nhảy vọt của nhận thức.",
     implication:
-      "Hàm ý: công bố thông tin theo chuẩn công ty niêm yết, KPI hiệu quả vốn nhà nước, kiểm toán và đánh giá độc lập."
+      "Lưu ý: Tư duy trừu tượng có thể sai nếu xuất phát từ quan sát không đầy đủ. Cần kiểm nghiệm bằng thực tiễn — không phải suy nghĩ đúng là hành động đúng.",
   },
   {
-    id: "thi-truong-hoa",
-    title: "Thị trường hóa có kiểm soát",
+    id: "thuc-tien",
+    title: "Giai đoạn 3: Thực tiễn kiểm nghiệm",
     explanation:
-      "Mở thị trường bán buôn và bán lẻ điện cạnh tranh, mở dịch vụ số; giữ điều tiết chặt ở hạ tầng độc quyền tự nhiên bằng cơ chế giá trần và cam kết chất lượng dịch vụ (SLA).",
-    benefit: "Kỳ vọng: giảm chi phí dài hạn, khuyến khích đổi mới công nghệ.",
+      "T áp dụng nhận thức mới vào thực tế. Thay đổi cách học, giảm overcommit, ưu tiên sức khỏe. Kết quả có thể đúng có thể sai — nhưng đây là bước kiểm chứng duy nhất có giá trị. Thực tiễn là tiêu chuẩn của chân lý.",
+    benefit:
+      "Thực tiễn không chỉ kiểm nghiệm nhận thức mà còn tạo ra nhận thức mới. Sau mỗi vòng thực hành → T có dữ liệu mới → quay lại giai đoạn 1 ở tầm cao hơn.",
     implication:
-      "Hàm ý: lộ trình giá theo thị trường đi kèm gói hỗ trợ nhóm dễ tổn thương, tránh sốc giá lên hộ thu nhập thấp."
-  }
+      "Nhận thức là vòng xoáy đi lên, không phải vòng tròn đứng yên. Mỗi chu kỳ: trực quan → tư duy → thực tiễn → trực quan mới (phong phú hơn) → tư duy sâu hơn → thực tiễn hiệu quả hơn.",
+  },
 ];
 
 const SCENARIOS = [
   {
     id: "scenario-1",
-    title: "Tình huống 1 — Bình ổn giá điện khi lạm phát",
+    title: "Tình huống 1 — T và 5 deadline trong 3 ngày",
     description:
-      "Giá nhiên liệu thế giới tăng nhanh, thu nhập hộ gia đình phục hồi chậm. EVN nên được yêu cầu làm gì?",
+      "3 ngày nữa có 5 deadline cùng lúc. Sức khỏe T không tốt. T nên làm gì?",
     options: [
-      { key: "a", label: "A. Giữ giá thấp đồng loạt cho mọi nhóm khách hàng", result: "mixed" },
-      { key: "b", label: "B. Điều chỉnh có lộ trình + trợ cấp trực tiếp hộ yếu thế", result: "good" }
-    ]
+      { key: "a", label: "A. Thức xuyên đêm, làm hết tất cả để không thiếu deadline nào", result: "mixed" },
+      { key: "b", label: "B. Ưu tiên quan trọng nhất, xin gia hạn phần còn lại", result: "good" },
+    ],
   },
   {
     id: "scenario-2",
-    title: "Tình huống 2 — Mở cạnh tranh trong ngành điện",
+    title: "Tình huống 2 — Internship lương tốt vs GPA",
     description:
-      "Nhu cầu điện tăng mạnh theo công nghiệp hóa. Có nên mở rộng khu vực tư nhân ở khâu phát điện không?",
+      "Một công ty offer internship lương tốt, nhưng sẽ ảnh hưởng đến GPA học kỳ này. T nên làm gì?",
     options: [
-      { key: "a", label: "A. Có — nhưng giữ điều độ và truyền tải dưới kiểm soát nhà nước", result: "good" },
-      { key: "b", label: "B. Không — duy trì mô hình tích hợp tập trung như hiện tại", result: "mixed" }
-    ]
+      { key: "a", label: "A. Nhận internship — trải nghiệm thực tế quan trọng hơn điểm số", result: "mixed" },
+      { key: "b", label: "B. Cân nhắc kỹ: đây là khả năng hay hiện thực? Điều kiện có đủ không?", result: "good" },
+    ],
   },
   {
     id: "scenario-3",
-    title: "Tình huống 3 — Cấu trúc sở hữu doanh nghiệp hạ tầng số",
+    title: "Tình huống 3 — Hustle hay Balance?",
     description:
-      "Trong giai đoạn chuyển đổi số sâu, cấu trúc sở hữu nào cân bằng giữa kiểm soát chiến lược và hiệu quả quản trị?",
+      "Bạn cùng phòng của T nghỉ ngơi, chơi game. T cảm thấy guilty vì không học. Đâu là suy nghĩ đúng?",
     options: [
-      { key: "a", label: "A. Giữ 100% vốn nhà nước ở hầu hết các khâu", result: "mixed" },
-      { key: "b", label: "B. Nhà nước chi phối lõi độc quyền, mở sở hữu hỗn hợp ở khâu cạnh tranh", result: "good" }
-    ]
-  }
+      { key: "a", label: "A. \"Mình phải học — người khác nghỉ là lãng phí\"", result: "mixed" },
+      { key: "b", label: "B. \"Nghỉ ngơi là một phần của quá trình — mâu thuẫn giữa học và nghỉ cần cân bằng\"", result: "good" },
+    ],
+  },
 ];
 
 const QUIZ_FEEDBACK = {
   good:
-    "Lựa chọn theo hướng cân bằng: tín hiệu thị trường vẫn hoạt động nhưng nhóm dễ tổn thương được bảo vệ và ổn định vĩ mô được giữ.",
+    "Phép biện chứng ủng hộ lựa chọn này: nhìn nhận mâu thuẫn, tìm điểm cân bằng thay vì cực đoan một phía. Đây là tư duy biện chứng trong thực tiễn.",
   mixed:
-    "Có thể đạt mục tiêu ngắn hạn, nhưng rủi ro dài hạn là méo mó tín hiệu giá hoặc làm giảm động lực nâng cao hiệu quả."
+    "Lựa chọn này có logic nhưng thiên về tư duy siêu hình — nhìn sự vật tách biệt, không thấy mối liên hệ và hậu quả dài hạn. Kết quả ngắn hạn có thể ổn, nhưng dài hạn tạo mâu thuẫn mới.",
 };
 
 const RESEARCH_LINKS = [
   {
     label: "Giáo trình",
-    title: "Giáo trình Kinh tế Chính trị Mác — Lênin (Bộ GD&ĐT)",
+    title: "Giáo trình Triết học Mác–Lênin (Bộ GD&ĐT, 2021)",
     description:
-      "Chương 4: Cạnh tranh và độc quyền trong nền kinh tế thị trường — tài liệu học chính thức của môn MLN122.",
+      "Chương II: Phép biện chứng duy vật — các cặp phạm trù và ba quy luật cơ bản. Tài liệu học chính thức của môn MLN111.",
     href: "https://moet.gov.vn/",
-    source: "moet.gov.vn"
-  },
-  {
-    label: "Chính sách",
-    title: "Nghị quyết 12-NQ/TW về cải cách DNNN",
-    description:
-      "Định hướng tiếp tục cơ cấu lại, đổi mới và nâng cao hiệu quả doanh nghiệp nhà nước đến 2030.",
-    href: "https://tulieuvankien.dangcongsan.vn/",
-    source: "tulieuvankien.dangcongsan.vn"
-  },
-  {
-    label: "Dữ liệu",
-    title: "Báo cáo thường niên — EVN",
-    description:
-      "Số liệu sản lượng điện, tỉ lệ điện khí hóa, cơ cấu nguồn phát và đầu tư hạ tầng truyền tải.",
-    href: "https://www.evn.com.vn/",
-    source: "evn.com.vn"
-  },
-  {
-    label: "Dữ liệu",
-    title: "Tập đoàn Dầu khí Việt Nam — PVN",
-    description:
-      "Thông tin vận hành, các dự án chiến lược thượng nguồn, hạ nguồn và đóng góp ngân sách.",
-    href: "https://www.pvn.vn/",
-    source: "pvn.vn"
+    source: "moet.gov.vn",
   },
   {
     label: "Nghiên cứu",
-    title: "World Bank — Vietnam Development Report",
+    title: "Burnout Among Vietnamese University Students",
     description:
-      "Phân tích vai trò của khu vực nhà nước trong tăng trưởng, năng lực cạnh tranh và cải cách thể chế.",
-    href: "https://www.worldbank.org/en/country/vietnam",
-    source: "worldbank.org"
+      "Nghiên cứu về tỷ lệ kiệt sức học tập trong sinh viên đại học tại Việt Nam và các yếu tố ảnh hưởng.",
+    href: "https://www.ncbi.nlm.nih.gov/",
+    source: "ncbi.nlm.nih.gov",
   },
   {
     label: "Học thuật",
-    title: "Tạp chí Cộng sản — Chuyên đề DNNN",
+    title: "Hustle Culture và sức khỏe tâm thần — Tạp chí Tâm lý học",
     description:
-      "Các bài bình luận, phân tích cập nhật về vai trò chủ đạo của kinh tế nhà nước tại Việt Nam.",
-    href: "https://www.tapchicongsan.org.vn/",
-    source: "tapchicongsan.org.vn"
-  }
+      "Phân tích văn hóa \"cống hiến không ngừng\" và tác động đến sức khỏe tâm thần của thế hệ trẻ.",
+    href: "https://www.tapchitamly.com.vn/",
+    source: "tapchitamly.com.vn",
+  },
+  {
+    label: "Triết học",
+    title: "Friedrich Engels — Phép biện chứng của tự nhiên",
+    description:
+      "Nền tảng lý luận về ba quy luật cơ bản của phép biện chứng duy vật Mác–Lênin.",
+    href: "https://www.marxists.org/",
+    source: "marxists.org",
+  },
+  {
+    label: "Dữ liệu",
+    title: "UNESCO — Sức khỏe tâm thần sinh viên tại Đông Nam Á",
+    description:
+      "Báo cáo về thực trạng sức khỏe tâm thần sinh viên và ảnh hưởng của áp lực học tập trong khu vực.",
+    href: "https://www.unesco.org/",
+    source: "unesco.org",
+  },
+  {
+    label: "Thực tiễn",
+    title: "Báo cáo — Sức khỏe tâm thần học đường Việt Nam 2023",
+    description:
+      "Số liệu cập nhật về tỷ lệ lo âu, trầm cảm và kiệt sức trong học sinh, sinh viên Việt Nam.",
+    href: "https://moh.gov.vn/",
+    source: "moh.gov.vn",
+  },
 ];
 
 function useRoute() {
@@ -939,7 +999,7 @@ function PolicySimGame() {
       <div style={{ ...pgStyle, justifyContent: "center", alignItems: "center", position: "relative", overflow: "hidden", padding: "40px 20px" }}>
         <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(195,40,45,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} />
         <div style={{ zIndex: 10, background: "rgba(15,23,42,0.6)", backdropFilter: "blur(20px)", padding: "clamp(32px, 5vw, 64px)", borderRadius: "32px", border: "1px solid rgba(255,255,255,0.08)", maxWidth: "850px", textAlign: "center", boxShadow: "0 40px 100px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div style={{ display: "inline-block", padding: "6px 16px", borderRadius: "999px", background: "rgba(30,127,212,0.15)", color: "#3b82f6", fontWeight: 900, marginBottom: "20px", letterSpacing: "0.1em", fontSize: "0.8rem" }}>NHÓM 4 MLN122</div>
+          <div style={{ display: "inline-block", padding: "6px 16px", borderRadius: "999px", background: "rgba(30,127,212,0.15)", color: "#3b82f6", fontWeight: 900, marginBottom: "20px", letterSpacing: "0.1em", fontSize: "0.8rem" }}>NHÓM 4 MLN111</div>
 
           <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 900, margin: "0 0 20px", lineHeight: 1.1, background: "linear-gradient(to right, #ffffff, #94a3b8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             MÔ PHỎNG VĨ MÔ
@@ -1271,8 +1331,8 @@ function App() {
       <header className="site-nav">
         <div className="nav-inner">
           <div className="brand">
-            <span className="brand-badge">VN</span>
-            <span>Kinh tế công và điều tiết</span>
+            <span className="brand-badge">ML</span>
+            <span>Triết học Mác–Lênin</span>
           </div>
           <nav className="nav-links">
             {NAV_ITEMS.map((item) => (
@@ -1292,19 +1352,19 @@ function App() {
         <section className="hero" id="hero">
           <div className="hero-grid">
             <div className="hero-copy" data-reveal="">
-              <p className="kicker">MLN122 · Chuyên đề nhóm 4 · Chương 4</p>
+              <p className="kicker">MLN111 · Nhóm 4 · Chương II</p>
               <h1 className="hero-title">
-                Tập đoàn kinh tế nhà nước tại Việt Nam:
-                <span className="hero-title-alt"> độc quyền tự nhiên</span>
+                Sinh viên T và vòng xoáy Hustle:
+                <span className="hero-title-alt"> khi lượng tích lũy đủ</span>
                 <span className="hero-divider"> </span>
-                <span className="hero-title-alt strike"> hay công cụ điều tiết vĩ mô?</span>
+                <span className="hero-title-alt strike"> — chất thay đổi</span>
               </h1>
               <p className="hero-lede">
-                Một góc đọc từ lý luận của V.I.Lênin về độc quyền và độc quyền nhà nước, đặt cạnh thực tiễn EVN,
-                PVN và hạ tầng viễn thông trong nền kinh tế thị trường định hướng XHCN.
+                Một góc nhìn từ Phép biện chứng duy vật Mác–Lênin về áp lực học tập,
+                burnout và hành trình tìm lại bản thân của thế hệ sinh viên hiện đại.
               </p>
               <div className="hero-actions">
-                <a href="#lyluan" className="btn-primary">
+                <a href="#bienchinh" className="btn-primary">
                   Bắt đầu chuyên đề
                 </a>
                 <a href="#/game" className="btn-ghost">
@@ -1324,17 +1384,17 @@ function App() {
 
             <aside className="hero-aside" data-reveal="" aria-hidden="true">
               <div className="aside-card">
-                <span className="aside-chip">Lênin · 5 đặc điểm</span>
+                <span className="aside-chip">MLN111 · Triết học Mác–Lênin</span>
                 <ol className="aside-list">
-                  <li>Tập trung sản xuất và độc quyền</li>
-                  <li>Tư bản tài chính &amp; tài phiệt</li>
-                  <li>Xuất khẩu tư bản</li>
-                  <li>Liên minh độc quyền quốc tế</li>
-                  <li>Phân chia lãnh thổ kinh tế</li>
+                  <li>Phép biện chứng duy vật</li>
+                  <li>Các cặp phạm trù cơ bản</li>
+                  <li>Ba quy luật biện chứng</li>
+                  <li>Lý luận nhận thức</li>
+                  <li>Thực tiễn &amp; Nhận thức</li>
                 </ol>
                 <p className="aside-note">
-                  Trong điều kiện hiện nay, những đặc điểm này xuất hiện dưới hình thái mới: chuỗi cung ứng
-                  toàn cầu, nền tảng số và độc quyền dữ liệu.
+                  Triết học không trừu tượng — nó là công cụ
+                  để hiểu chính hành trình của bạn.
                 </p>
               </div>
             </aside>
@@ -1351,16 +1411,15 @@ function App() {
           </div>
         </div>
 
-        <section id="lyluan">
+        <section id="bienchinh">
           <div className="container">
             <div className="section-head" data-reveal="">
-              <p className="section-tag">Nền tảng lý thuyết</p>
+              <p className="section-tag">Nền tảng triết học</p>
               <h2 className="section-title">
-                Vì sao mô hình tập đoàn nhà nước từng là lựa chọn chiến lược?
+                Phép biện chứng duy vật là gì?
               </h2>
               <p className="section-sub">
-                Nhấn từng luận điểm để xem diễn giải ngắn gọn và ví dụ cụ thể tại Việt Nam. Nội dung bám sát
-                Chương 4 — Giáo trình Kinh tế Chính trị Mác — Lênin.
+                Nhấn từng luận điểm để xem diễn giải ngắn và ví dụ từ cuộc sống sinh viên.
               </p>
             </div>
 
@@ -1392,13 +1451,13 @@ function App() {
           </div>
         </section>
 
-        <section className="reality" id="thuctrang">
+        <section className="reality" id="phamtru">
           <div className="container">
             <div className="section-head" data-reveal="">
-              <p className="section-tag">Thực trạng vận hành</p>
-              <h2 className="section-title">Ba trụ cột đang nắm hạ tầng thiết yếu</h2>
+              <p className="section-tag">Công cụ triết học</p>
+              <h2 className="section-title">Sáu cặp phạm trù cơ bản nhìn từ đời sinh viên</h2>
               <p className="section-sub">
-                Nhấn từng thẻ để mở phân tích vai trò kinh tế, tính độc quyền tự nhiên và tình huống điển hình.
+                Nhấn từng thẻ để xem phân tích chi tiết qua trải nghiệm thực tế của Sinh viên T.
               </p>
             </div>
 
@@ -1434,15 +1493,15 @@ function App() {
           </div>
         </section>
 
-        <section id="phantich">
+        <section id="quyluat">
           <div className="container">
             <div className="section-head" data-reveal="">
-              <p className="section-tag">Hai chiều phân tích</p>
+              <p className="section-tag">Ba quy luật biện chứng</p>
               <h2 className="section-title">
-                Công cụ điều tiết vĩ mô hay nguy cơ độc quyền kéo dài?
+                Ba quy luật cơ bản của phép biện chứng duy vật
               </h2>
               <p className="section-sub">
-                Một góc nhìn cân bằng giữa mục tiêu ổn định xã hội và hiệu quả thị trường.
+                Một góc nhìn đối chiếu giữa lý thuyết và thực tiễn đời sống sinh viên.
               </p>
             </div>
 
@@ -1514,14 +1573,14 @@ function App() {
           </div>
         </section>
 
-        <section id="giaiphap">
+        <section id="lyluan">
           <div className="container">
             <div className="section-head" data-reveal="">
-              <p className="section-tag">Lộ trình cải cách</p>
+              <p className="section-tag">Vòng lặp nhận thức</p>
               <h2 className="section-title">
-                Ba hướng thiết kế thể chế để dung hòa ổn định và cạnh tranh
+                Lý luận nhận thức: Thực tiễn → Nhận thức → Thực tiễn
               </h2>
-              <p className="section-sub">Mở từng mục để xem lợi ích kỳ vọng và hàm ý chính sách.</p>
+              <p className="section-sub">Mở từng giai đoạn để xem hành trình nhận thức của Sinh viên T và ý nghĩa triết học.</p>
             </div>
 
             <div className="solution-layout">
@@ -1612,10 +1671,10 @@ function App() {
         <section id="quiz">
           <div className="container">
             <div className="section-head" data-reveal="">
-              <p className="section-tag">Tranh luận lớp học</p>
-              <h2 className="section-title">Bạn sẽ chọn chính sách nào?</h2>
+              <p className="section-tag">Thảo luận lớp học</p>
+              <h2 className="section-title">Bạn sẽ chọn như T?</h2>
               <p className="section-sub">
-                Mỗi lựa chọn đều có đánh đổi. Bấm A hoặc B để xem phản hồi và thảo luận ngay trên lớp.
+                Mỗi lựa chọn đều có đánh đổi. Bấm để xem phân tích triết học và thảo luận cùng nhau.
               </p>
             </div>
 
@@ -1713,19 +1772,19 @@ function App() {
               <div className="conclusion-text">
                 <p className="section-tag">Kết luận</p>
                 <h3>
-                  Giống như cây tre: <span className="highlight">rễ phải chắc</span>, nhưng{" "}
-                  <span className="highlight">cành phải linh hoạt</span>.
+                  Như phủ định của phủ định: <span className="highlight">T không quay về điểm cũ</span> —{" "}
+                  <span className="highlight">đó là T mới, ở tầm cao hơn.</span>
                 </h3>
                 <p>
-                  Trong cấu trúc kinh tế hiện đại, Nhà nước nên giữ vai trò nền tảng ở các mắt xích độc
-                  quyền tự nhiên, đồng thời mở không gian cạnh tranh ở khâu có thể thị trường hóa.
+                  Hustle culture không sai về bản chất — mâu thuẫn giữa cống hiến và nghỉ ngơi là động lực phát triển.
+                  Vấn đề là khi mâu thuẫn không được giải quyết biện chứng, nó dẫn đến đứt gãy.
                 </p>
                 <p>
-                  Không cực đoan theo một phía — trọng tâm là thiết kế thể chế đủ minh bạch để vừa ổn định
-                  vĩ mô, vừa khuyến khích hiệu quả dài hạn.
+                  Phép biện chứng duy vật cho ta công cụ: nhìn nhận mâu thuẫn, hiểu quy luật lượng–chất,
+                  và biết rằng mọi phủ định đều mở ra khả năng mới — cao hơn, sâu hơn, trưởng thành hơn.
                 </p>
                 <p className="conclusion-meta">
-                  Nhóm 4 · MLN122 · Chuyên đề Chương 4 — Cạnh tranh và độc quyền trong nền kinh tế thị trường.
+                  Nhóm 4 · MLN111 · Chương II — Phép biện chứng duy vật
                 </p>
               </div>
             </div>
@@ -1734,8 +1793,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        Bản trình bày tương tác cho thảo luận lớp học · Tập đoàn kinh tế nhà nước và bài toán điều tiết vĩ mô
-        tại Việt Nam · Nhóm 4 MLN122.
+        Bản trình bày tương tác cho thảo luận lớp học · Sinh viên T và Phép biện chứng duy vật
+        · Nhóm 4 MLN111.
       </footer>
 
       <div
