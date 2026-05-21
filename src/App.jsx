@@ -215,8 +215,7 @@ const GROUP_ITEMS = [
     fullName: "Quan hệ giữa cái riêng và cái chung",
     summary:
       "Cái riêng là một sự vật, cái chung là những thuộc tính lặp lại trong nhiều sự vật. Cái chung chỉ tồn tại trong cái riêng và ngược lại.",
-    role:
-      "Cái chung biểu hiện tính phổ biến, cái riêng biểu hiện tính cá biệt và phong phú. Trong học tập: một phương pháp học có thể là chung, nhưng cách áp dụng với từng sinh viên là cái riêng.",
+    role: "Cái chung biểu hiện tính phổ biến, cái riêng biểu hiện tính cá biệt và phong phú. Trong học tập: một phương pháp học có thể là chung, nhưng cách áp dụng với từng sinh viên là cái riêng.",
     monopoly:
       "Nguy cơ là coi cái chung là toàn bộ thực tế và ép cái riêng phải giống y hệt. Hiểu đúng là lấy cái chung để điều chỉnh cái riêng một cách linh hoạt.",
     twoSide:
@@ -234,8 +233,7 @@ const GROUP_ITEMS = [
     fullName: "Quan hệ nhân quả trong học tập",
     summary:
       "Mọi kết quả đều có nguyên nhân. Nhưng cùng nguyên nhân, hoàn cảnh khác nhau có thể dẫn đến kết quả khác nhau.",
-    role:
-      "Nguyên nhân có trước và sinh ra kết quả; kết quả có thể trở thành nguyên nhân cho sự phát triển tiếp theo. Trong học tập: thiếu ngủ → mất tập trung → điểm thấp.",
+    role: "Nguyên nhân có trước và sinh ra kết quả; kết quả có thể trở thành nguyên nhân cho sự phát triển tiếp theo. Trong học tập: thiếu ngủ → mất tập trung → điểm thấp.",
     monopoly:
       "Không có quan hệ nhân quả đơn tuyến; có nguyên nhân gần và nguyên nhân xa. Giải quyết gốc rễ mới có hiệu quả lâu dài.",
     twoSide:
@@ -253,8 +251,7 @@ const GROUP_ITEMS = [
     fullName: "Mối quan hệ giữa tất nhiên và ngẫu nhiên",
     summary:
       "Tất nhiên là cái do những nguyên nhân chủ yếu bên trong quyết định; ngẫu nhiên là cái do nhiều điều kiện bên ngoài kết hợp mà thành.",
-    role:
-      "Các sự kiện tất nhiên được tạo thành từ nhiều ngẫu nhiên; hiểu mối quan hệ này giúp phân tích diễn biến thực tế trong học tập.",
+    role: "Các sự kiện tất nhiên được tạo thành từ nhiều ngẫu nhiên; hiểu mối quan hệ này giúp phân tích diễn biến thực tế trong học tập.",
     monopoly:
       "Quan niệm sai lầm là coi ngẫu nhiên là tuyệt đối hoặc phủ nhận vai trò của ngẫu nhiên — cả hai đều thiếu biện chứng.",
     twoSide:
@@ -272,8 +269,7 @@ const GROUP_ITEMS = [
     fullName: "Hustle: Hình thức che khuất Nội dung",
     summary:
       "Nội dung là tổng hợp các yếu tố cấu thành sự vật; hình thức là phương thức tồn tại và biểu hiện của nội dung.",
-    role:
-      "Nội dung quyết định hình thức nhưng hình thức có tác động trở lại nội dung trong điều kiện nhất định.",
+    role: "Nội dung quyết định hình thức nhưng hình thức có tác động trở lại nội dung trong điều kiện nhất định.",
     monopoly:
       "Rủi ro là chú trọng hình thức đến mức làm mất nội dung thực sự; hình thức cần phục vụ nội dung chứ không thay thế.",
     twoSide:
@@ -291,8 +287,7 @@ const GROUP_ITEMS = [
     fullName: "Bề mặt và chiều sâu của Hustle Culture",
     summary:
       "Bản chất là tổng hợp các mối liên hệ khách quan bên trong; hiện tượng là biểu hiện bên ngoài của bản chất.",
-    role:
-      "Bản chất quy định vận động của sự vật; hiện tượng là cách bản chất xuất hiện dưới điều kiện lịch sử cụ thể.",
+    role: "Bản chất quy định vận động của sự vật; hiện tượng là cách bản chất xuất hiện dưới điều kiện lịch sử cụ thể.",
     monopoly:
       "Nguy hiểm khi chỉ nhìn hiện tượng mà không tìm bản chất — có thể bị lừa bởi vẻ bề ngoài.",
     twoSide:
@@ -310,8 +305,7 @@ const GROUP_ITEMS = [
     fullName: "Từ tiềm năng đến kết quả thực tế",
     summary:
       "Khả năng là những tiền đề chưa hiện thực; hiện thực là những gì đang tồn tại. Thực tiễn là cầu nối biến khả năng thành hiện thực.",
-    role:
-      "Không phải mọi khả năng đều thành hiện thực — cần điều kiện, hành động và thời gian để hiện thực hóa.",
+    role: "Không phải mọi khả năng đều thành hiện thực — cần điều kiện, hành động và thời gian để hiện thực hóa.",
     monopoly:
       "Lỗi phổ biến là nhầm lẫn khả năng với hiện thực và bỏ qua điều kiện cần thiết để hiện thực hóa khả năng.",
     twoSide:
@@ -333,13 +327,13 @@ const SOLUTION_ITEMS = [
     benefit:
       "Vai trò: Cảm giác và trực quan là điểm khởi đầu của mọi nhận thức. Không có trực quan sinh động thì không có nguyên liệu để tư duy.",
     implication:
-      "Giới hạn: Trực quan có thể bị đánh lừa bởi hiện tượng. T thấy bạn \"thành công\" nhưng chưa thấy được bản chất — bạn ấy có thể đang kiệt sức phía sau màn hình.",
+      'Giới hạn: Trực quan có thể bị đánh lừa bởi hiện tượng. T thấy bạn "thành công" nhưng chưa thấy được bản chất — bạn ấy có thể đang kiệt sức phía sau màn hình.',
   },
   {
     id: "tu-duy",
     title: "Giai đoạn 2: Tư duy trừu tượng",
     explanation:
-      "T bắt đầu phân tích, khái quát hóa từ những gì quan sát được. \"Tại sao mình cố gắng mà không tiến?\" → \"Hustle nhiều nhưng không đúng hướng\" → \"Vấn đề là chiến lược, không phải nỗ lực\". Nhận thức vượt khỏi cảm giác, đi vào bản chất.",
+      'T bắt đầu phân tích, khái quát hóa từ những gì quan sát được. "Tại sao mình cố gắng mà không tiến?" → "Hustle nhiều nhưng không đúng hướng" → "Vấn đề là chiến lược, không phải nỗ lực". Nhận thức vượt khỏi cảm giác, đi vào bản chất.',
     benefit:
       "Vai trò: Tư duy trừu tượng giúp nắm bắt quy luật, bản chất ẩn sau hiện tượng. Đây là bước nhảy vọt của nhận thức.",
     implication:
@@ -364,8 +358,16 @@ const SCENARIOS = [
     description:
       "3 ngày nữa có 5 deadline cùng lúc. Sức khỏe T không tốt. T nên làm gì?",
     options: [
-      { key: "a", label: "A. Thức xuyên đêm, làm hết tất cả để không thiếu deadline nào", result: "mixed" },
-      { key: "b", label: "B. Ưu tiên quan trọng nhất, xin gia hạn phần còn lại", result: "good" },
+      {
+        key: "a",
+        label: "A. Thức xuyên đêm, làm hết tất cả để không thiếu deadline nào",
+        result: "mixed",
+      },
+      {
+        key: "b",
+        label: "B. Ưu tiên quan trọng nhất, xin gia hạn phần còn lại",
+        result: "good",
+      },
     ],
   },
   {
@@ -374,8 +376,18 @@ const SCENARIOS = [
     description:
       "Một công ty offer internship lương tốt, nhưng sẽ ảnh hưởng đến GPA học kỳ này. T nên làm gì?",
     options: [
-      { key: "a", label: "A. Cân nhắc kỹ: đây là khả năng hay hiện thực? Điều kiện có đủ không?", result: "good" },
-      { key: "b", label: "B. Nhận internship — trải nghiệm thực tế quan trọng hơn điểm số", result: "mixed" },
+      {
+        key: "a",
+        label:
+          "A. Cân nhắc kỹ: đây là khả năng hay hiện thực? Điều kiện có đủ không?",
+        result: "good",
+      },
+      {
+        key: "b",
+        label:
+          "B. Nhận internship — trải nghiệm thực tế quan trọng hơn điểm số",
+        result: "mixed",
+      },
     ],
   },
   {
@@ -384,15 +396,23 @@ const SCENARIOS = [
     description:
       "Bạn cùng phòng của T nghỉ ngơi, chơi game. T cảm thấy guilty vì không học. Đâu là suy nghĩ đúng?",
     options: [
-      { key: "a", label: "A. \"Mình phải học — người khác nghỉ là lãng phí\"", result: "mixed" },
-      { key: "b", label: "B. \"Nghỉ ngơi là một phần của quá trình — mâu thuẫn giữa học và nghỉ cần cân bằng\"", result: "good" },
+      {
+        key: "a",
+        label: 'A. "Mình phải học — người khác nghỉ là lãng phí"',
+        result: "mixed",
+      },
+      {
+        key: "b",
+        label:
+          'B. "Nghỉ ngơi là một phần của quá trình — mâu thuẫn giữa học và nghỉ cần cân bằng"',
+        result: "good",
+      },
     ],
   },
 ];
 
 const QUIZ_FEEDBACK = {
-  good:
-    "Phép biện chứng ủng hộ lựa chọn này: nhìn nhận mâu thuẫn, tìm điểm cân bằng thay vì cực đoan một phía. Đây là tư duy biện chứng trong thực tiễn.",
+  good: "Phép biện chứng ủng hộ lựa chọn này: nhìn nhận mâu thuẫn, tìm điểm cân bằng thay vì cực đoan một phía. Đây là tư duy biện chứng trong thực tiễn.",
   mixed:
     "Lựa chọn này có logic nhưng thiên về tư duy siêu hình — nhìn sự vật tách biệt, không thấy mối liên hệ và hậu quả dài hạn. Kết quả ngắn hạn có thể ổn, nhưng dài hạn tạo mâu thuẫn mới.",
 };
@@ -418,7 +438,7 @@ const RESEARCH_LINKS = [
     label: "Học thuật",
     title: "Hustle Culture và sức khỏe tâm thần — Tạp chí Tâm lý học",
     description:
-      "Phân tích văn hóa \"cống hiến không ngừng\" và tác động đến sức khỏe tâm thần của thế hệ trẻ.",
+      'Phân tích văn hóa "cống hiến không ngừng" và tác động đến sức khỏe tâm thần của thế hệ trẻ.',
     href: "https://www.tapchitamly.com.vn/",
     source: "tapchitamly.com.vn",
   },
@@ -523,7 +543,7 @@ const loadGame = (
       setEventIndex(data.eventIndex || 0);
       setActivePolicies(data.activePolicies || []);
     }
-  } catch (e) { }
+  } catch (e) {}
 };
 
 const saveGame = (
@@ -1377,9 +1397,34 @@ function PolicySimGame() {
           )}
         </div>
 
-        <div style={{ display: "flex", gap: "20px", alignItems: "center", marginBottom: "16px" }}>
-          <span style={{ fontSize: "5rem", filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.5))" }}>{c.i}</span>
-          <h1 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "white", margin: 0, lineHeight: 1.1, fontFamily: "Manrope", fontWeight: 900 }}>{c.t}</h1>
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            alignItems: "center",
+            marginBottom: "16px",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "5rem",
+              filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.5))",
+            }}
+          >
+            {c.i}
+          </span>
+          <h1
+            style={{
+              fontSize: "clamp(2rem, 4vw, 3.5rem)",
+              color: "white",
+              margin: 0,
+              lineHeight: 1.1,
+              fontFamily: "Manrope",
+              fontWeight: 900,
+            }}
+          >
+            {c.t}
+          </h1>
         </div>
         <p
           style={{
@@ -1501,10 +1546,6 @@ function PolicySimGame() {
 
   if (gameState === "start") {
     return (
-      <div style={{ ...pgStyle, justifyContent: "center", alignItems: "center", position: "relative", overflow: "hidden", padding: "40px 20px" }}>
-        <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(195,40,45,0.15) 0%, transparent 70%)", filter: "blur(60px)" }} />
-        <div style={{ zIndex: 10, background: "rgba(15,23,42,0.6)", backdropFilter: "blur(20px)", padding: "clamp(32px, 5vw, 64px)", borderRadius: "32px", border: "1px solid rgba(255,255,255,0.08)", maxWidth: "850px", textAlign: "center", boxShadow: "0 40px 100px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div style={{ display: "inline-block", padding: "6px 16px", borderRadius: "999px", background: "rgba(30,127,212,0.15)", color: "#3b82f6", fontWeight: 900, marginBottom: "20px", letterSpacing: "0.1em", fontSize: "0.8rem" }}>NHÓM 7 MLN111</div>
       <div
         style={{
           ...pgStyle,
@@ -2113,7 +2154,9 @@ function App() {
       <header className="site-nav">
         <div className="nav-inner">
           <div className="brand">
-            <span className="brand-badge"><div className="brand-badge-ico">☭</div></span>
+            <span className="brand-badge">
+              <div className="brand-badge-ico">☭</div>
+            </span>
             <span>Triết học Mác–Lênin</span>
           </div>
           <nav className="nav-links">
@@ -2142,8 +2185,9 @@ function App() {
                 <span className="hero-title-alt strike"> — chất thay đổi</span>
               </h1>
               <p className="hero-lede">
-                Một góc nhìn từ Phép biện chứng duy vật Mác–Lênin về áp lực học tập,
-                burnout và hành trình tìm lại bản thân của thế hệ sinh viên hiện đại.
+                Một góc nhìn từ Phép biện chứng duy vật Mác–Lênin về áp lực học
+                tập, burnout và hành trình tìm lại bản thân của thế hệ sinh viên
+                hiện đại.
               </p>
               <div className="hero-actions">
                 <a href="#bienchinh" className="btn-primary">
@@ -2175,8 +2219,8 @@ function App() {
                   <li>Thực tiễn &amp; Nhận thức</li>
                 </ol>
                 <p className="aside-note">
-                  Triết học không trừu tượng — nó là công cụ
-                  để hiểu chính hành trình của bạn.
+                  Triết học không trừu tượng — nó là công cụ để hiểu chính hành
+                  trình của bạn.
                 </p>
               </div>
             </aside>
@@ -2197,11 +2241,10 @@ function App() {
           <div className="container">
             <div className="section-head" data-reveal="">
               <p className="section-tag">Nền tảng triết học</p>
-              <h2 className="section-title">
-                Phép biện chứng duy vật là gì?
-              </h2>
+              <h2 className="section-title">Phép biện chứng duy vật là gì?</h2>
               <p className="section-sub">
-                Nhấn từng luận điểm để xem diễn giải ngắn và ví dụ từ cuộc sống sinh viên.
+                Nhấn từng luận điểm để xem diễn giải ngắn và ví dụ từ cuộc sống
+                sinh viên.
               </p>
             </div>
 
@@ -2237,9 +2280,12 @@ function App() {
           <div className="container">
             <div className="section-head" data-reveal="">
               <p className="section-tag">Công cụ triết học</p>
-              <h2 className="section-title">Sáu cặp phạm trù cơ bản nhìn từ đời sinh viên</h2>
+              <h2 className="section-title">
+                Sáu cặp phạm trù cơ bản nhìn từ đời sinh viên
+              </h2>
               <p className="section-sub">
-                Nhấn từng thẻ để xem phân tích chi tiết qua trải nghiệm thực tế của Sinh viên T.
+                Nhấn từng thẻ để xem phân tích chi tiết qua trải nghiệm thực tế
+                của Sinh viên T.
               </p>
             </div>
 
@@ -2283,14 +2329,24 @@ function App() {
                 Ba quy luật cơ bản của phép biện chứng duy vật
               </h2>
               <p className="section-sub">
-                Một góc nhìn đối chiếu giữa lý thuyết và thực tiễn đời sống sinh viên.
+                Một góc nhìn đối chiếu giữa lý thuyết và thực tiễn đời sống sinh
+                viên.
               </p>
             </div>
 
             {/* Ghi đè CSS grid cũ để tự động chia thành 3 cột đều nhau */}
-            <div className="analysis-wrap" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "30px" }}>
-
-              <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
+            <div
+              className="analysis-wrap"
+              style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: "30px",
+              }}
+            >
+              <article
+                className="analysis-col"
+                data-reveal=""
+                style={{ background: "rgba(255,255,255,0.03)" }}
+              >
                 <div className="analysis-image">
                   <img
                     src="/assets/events/vi-du-ve-mat-doi-lap-cua-mau-thuan_1.webp"
@@ -2298,21 +2354,34 @@ function App() {
                   />
                 </div>
                 <div className="analysis-content">
-                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>1. Thống nhất & Đấu tranh của các mặt đối lập</h3>
+                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>
+                    1. Thống nhất & Đấu tranh của các mặt đối lập
+                  </h3>
                   <ul>
                     <li>
                       <span className="dot plus">›</span>
-                      <span><b>Lý thuyết:</b> Mọi sự vật đều chứa mặt đối lập; mâu thuẫn là động lực phát triển.</span>
+                      <span>
+                        <b>Lý thuyết:</b> Mọi sự vật đều chứa mặt đối lập; mâu
+                        thuẫn là động lực phát triển.
+                      </span>
                     </li>
                     <li>
                       <span className="dot plus">›</span>
-                      <span><b>Thực tiễn:</b> Mâu thuẫn giữa việc cày điểm (hustle) và nhu cầu nghỉ ngơi (balance) buộc sinh viên phải tìm ra cách quản lý bản thân hiệu quả hơn.</span>
+                      <span>
+                        <b>Thực tiễn:</b> Mâu thuẫn giữa việc cày điểm (hustle)
+                        và nhu cầu nghỉ ngơi (balance) buộc sinh viên phải tìm
+                        ra cách quản lý bản thân hiệu quả hơn.
+                      </span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
+              <article
+                className="analysis-col"
+                data-reveal=""
+                style={{ background: "rgba(255,255,255,0.03)" }}
+              >
                 <div className="analysis-image">
                   <img
                     src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80"
@@ -2320,21 +2389,34 @@ function App() {
                   />
                 </div>
                 <div className="analysis-content">
-                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>2. Chuyển hóa Lượng thành Chất</h3>
+                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>
+                    2. Chuyển hóa Lượng thành Chất
+                  </h3>
                   <ul>
                     <li>
                       <span className="dot plus">›</span>
-                      <span><b>Lý thuyết:</b> Tích lũy đủ về lượng sẽ dẫn đến sự nhảy vọt về chất khi đạt điểm nút.</span>
+                      <span>
+                        <b>Lý thuyết:</b> Tích lũy đủ về lượng sẽ dẫn đến sự
+                        nhảy vọt về chất khi đạt điểm nút.
+                      </span>
                     </li>
                     <li>
                       <span className="dot plus">›</span>
-                      <span><b>Thực tiễn:</b> Học nhồi nhét 1 đêm không thể giỏi ngay. Tích lũy từng bài học nhỏ mỗi ngày (Lượng) mới tạo ra tư duy nhạy bén thực sự (Chất).</span>
+                      <span>
+                        <b>Thực tiễn:</b> Học nhồi nhét 1 đêm không thể giỏi
+                        ngay. Tích lũy từng bài học nhỏ mỗi ngày (Lượng) mới tạo
+                        ra tư duy nhạy bén thực sự (Chất).
+                      </span>
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article className="analysis-col" data-reveal="" style={{ background: "rgba(255,255,255,0.03)" }}>
+              <article
+                className="analysis-col"
+                data-reveal=""
+                style={{ background: "rgba(255,255,255,0.03)" }}
+              >
                 <div className="analysis-image">
                   <img
                     src="/assets/events/phu-dinh.webp"
@@ -2342,20 +2424,28 @@ function App() {
                   />
                 </div>
                 <div className="analysis-content">
-                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>3. Phủ định của Phủ định</h3>
+                  <h3 style={{ fontSize: "1.2rem", lineHeight: "1.4" }}>
+                    3. Phủ định của Phủ định
+                  </h3>
                   <ul>
                     <li>
                       <span className="dot plus">›</span>
-                      <span><b>Lý thuyết:</b> Sự phát triển mang tính xoáy ốc; cái mới ra đời từ cái cũ nhưng ở trình độ cao hơn.</span>
+                      <span>
+                        <b>Lý thuyết:</b> Sự phát triển mang tính xoáy ốc; cái
+                        mới ra đời từ cái cũ nhưng ở trình độ cao hơn.
+                      </span>
                     </li>
                     <li>
                       <span className="dot plus">›</span>
-                      <span><b>Thực tiễn:</b> Trải qua burnout (phủ định) → Thay đổi lối sống → Trở thành một phiên bản trưởng thành hơn chứ không quay lại làm sinh viên năm nhất ngây thơ.</span>
+                      <span>
+                        <b>Thực tiễn:</b> Trải qua burnout (phủ định) → Thay đổi
+                        lối sống → Trở thành một phiên bản trưởng thành hơn chứ
+                        không quay lại làm sinh viên năm nhất ngây thơ.
+                      </span>
                     </li>
                   </ul>
                 </div>
               </article>
-
             </div>
           </div>
         </section>
@@ -2367,7 +2457,10 @@ function App() {
               <h2 className="section-title">
                 Lý luận nhận thức: Thực tiễn → Nhận thức → Thực tiễn
               </h2>
-              <p className="section-sub">Mở từng giai đoạn để xem hành trình nhận thức của Sinh viên T và ý nghĩa triết học.</p>
+              <p className="section-sub">
+                Mở từng giai đoạn để xem hành trình nhận thức của Sinh viên T và
+                ý nghĩa triết học.
+              </p>
             </div>
 
             <div className="solution-layout">
@@ -2480,7 +2573,8 @@ function App() {
               <p className="section-tag">Thảo luận lớp học</p>
               <h2 className="section-title">Bạn sẽ chọn như T?</h2>
               <p className="section-sub">
-                Mỗi lựa chọn đều có đánh đổi. Bấm để xem phân tích triết học và thảo luận cùng nhau.
+                Mỗi lựa chọn đều có đánh đổi. Bấm để xem phân tích triết học và
+                thảo luận cùng nhau.
               </p>
             </div>
 
@@ -2583,16 +2677,19 @@ function App() {
               <div className="conclusion-text">
                 <p className="section-tag">Kết luận</p>
                 <h3>
-                  Như phủ định của phủ định: <span className="highlight">T không quay về điểm cũ</span> —{" "}
+                  Như phủ định của phủ định:{" "}
+                  <span className="highlight">T không quay về điểm cũ</span> —{" "}
                   <span className="highlight">đó là T mới, ở tầm cao hơn.</span>
                 </h3>
                 <p>
-                  Hustle culture không sai về bản chất — mâu thuẫn giữa cống hiến và nghỉ ngơi là động lực phát triển.
-                  Vấn đề là khi mâu thuẫn không được giải quyết biện chứng, nó dẫn đến đứt gãy.
+                  Hustle culture không sai về bản chất — mâu thuẫn giữa cống
+                  hiến và nghỉ ngơi là động lực phát triển. Vấn đề là khi mâu
+                  thuẫn không được giải quyết biện chứng, nó dẫn đến đứt gãy.
                 </p>
                 <p>
-                  Phép biện chứng duy vật cho ta công cụ: nhìn nhận mâu thuẫn, hiểu quy luật lượng–chất,
-                  và biết rằng mọi phủ định đều mở ra khả năng mới — cao hơn, sâu hơn, trưởng thành hơn.
+                  Phép biện chứng duy vật cho ta công cụ: nhìn nhận mâu thuẫn,
+                  hiểu quy luật lượng–chất, và biết rằng mọi phủ định đều mở ra
+                  khả năng mới — cao hơn, sâu hơn, trưởng thành hơn.
                 </p>
                 <p className="conclusion-meta">
                   Nhóm 7 · MLN111 · Chương II — Phép biện chứng duy vật
@@ -2604,8 +2701,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        Bản trình bày tương tác cho thảo luận lớp học · Sinh viên T và Phép biện chứng duy vật
-        · Nhóm 7 MLN111.
+        Bản trình bày tương tác cho thảo luận lớp học · Sinh viên T và Phép biện
+        chứng duy vật · Nhóm 7 MLN111.
       </footer>
 
       <div
