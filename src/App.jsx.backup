@@ -419,26 +419,12 @@ function useRoute() {
 // GAME CONSTANTS
 // ═══════════════════════════════════════════════════════════════════════════
 const BLACK_SWAN_SPAWN_RATE = 0.2;
-const POLICY_CLUB_GPA_BUFF = 0.1;
-const POLICY_DETOX_STRESS_REDUCTION = 5;
-const POLICY_DETOX_GPA_PENALTY = 0.1;
-const POLICY_PARTTIME_MONEY_BOOST = 8000;
-const POLICY_PARTTIME_STRESS_PENALTY = 20;
-const POLICY_PARTTIME_GPA_PENALTY = 0.3;
-const SAVE_KEY = "hustleLoopSave";
-const DEFAULT_STATS = { gpa: 3.0, mental: 80, money: 5000, stress: 30 };
-const DEFAULT_LOGS = [
-  "$ khởi-động --hustle-loop --sinh-viên T --học-kỳ 1",
-  "› [KHỞI TẠO] Học kỳ mới bắt đầu. GPA mục tiêu: 3.5+",
-  "› Tuần 1/12 — T tràn đầy năng lượng. Mọi thứ còn phía trước.",
-];
-
-const normalizeStats = (stats = {}) => ({
-  gpa: Number.isFinite(stats.gpa) ? stats.gpa : DEFAULT_STATS.gpa,
-  mental: Number.isFinite(stats.mental) ? stats.mental : DEFAULT_STATS.mental,
-  money: Number.isFinite(stats.money) ? stats.money : DEFAULT_STATS.money,
-  stress: Number.isFinite(stats.stress) ? stats.stress : DEFAULT_STATS.stress,
-});
+const POLICY_PPP_ROIC_BUFF = 1.5;
+const POLICY_STABILIZE_CPI_REDUCTION = 0.4;
+const POLICY_STABILIZE_ROIC_PENALTY = 0.4;
+const POLICY_TAX_BUDGET_BOOST = 40;
+const POLICY_TAX_WELFARE_PENALTY = 3;
+const SAVE_KEY = "policySimSave";
 
 // Shuffle array utility
 const shuffleArray = (array) => {
@@ -466,13 +452,9 @@ const loadGame = (
       const data = JSON.parse(saved);
       setGameState(data.gameState || "start");
       setQuarter(data.quarter || 1);
-      setStats(normalizeStats(data.stats));
-      setHistory(
-        Array.isArray(data.history)
-          ? data.history.map((entry) => normalizeStats(entry))
-          : [DEFAULT_STATS],
-      );
-      setLogs(data.logs || DEFAULT_LOGS);
+      setStats(data.stats || INIT_STATS);
+      setHistory(data.history || [INIT_STATS]);
+      setLogs(data.logs || INIT_LOGS);
       setEventIndex(data.eventIndex || 0);
       setActivePolicies(data.activePolicies || []);
     }
@@ -506,314 +488,318 @@ const saveGame = (
 const GAME_EVENTS = [
   {
     id: 1,
-    entity: "DEADLINE",
-    entityColor: "#818cf8",
-    entityBg: "rgba(129,140,248,0.15)",
-    title: "5 deadline trong 3 ngày",
+    entity: "EVN",
+    entityColor: "#f2c14e",
+    entityBg: "rgba(242,193,78,0.15)",
+    title: "Khủng hoảng thiếu điện mùa khô",
     description:
-      "Lịch nộp bài chồng chéo như một cơn lũ. Mỗi môn đều \"quan trọng\". T không biết bắt đầu từ đâu.",
-    desc: "3 ngày nữa: báo cáo thực tập, bài tập nhóm, bài kiểm tra giữa kỳ, essay tiếng Anh, và presentation. Ngủ hay học?",
+      "Hồ thủy điện cạn nhanh, lưới truyền tải rung lên trong giờ cao điểm và giá than đội chi phí từng phút.",
+    desc: "Mực nước hồ thủy điện cảnh báo. Giá than tăng 40%. Biên lợi nhuận EVN thủng đáy. Giải pháp của cấp điều hành là gì?",
     background: "energy.webp",
     type: "power",
     intensity: "high",
-    sceneLabel: "Thư viện đêm khuya",
+    sceneLabel: "Lưới điện quốc gia",
     options: [
       {
-        label: "Thức xuyên đêm — làm hết tất cả bằng mọi giá",
-        description: "Ép bản thân tối đa, hoàn thành toàn bộ deadline.",
-        rationale: "GPA giữ được nhưng sức khỏe tâm thần chịu cú đánh lớn.",
-        previewAnimation: "rising-chart",
-        tone: "orange",
-        impact: { gpa: 0.3, mental: -25, money: 0, stress: 35 },
-        logStr:
-          "[DEADLINE] Thức trắng. GPA giữ được nhưng T kiệt sức hoàn toàn.",
-      },
-      {
-        label: "Ưu tiên quan trọng nhất, xin gia hạn phần còn lại",
-        description:
-          "Liên hệ giảng viên, thương lượng, tập trung vào điều cốt lõi.",
-        rationale:
-          "GPA thấp hơn chút nhưng mental được bảo vệ — quyết định biện chứng hơn.",
+        label: "Giữ giá điện — chịu lỗ, lấy ngân sách bình ổn",
+        description: "Khóa biểu giá, bơm quỹ bình ổn và ưu tiên hộ dân cư.",
+        rationale: "Bảo vệ CPI, người dân không sốc giá.",
         previewAnimation: "money-flow",
         tone: "green",
-        impact: { gpa: 0.1, mental: -8, money: 0, stress: 15 },
+        impact: { cpi: 0, cov: 2, roic: -4.5, bud: -10 },
         logStr:
-          "[DEADLINE] T ưu tiên đúng. GPA giảm nhẹ nhưng mental được giữ.",
+          "[EVN] Giữ nguyên giá. Hao hụt ngân sách lớn nhưng được lòng dân.",
+      },
+      {
+        label: "Tăng giá điện 10% — theo tín hiệu thị trường",
+        description:
+          "Cho giá tăng theo chi phí đầu vào, giữ dòng vốn cho hạ tầng.",
+        rationale: "Bảo vệ dòng vốn, nhưng lạm phát sẽ leo thang.",
+        previewAnimation: "rising-chart",
+        tone: "orange",
+        impact: { cpi: 2.5, cov: -5, roic: 3.0, bud: 0 },
+        logStr:
+          "[EVN] Tăng giá điện 10%. ROIC phục hồi nhưng lạm phát tăng mạnh.",
       },
     ],
   },
   {
     id: 2,
-    entity: "TÀI CHÍNH",
-    entityColor: "#f59e0b",
-    entityBg: "rgba(245,158,11,0.12)",
-    title: "Học phí tăng 30% đột ngột",
+    entity: "PVN",
+    entityColor: "#7dd3fc",
+    entityBg: "rgba(125,211,252,0.12)",
+    title: "Giá dầu Brent lao dốc −38%",
     description:
-      "Thông báo từ phòng tài vụ. Học phí học kỳ sau tăng đột biến. Gia đình T không đủ bù.",
-    desc: "Thiếu 8 triệu để đóng học phí đúng hạn. Quỹ sinh hoạt của T đang cạn dần. Làm gì trong 2 tuần tới?",
+      "Giàn khai thác ngoài khơi hoạt động trong thị trường dầu lạnh băng, ngân sách hụt nhịp thu lớn.",
+    desc: "Ngân sách nhà nước hụt thu trầm trọng do dầu thế giới sụt giảm. Sức ép duy trì quy mô thu ngân sách đang đè nặng lên PVN.",
     background: "oil.webp",
     type: "oil",
     intensity: "medium",
-    sceneLabel: "Áp lực tài chính",
+    sceneLabel: "Giàn khoan dầu khí",
     options: [
       {
-        label: "Vay tiền sinh viên — giải quyết ngay, trả dần sau",
-        description: "Vay quỹ hỗ trợ sinh viên hoặc vay người thân.",
-        rationale: "Tiền về ngay nhưng nợ và stress dài hạn tăng.",
+        label: "Ép khai thác tăng 20% — cứu ngân sách",
+        description:
+          "Đẩy sản lượng tức thời để bù hụt thu, bất chấp biên khai thác xấu.",
+        rationale: "Chi phí bơm hút cao làm giảm ROIC dài hạn.",
         previewAnimation: "money-flow",
-        tone: "blue",
-        impact: { gpa: 0, mental: -5, money: 8000, stress: 15 },
+        tone: "green",
+        impact: { cpi: 0.5, cov: 0, roic: -2.0, bud: 20 },
         logStr:
-          "[TÀI CHÍNH] Vay được tiền. Học phí ổn nhưng nợ bắt đầu tích lũy.",
+          "[PVN] Ép sản lượng tối đa. Cứu được ngân sách nhưng biên lợi nhuận mỏ giảm.",
       },
       {
-        label: "Làm thêm cấp tốc — tự kiếm tiền trong 2 tuần",
-        description: "Nhận gấp job freelance hoặc làm thêm tăng ca.",
+        label: "Cắt sản lượng — bảo tồn mỏ, chờ giá phục hồi",
+        description:
+          "Hạ nhịp khai thác, giữ tài sản mỏ và chịu áp lực ngân sách ngắn hạn.",
         rationale:
-          "Tiền kiếm được nhưng GPA học kỳ này bị ảnh hưởng nặng.",
-        previewAnimation: "rising-chart",
-        tone: "orange",
-        impact: { gpa: -0.4, mental: -15, money: 6000, stress: 25 },
+          "Mất nguồn thu ngân sách, một số chương trình an sinh bị hoãn.",
+        previewAnimation: "falling-chart",
+        tone: "blue",
+        impact: { cpi: 0, cov: -4, roic: 1.5, bud: -10 },
         logStr:
-          "[TÀI CHÍNH] Làm thêm cấp tốc. Có tiền nhưng GPA trượt mạnh.",
+          "[PVN] Bảo tồn mỏ. Hiệu quả vốn giữ được, nhưng Nhà nước thâm hụt tài chính.",
       },
     ],
   },
   {
     id: 3,
-    entity: "CƠ HỘI",
-    entityColor: "#34d399",
-    entityBg: "rgba(52,211,153,0.12)",
-    title: "Internship lương tốt — nhưng phải quyết ngay",
+    entity: "VNPT",
+    entityColor: "#86efac",
+    entityBg: "rgba(134,239,172,0.12)",
+    title: "Tiên phong phủ sóng 5G vùng lõm",
     description:
-      "Công ty lớn offer internship part-time, lương ổn. Deadline nộp hồ sơ: ngày mai.",
-    desc: "3 tháng internship, 8 triệu/tháng. Nhưng sẽ chiếm 20 tiếng/tuần — học kỳ này sẽ rất căng. Nhận không?",
+      "Các tháp viễn thông vùng núi chớp tín hiệu yếu, còn bản đồ phủ sóng quốc gia vẫn còn khoảng trống.",
+    desc: "Chính phủ yêu cầu phủ sóng 100% vùng sâu bất chấp lỗ. Biên lợi nhuận vùng viễn thông núi đồi và hải đảo hoàn toàn âm.",
     background: "telecom.webp",
     type: "telecom",
     intensity: "low",
-    sceneLabel: "Phỏng vấn internship",
+    sceneLabel: "Hạ tầng viễn thông",
     options: [
       {
-        label: "Nhận ngay — trải nghiệm thực tế không thể bỏ qua",
+        label: "Dùng 100% vốn tập đoàn triển khai thần tốc",
         description:
-          "Nhận offer, bắt đầu làm, chấp nhận GPA học kỳ này sẽ thấp hơn.",
-        rationale:
-          "Tiền tốt và kinh nghiệm tốt — nhưng GPA và mental chịu áp lực.",
-        previewAnimation: "rising-chart",
+          "Đổ vốn chủ lực vào điểm lõm, kéo tín hiệu tới vùng sâu ngay lập tức.",
+        rationale: "Chỉ số an sinh tăng vọt nhưng Ngân sách và ROIC đổ máu.",
+        previewAnimation: "network",
         tone: "green",
-        impact: { gpa: -0.5, mental: -10, money: 12000, stress: 20 },
+        impact: { cpi: 0, cov: 6, roic: -4.0, bud: -12 },
         logStr:
-          "[CƠ HỘI] Nhận internship. Tiền về nhưng áp lực học kỳ tăng vọt.",
+          "[VNPT] Phủ sóng thành công bằng vốn chủ. Cáp viễn thông tới tận bản làng.",
       },
       {
-        label: "Từ chối — tập trung học kỳ này, tìm cơ hội khác sau",
-        description: "Từ chối offer, giữ nguyên focus cho việc học.",
-        rationale:
-          "GPA được bảo vệ, mental ổn hơn — nhưng mất cơ hội kiếm tiền và kinh nghiệm.",
-        previewAnimation: "money-flow",
+        label: "Hợp tác Viettel/MobiFone dùng chung hạ tầng",
+        description:
+          "Ghép mạng lõi, chia trạm và giảm chi phí triển khai từng vùng.",
+        rationale: "Tiết kiệm ngân sách nhưng tiến độ phủ sóng chậm hơn.",
+        previewAnimation: "network",
         tone: "blue",
-        impact: { gpa: 0.2, mental: 5, money: 0, stress: -10 },
+        impact: { cpi: 0.5, cov: 2, roic: 1.0, bud: -5 },
         logStr:
-          "[CƠ HỘI] Từ chối internship. Tập trung học, GPA cải thiện.",
+          "[VNPT] Liên minh dùng chung cáp. Ngân sách an toàn, độ phủ tăng vừa phải.",
       },
     ],
   },
   {
     id: 4,
-    entity: "GIA ĐÌNH",
-    entityColor: "#a78bfa",
-    entityBg: "rgba(167,139,250,0.12)",
-    title: "Bố mẹ nói tự lo từ tháng này",
+    entity: "NHNN",
+    entityColor: "#f4a7aa",
+    entityBg: "rgba(195,40,45,0.15)",
+    title: "Nợ xấu ngân hàng sau đại dịch",
     description:
-      "Gia đình gặp khó khăn tài chính. Trợ cấp hàng tháng bị cắt đột ngột không báo trước.",
-    desc: "Không còn 3 triệu/tháng từ gia đình nữa. Tiền sinh hoạt T chỉ đủ 1 tháng nữa. Phải xoay xở ngay.",
-    background: "coal.webp",
-    type: "coal",
-    intensity: "medium",
-    sceneLabel: "Khủng hoảng tài chính",
+      "Sàn tài chính nhấp nháy đỏ, dòng tín dụng co lại và hệ thống ngân hàng quốc doanh đứng trước lựa chọn đau.",
+    desc: "Các doanh nghiệp nhỏ kiệt quệ kéo theo nợ xấu ngân hàng quốc doanh tăng. Một gói cứu trợ khẩn cấp đang được xem xét.",
+    background: "finance.webp",
+    type: "economic",
+    intensity: "high",
+    sceneLabel: "Trung tâm tài chính",
     options: [
       {
-        label: "Tự xoay xở — cắt giảm chi tiêu, tìm việc làm thêm",
-        description: "Cắt chi phí, ăn uống tiết kiệm, nhận thêm job nhỏ.",
-        rationale: "Tự lập hơn nhưng stress và áp lực tăng mạnh.",
-        previewAnimation: "falling-chart",
-        tone: "orange",
-        impact: { gpa: -0.2, mental: -20, money: 2000, stress: 30 },
+        label: "Bơm ngân sách mua nợ xấu qua VAMC",
+        description:
+          "Hấp thụ nợ xấu để tín dụng chảy lại, đổi bằng áp lực ngân khố.",
+        rationale: "Giải cứu dòng tín dụng, nhưng tiêu tốn ngân sách quốc gia.",
+        previewAnimation: "money-flow",
+        tone: "green",
+        impact: { cpi: -0.5, cov: 3, roic: -1.0, bud: -12 },
         logStr:
-          "[GIA ĐÌNH] T tự xoay xở. Độc lập hơn nhưng sức khỏe tâm thần suy giảm.",
+          "[NHNN] Bơm tiền mua nợ xấu. Doanh nghiệp dễ thở hơn nhưng ngân khố vơi đi.",
       },
       {
-        label: "Gọi về nhà xin hỗ trợ thêm 1 lần — chia sẻ khó khăn",
+        label: "Siết tín dụng, yêu cầu tự xử lý nợ",
         description:
-          "Solicit thêm từ gia đình, giải thích tình hình thực tế.",
-        rationale: "Có tiền nhưng cảm giác tội lỗi và áp lực gia đình tăng.",
-        previewAnimation: "money-flow",
-        tone: "blue",
-        impact: { gpa: 0, mental: -10, money: 4000, stress: 10 },
+          "Bảo toàn ngân sách, khóa thanh khoản yếu và để thị trường tự thanh lọc.",
+        rationale: "Bảo toàn quỹ quốc gia, nhưng hệ lụy phá sản diện rộng.",
+        previewAnimation: "falling-chart",
+        tone: "red",
+        impact: { cpi: 1.0, cov: -6, roic: 2.5, bud: 0 },
         logStr:
-          "[GIA ĐÌNH] Gọi về xin hỗ trợ. Tiền được giải quyết nhưng T cảm thấy guilt.",
+          "[NHNN] Siết hệ thống tín dụng. Lãi suất đè nặng, doanh nghiệp vỡ nợ diện rộng.",
       },
     ],
   },
   {
     id: 5,
-    entity: "HỌC VỤ",
-    entityColor: "#60a5fa",
-    entityBg: "rgba(96,165,250,0.12)",
-    title: "Thầy thêm đề tài bắt buộc cuối kỳ",
+    entity: "TKV",
+    entityColor: "#f2c14e",
+    entityBg: "rgba(242,193,78,0.15)",
+    title: "Nguy cơ đứt gãy chuỗi than",
     description:
-      "Giảng viên thông báo thêm 1 project lớn vào tuần 10 — không nằm trong đề cương ban đầu.",
-    desc: "Project 30% điểm, nộp sau 3 tuần. T đã lên kế hoạch học kỳ nhưng phần này không có trong tính toán ban đầu.",
-    background: "finance.webp",
-    type: "economic",
+      "Mỏ hầm lò nóng lên, băng tải than rung giật và nhà máy điện phía Bắc chờ từng chuyến nhiên liệu.",
+    desc: "Chi phí khai thác than hầm lò tăng vọt, đe dọa trực tiếp tới đà sản xuất và cung ứng điện lưới cho toàn miền Bắc.",
+    background: "coal.webp",
+    type: "coal",
     intensity: "medium",
-    sceneLabel: "Áp lực học vụ",
+    sceneLabel: "Chuỗi cung ứng than",
     options: [
       {
-        label: "Làm nghiêm túc, đầu tư thời gian và chất lượng",
+        label: "Xuất ngân sách bình ổn giá vật tư mỏ",
         description:
-          "Dành thêm thời gian, nghiên cứu kỹ, làm project chất lượng cao.",
-        rationale: "GPA tốt nhưng thời gian các môn khác bị cắt, stress tăng.",
-        previewAnimation: "rising-chart",
+          "Ổn định vật tư đầu vào, giữ than ra lò và giảm sốc giá điện dây chuyền.",
+        rationale: "Tránh tăng giá điện thứ cấp, nhưng hao hụt quỹ quốc gia.",
+        previewAnimation: "money-flow",
         tone: "green",
-        impact: { gpa: 0.3, mental: -12, money: -500, stress: 25 },
+        impact: { cpi: 0.5, cov: 4, roic: -2.0, bud: -8 },
         logStr:
-          "[HỌC VỤ] Project chất lượng. GPA tốt nhưng T kiệt sức sau đó.",
+          "[TKV] Quỹ nhà nước can thiệp bình ổn vật tư. Than tiếp tục ra lò, điện được cứu.",
       },
       {
-        label: "Làm đủ để qua — ưu tiên các môn khác quan trọng hơn",
+        label: "Buông giá than, ép EVN và thị trường gánh",
         description:
-          "Dành thời gian tối thiểu cho project, tập trung năng lượng có hạn vào đúng chỗ.",
-        rationale: "GPA project thấp hơn nhưng tổng thể được cân bằng hơn.",
-        previewAnimation: "money-flow",
-        tone: "blue",
-        impact: { gpa: 0.1, mental: -5, money: 0, stress: 10 },
+          "Thả giá nhiên liệu theo thị trường, cứu biên lợi nhuận mỏ nhưng tạo sóng giá.",
+        rationale:
+          "Giá cả hàng hóa nảy số, dân cư bất bình nhưng ROIC mỏ được giữ.",
+        previewAnimation: "rising-chart",
+        tone: "orange",
+        impact: { cpi: 1.5, cov: -5, roic: 3.0, bud: 0 },
         logStr:
-          "[HỌC VỤ] Làm vừa đủ. Cân bằng ổn hơn, không quá tải.",
+          "[TKV] Buông giá than tự do. Dây chuyền sản xuất trụ lại nhưng lạm phát leo thang.",
       },
     ],
   },
   {
     id: 6,
-    entity: "KẾT QUẢ",
-    entityColor: "#f87171",
-    entityBg: "rgba(248,113,113,0.15)",
-    title: "Rớt môn — phải thi lại",
+    entity: "VNA",
+    entityColor: "#7dd3fc",
+    entityBg: "rgba(125,211,252,0.12)",
+    title: "Đề án Giải cứu Hàng không Quốc gia",
     description:
-      "Bảng điểm hiện ra. 1 môn dưới 5.0. T phải thi lại cuối kỳ — thêm áp lực và chi phí.",
-    desc: "Môn Triết học cơ sở: 4.2/10. Phải thi lại trong 2 tuần. Phí thi lại 300K. Mental T đang rất thấp.",
+      "Bảng bay quốc gia nhấp nháy cảnh báo, đường bay công ích thưa dần và thanh khoản rơi khỏi vùng an toàn.",
+    desc: "Vietnam Airlines đứng trên bờ vực mất thanh khoản. Hệ thống hàng không công ích tới các vùng sâu có nguy cơ đóng cửa.",
     background: "aviation.webp",
     type: "aviation",
     intensity: "high",
-    sceneLabel: "Phòng thi vấn đáp",
+    sceneLabel: "Mạng bay quốc gia",
     options: [
       {
-        label: "Học lại nghiêm túc — quyết tâm vượt qua lần này",
+        label: "Bơm khẩn 12.000 tỷ cứu hãng bay quốc gia",
         description:
-          "Đầu tư 2 tuần học lại từ đầu, xem đây là cơ hội thật sự hiểu bài.",
-        rationale: "Stress ngắn hạn nhưng sau đó mental có thể phục hồi nếu thi đậu.",
-        previewAnimation: "money-flow",
-        tone: "green",
-        impact: { gpa: 0.1, mental: -15, money: -300, stress: 30 },
+          "Bắc cầu vốn, giữ đường bay công ích và tránh đứt mạng hàng không.",
+        rationale:
+          "Giữ lại thương hiệu và đường bay công ích, kéo lùi hiệu quả chung.",
+        previewAnimation: "air-bridge",
+        tone: "blue",
+        impact: { cpi: 0, cov: 2, roic: -5.0, bud: -15 },
         logStr:
-          "[KẾT QUẢ] T học lại nghiêm túc. Vượt qua được kỳ thi lại.",
+          "[VNA] Bơm vốn khẩn cấp. Hàng không Nhà nước thoát thảm, ngân khố trả giá đắt.",
       },
       {
-        label: "Chấp nhận điểm F, bảo toàn sức khỏe tâm thần",
+        label: "Thoái vốn, để thị trường đào thải khốc liệt",
         description:
-          "Không thi lại lần này, chờ học lại môn đó vào kỳ sau khi mental tốt hơn.",
-        rationale: "Mental được bảo vệ ngắn hạn nhưng GPA chịu thiệt hại lớn.",
+          "Rút khỏi gánh lỗ, chấp nhận cú sốc lao động và mạng bay co lại.",
+        rationale: "Hàng chục ngàn nhân sự mất việc, nhưng cắt lỗ thành công.",
         previewAnimation: "falling-chart",
         tone: "red",
-        impact: { gpa: -0.8, mental: 10, money: 0, stress: -10 },
+        impact: { cpi: -0.5, cov: -7, roic: 4.0, bud: 5 },
         logStr:
-          "[KẾT QUẢ] T chọn nghỉ ngơi. GPA rớt mạnh nhưng mental phục hồi dần.",
+          "[VNA] Đạp phanh thoái vốn. Cú sốc thất nghiệp ập tới, nhưng túi tiền Nhà nước an toàn.",
       },
     ],
   },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════
+// BLACK SWANS & POLICIES
+// ═══════════════════════════════════════════════════════════════════════════
 const BLACK_SWANS = [
   {
-    title: "Bệnh đột ngột giữa mùa thi",
+    title: "Bão Siêu Cấp Miền Trung",
     description:
-      "T sốt cao 39 độ, phải nằm viện 3 ngày đúng tuần ôn thi quan trọng nhất.",
+      "Mắt bão quét qua miền Trung, lưới điện và cáp quang cùng mất nhịp trong một đêm.",
     background: "storm.webp",
     type: "storm",
     intensity: "high",
-    sceneLabel: "Khủng hoảng sức khỏe",
-    emoji: "🤒",
-    modeNote: "Biến cố chen ngang: bệnh tật không đợi lịch học.",
-    desc: "Nhập viện khẩn cấp. 3 ngày không học được, miss 1 buổi kiểm tra giữa kỳ. Tiền viện phí và tinh thần đều bị ảnh hưởng.",
-    impact: { gpa: -0.3, mental: -25, money: -2000, stress: 25 },
+    sceneLabel: "Ứng phó thiên tai",
+    emoji: "🌪️",
+    modeNote: "Biến cố chen ngang: xử lý xong vẫn tiếp tục quý hiện tại.",
+    desc: "Bão tàn phá hạ tầng cáp quang và nhà máy điện. Hàng triệu người mất kết nối. Trạng thái khẩn cấp được kích hoạt.",
+    impact: { cpi: 1.0, cov: -6, roic: -3.0, bud: -10 },
     logStr:
-      "[⚠ BẤT NGỜ] Bệnh đột ngột. Tất cả kế hoạch học bị đổ vỡ.",
+      "[⚠ TAI ƯƠNG] Bão siêu cấp tàn phá hạ tầng. An sinh xã hội lùi bước.",
   },
   {
-    title: "Roommate xung đột — phải dọn ra ngoài",
+    title: "Đứt Gãy Vận Tải Biển",
     description:
-      "Mâu thuẫn với bạn cùng phòng leo thang. T phải tìm chỗ ở mới trong 1 tuần.",
+      "Tín hiệu hàng hải toàn cầu đỏ rực, chi phí nhiên liệu và logistics kéo lạm phát nhập khẩu lên cao.",
     background: "shipping.webp",
     type: "shipping",
     intensity: "high",
-    sceneLabel: "Khủng hoảng chỗ ở",
-    emoji: "🏠",
+    sceneLabel: "Vận tải biển toàn cầu",
+    emoji: "🚢",
     modeNote:
-      "Biến cố chen ngang: môi trường sống ảnh hưởng trực tiếp đến học tập.",
-    desc: "Không thể ở cùng phòng nữa. Phải tìm phòng mới gấp, đặt cọc, dọn đồ — tất cả trong khi vẫn phải đi học.",
-    impact: { gpa: -0.1, mental: -20, money: -3000, stress: 20 },
+      "Biến cố chen ngang: cú sốc logistics tác động ngay vào chỉ số vĩ mô.",
+    desc: "Xung đột địa chính trị làm đóng cửa eo biển. Chi phí nhập khẩu dầu, than đá bay xa, lạm phát nhập khẩu dâng cao.",
+    impact: { cpi: 2.0, cov: -2, roic: 0, bud: 0 },
     logStr:
-      "[⚠ BẤT NGỜ] Conflict roommate. Chi phí và stress leo thang đột ngột.",
+      "[⚠ TAI ƯƠNG] Đứt gãy vận tải toàn cầu! Bóng ma lạm phát bao trùm nền kinh tế.",
   },
   {
-    title: "Học bổng bất ngờ được duyệt",
+    title: "Phát Minh Viễn Thông 6G",
     description:
-      "Đơn học bổng T nộp từ tháng trước bất ngờ được chấp thuận. Tin tốt đến đúng lúc.",
+      "Phòng thí nghiệm lõi phát sáng, tín hiệu 6G mở khóa dòng vốn công nghệ mới.",
     background: "telecom.webp",
     type: "tech",
     intensity: "low",
-    sceneLabel: "Tin tức tốt bất ngờ",
-    emoji: "🎉",
+    sceneLabel: "Đột phá công nghệ",
+    emoji: "💡",
     modeNote:
-      "Biến cố tích cực: không phải mọi bất ngờ đều xấu.",
-    desc: "Học bổng khuyến học 15 triệu được duyệt. Tiền về trong 2 tuần. T thở phào — áp lực tài chính giảm mạnh.",
-    impact: { gpa: 0.1, mental: 20, money: 15000, stress: -20 },
+      "Biến cố chen ngang tích cực: cơ hội công nghệ có thể cứu hiệu quả vốn.",
+    desc: "Nhóm kỹ sư nội địa làm chủ thành công công nghệ phát sóng không gian. Quỹ đầu tư ngoại ồ ạt bơm tiền vào tập đoàn.",
+    impact: { cpi: -0.5, cov: 1, roic: 5.0, bud: 10 },
     logStr:
-      "[✓ MAY MẮN] Học bổng được duyệt! Tài chính ổn định, T tập trung học hơn.",
+      "[✓ KỲ TÍCH] Đột phá công nghệ lõi. Mạch máu vốn ngoại nuôi dưỡng ROIC.",
   },
 ];
 
 const MACRO_POLICIES = [
   {
-    id: "p_club",
-    icon: "🎓",
-    title: "Gia nhập CLB học thuật",
-    desc: "Tham gia nhóm học tập, networking với anh chị khóa trên. Mỗi khi quyết định có lợi cho GPA, được thêm +0.1 GPA bonus.",
+    id: "p_ppp",
+    icon: "🤝",
+    title: "Kết nối Đối tác Công – Tư",
+    desc: "Mở nút thắt cho phép nhà nước thuê hạ tầng tư nhân. Sau những mất mát đầu tư, hiệu quả vốn sẽ phục hồi và bù đắp +1.5 ROIC.",
     effect:
-      "Hiệu lực dài hạn: quyết định nào cải thiện GPA sẽ được buff thêm +0.1.",
+      "Hiệu lực dài hạn: nếu quyết định làm tăng An sinh, ROIC được bù thêm +1.5%.",
     isBuff: "roic",
-    summary: "+0.1 GPA buffer",
+    summary: "+1.5% ROIC",
   },
   {
-    id: "p_detox",
-    icon: "🧘",
-    title: "Thiền định & Digital Detox",
-    desc: "Cam kết 30 phút thiền mỗi ngày, giảm mạng xã hội. Stress giảm 5% mỗi tuần tự động — đổi lại tốn thêm thời gian.",
+    id: "p_stabilize",
+    icon: "⚖️",
+    title: "Thiết quân luật Bình ổn Giá",
+    desc: "Siết chặt mọi khung giá thiết yếu. Trực tiếp cắt giảm đà tăng lạm phát -0.4% mỗi quý, đổi lại doanh nghiệp mất máu lợi nhuận.",
     effect:
-      "Hiệu lực dài hạn: sau mỗi quyết định, stress tự giảm thêm 5% nhưng GPA buff giảm 0.1.",
+      "Hiệu lực dài hạn: sau mỗi quyết định thường, CPI -0.4% nhưng ROIC -0.4%.",
     isBuff: "cpi",
-    summary: "stress -5/tuần",
+    summary: "CPI -0.4%, ROIC -0.4%",
   },
   {
-    id: "p_parttime",
-    icon: "💼",
-    title: "Nhận việc part-time ổn định",
-    desc: "Nhận job part-time cố định 20 tiếng/tuần. Tiền vào ổn định ngay — nhưng thời gian học bị cắt mạnh từ đây.",
-    effect:
-      "Hiệu lực tức thời: money +8000K, stress +20, GPA -0.3.",
+    id: "p_tax",
+    icon: "🏛️",
+    title: "Sắc thuế Thu lợi Siêu Ngạch",
+    desc: "Truy thu lợi nhuận đột biến. Giải khát ngân khố nhà nước ngay +40 Tỷ USD, nhưng dân cư và xã hội chịu bóp nghẹt (-3 An sinh).",
+    effect: "Hiệu lực tức thời: Ngân khố +40 tỷ, An sinh -3%.",
     isBuff: "bud",
-    summary: "+8M, stress +20, GPA -0.3",
+    summary: "+40 tỷ NS, -3% An sinh",
   },
 ];
 
@@ -822,66 +808,66 @@ const MACRO_POLICIES = [
 // ═══════════════════════════════════════════════════════════════════════════
 const METER_DEFS = [
   {
-    key: "gpa",
-    label: "GPA",
-    icon: "📚",
-    limit: "Tối thiểu: 1.0",
-    markerPos: 10,
-    hint: "Điểm trung bình học kỳ. Rớt xuống dưới 1.0 là cảnh báo học vụ.",
-    getWidth: (v) => Math.min(Math.max((v / 4) * 100, 2), 100),
-    getColor: (v) => (v <= 1.5 ? "#ef4444" : v <= 2.5 ? "#f59e0b" : "#22c55e"),
-    format: (v) => v.toFixed(1),
-    danger: (v) => v <= 1.5,
+    key: "cpi",
+    label: "Lạm phát",
+    icon: "📈",
+    limit: "Tối đa: 8.0%",
+    markerPos: 80,
+    hint: "CPI tăng cao làm giá cả mất kiểm soát. Giữ CPI thấp giúp ổn định đời sống.",
+    getWidth: (v) => Math.min(Math.max((v / 10) * 100, 2), 100),
+    getColor: (v) => (v >= 7.5 ? "#ef4444" : v >= 6.0 ? "#f59e0b" : "#10b981"),
+    format: (v) => v.toFixed(1) + "%",
+    danger: (v) => v >= 7.0,
   },
   {
-    key: "mental",
-    label: "Sức khỏe tâm thần",
-    icon: "🧠",
-    limit: "Tối thiểu: 20%",
-    markerPos: 20,
-    hint: "Sức khỏe tâm thần và cảm xúc. Xuống thấp dẫn đến burnout.",
-    getWidth: (v) => Math.min(Math.max(v, 2), 100),
-    getColor: (v) => (v <= 30 ? "#ef4444" : v <= 50 ? "#f59e0b" : "#22c55e"),
+    key: "cov",
+    label: "An sinh",
+    icon: "🏥",
+    limit: "Tối thiểu: 70%",
+    markerPos: 40,
+    hint: "An sinh phản ánh khả năng bảo vệ người dân và dịch vụ công ích.",
+    getWidth: (v) => Math.min(Math.max(((v - 50) / 50) * 100, 2), 100),
+    getColor: (v) => (v <= 74 ? "#ef4444" : v <= 82 ? "#f59e0b" : "#10b981"),
     format: (v) => v.toFixed(0) + "%",
-    danger: (v) => v <= 30,
+    danger: (v) => v <= 74,
   },
   {
-    key: "money",
-    label: "Tài chính",
-    icon: "💸",
+    key: "roic",
+    label: "Hiệu quả vốn",
+    icon: "💰",
+    limit: "Tối thiểu: -5%",
+    markerPos: 25,
+    hint: "ROIC đo hiệu quả sử dụng vốn của doanh nghiệp nhà nước.",
+    getWidth: (v) => Math.min(Math.max(((v + 10) / 20) * 100, 2), 100),
+    getColor: (v) => (v <= -2.0 ? "#ef4444" : v <= 1.5 ? "#f59e0b" : "#10b981"),
+    format: (v) => v.toFixed(1) + "%",
+    danger: (v) => v <= -2.0,
+  },
+  {
+    key: "bud",
+    label: "Ngân khố",
+    icon: "🏦",
     limit: "Tối thiểu: 0",
     markerPos: 5,
-    hint: "Tiền tiết kiệm (nghìn đồng). Hết tiền là phải bỏ học.",
-    getWidth: (v) => Math.min(Math.max((v / 10000) * 100, 2), 100),
-    getColor: (v) => (v <= 500 ? "#ef4444" : v <= 2000 ? "#f59e0b" : "#22c55e"),
-    format: (v) => (v >= 1000 ? (v / 1000).toFixed(1) + "M" : v + "K"),
-    danger: (v) => v <= 500,
-  },
-  {
-    key: "stress",
-    label: "Stress",
-    icon: "⚡",
-    limit: "Tối đa: 100%",
-    markerPos: 80,
-    hint: "Mức độ căng thẳng tích lũy. Đạt 100% là burnout toàn diện.",
+    hint: "Ngân khố là dư địa tài khóa để bình ổn, cứu trợ và đầu tư.",
     getWidth: (v) => Math.min(Math.max(v, 2), 100),
-    getColor: (v) => (v >= 80 ? "#ef4444" : v >= 60 ? "#f59e0b" : "#22c55e"),
-    format: (v) => v.toFixed(0) + "%",
-    danger: (v) => v >= 80,
+    getColor: (v) => (v <= 20 ? "#ef4444" : v <= 50 ? "#f59e0b" : "#10b981"),
+    format: (v) => v.toFixed(0) + " tỷ",
+    danger: (v) => v <= 20,
   },
 ];
 
 function getFeedbackTone(impact = {}) {
   const risk =
-    (impact.gpa < -0.2 ? 2 : impact.gpa < 0 ? 1 : 0) +
-    (impact.mental < -15 ? 2 : impact.mental < 0 ? 1 : 0) +
-    (impact.money < -500 ? 2 : impact.money < 0 ? 1 : 0) +
-    (impact.stress > 25 ? 2 : impact.stress > 0 ? 1 : 0);
+    (impact.cpi > 1 ? 2 : impact.cpi > 0 ? 1 : 0) +
+    (impact.cov < -2 ? 2 : impact.cov < 0 ? 1 : 0) +
+    (impact.roic < -2 ? 2 : impact.roic < 0 ? 1 : 0) +
+    (impact.bud < -10 ? 2 : impact.bud < 0 ? 1 : 0);
   const relief =
-    (impact.gpa > 0 ? 1 : 0) +
-    (impact.mental > 0 ? 1 : 0) +
-    (impact.money > 0 ? 1 : 0) +
-    (impact.stress < 0 ? 1 : 0);
+    (impact.cpi < 0 ? 1 : 0) +
+    (impact.cov > 0 ? 1 : 0) +
+    (impact.roic > 0 ? 1 : 0) +
+    (impact.bud > 0 ? 1 : 0);
 
   return risk > relief ? "bad" : "good";
 }
@@ -913,10 +899,9 @@ function calculateLeadershipStyle(stats, history) {
 }
 
 function CompactStatPill({ def, value }) {
-  const safeValue = Number.isFinite(value) ? value : 0;
-  const danger = def.danger(safeValue);
-  const color = def.getColor(safeValue);
-  const progressWidth = def.getWidth(safeValue);
+  const danger = def.danger(value);
+  const color = def.getColor(value);
+  const progressWidth = def.getWidth(value);
 
   return (
     <div
@@ -938,7 +923,7 @@ function CompactStatPill({ def, value }) {
           className="psim-stat-pill-value"
           style={{ color: danger ? "#ef4444" : color }}
         >
-          {def.format(safeValue)}
+          {def.format(value)}
         </span>
       </div>
       <div className="psim-stat-pill-bar-bg">
@@ -959,11 +944,18 @@ function CompactStatPill({ def, value }) {
 // MAIN COMPONENT — PolicySimGame
 // ═══════════════════════════════════════════════════════════════════════════
 function PolicySimGame() {
+  const INIT_STATS = { cpi: 3.8, cov: 90, roic: 5.0, bud: 100 };
+  const INIT_LOGS = [
+    "$ khởi-động --mô-phỏng-chính-sách --quốc-gia VN --phiên-bản V3",
+    "› [KHỞI TẠO] Module Ngân khố, Cây Chính sách & Thiên Nga Đen đã sẵn sàng.",
+    "› Quý 1/12 đã sẵn sàng chờ lệnh điều hành.",
+  ];
+
   const [gameState, setGameState] = useState("start");
   const [quarter, setQuarter] = useState(1);
-  const [stats, setStats] = useState(DEFAULT_STATS);
-  const [history, setHistory] = useState([DEFAULT_STATS]);
-  const [logs, setLogs] = useState(DEFAULT_LOGS);
+  const [stats, setStats] = useState(INIT_STATS);
+  const [history, setHistory] = useState([INIT_STATS]);
+  const [logs, setLogs] = useState(INIT_LOGS);
   const [eventIndex, setEventIndex] = useState(0);
   const [activePolicies, setActivePolicies] = useState([]);
 
@@ -1016,9 +1008,9 @@ function PolicySimGame() {
     SFX.bgm(false);
     setGameState("start");
     setQuarter(1);
-    setStats(DEFAULT_STATS);
-    setHistory([DEFAULT_STATS]);
-    setLogs(DEFAULT_LOGS);
+    setStats(INIT_STATS);
+    setHistory([INIT_STATS]);
+    setLogs(INIT_LOGS);
     setEventIndex(0);
     setActivePolicies([]);
     setShuffledEvents(shuffleArray(GAME_EVENTS));
@@ -1030,18 +1022,18 @@ function PolicySimGame() {
   };
 
   const commitTurn = (newStats, logStrings, stayPhase = false) => {
-    let fStats = normalizeStats(newStats);
-    if (!stayPhase && activePolicies.includes("p_detox")) {
-      fStats.stress = Math.max(
+    let fStats = { ...newStats };
+    if (!stayPhase && activePolicies.includes("p_stabilize")) {
+      fStats.cpi = Math.max(
         0,
-        parseFloat((fStats.stress - POLICY_DETOX_STRESS_REDUCTION).toFixed(2)),
+        parseFloat((fStats.cpi - POLICY_STABILIZE_CPI_REDUCTION).toFixed(2)),
       );
-      fStats.gpa = parseFloat(
-        (fStats.gpa - POLICY_DETOX_GPA_PENALTY).toFixed(2),
+      fStats.roic = parseFloat(
+        (fStats.roic - POLICY_STABILIZE_ROIC_PENALTY).toFixed(2),
       );
       logStrings = [
         ...logStrings,
-        "[HIỆU LỰC ĐẠO LUẬT] Thiền định giảm stress 5%, nhưng GPA hao 0.1.",
+        "[HIỆU LỰC ĐẠO LUẬT] Bình ổn giá giảm CPI 0.4%, nhưng ROIC hao 0.4%.",
       ];
     }
 
@@ -1066,30 +1058,30 @@ function PolicySimGame() {
     // Check End
     let nextSt = "playing";
     let sLog = null;
-    if (fStats.stress >= 100) {
-      nextSt = "gameover_stress";
-      sLog = "[SỰ CỐ NGHIÊM TRỌNG] Stress tích lũy vượt quá ngưỡng. Burnout toàn diện.";
+    if (fStats.cpi >= 8.0) {
+      nextSt = "gameover_cpi";
+      sLog = "[SỰ CỐ NGHIÊM TRỌNG] Lạm phát tàn bạo. Nền kinh tế phi mã.";
       SFX.lose();
-    } else if (fStats.mental <= 20) {
-      nextSt = "gameover_mental";
-      sLog = "[SỰ CỐ NGHIÊM TRỌNG] Sức khỏe tâm thần sụp đổ. Phải tạm dừng học.";
+    } else if (fStats.cov <= 70) {
+      nextSt = "gameover_cov";
+      sLog = "[SỰ CỐ NGHIÊM TRỌNG] An sinh xã hội đứt gãy. Đóng băng phúc lợi.";
       SFX.lose();
-    } else if (fStats.gpa <= 1.0) {
-      nextSt = "gameover_gpa";
-      sLog = "[SỰ CỐ NGHIÊM TRỌNG] GPA rớt xuống mức cảnh báo học vụ.";
+    } else if (fStats.roic <= -5.0) {
+      nextSt = "gameover_roic";
+      sLog = "[SỰ CỐ NGHIÊM TRỌNG] Hiệu quả vốn bốc hơi. Tập đoàn sụp đổ.";
       SFX.lose();
-    } else if (fStats.money <= 0) {
-      nextSt = "gameover_money";
+    } else if (fStats.bud <= 0) {
+      nextSt = "gameover_bud";
       sLog =
-        "[SỰ CỐ NGHIÊM TRỌNG] Tiền sinh hoạt cạn kiệt. Phải rời trường tạm thời.";
+        "[SỰ CỐ NGHIÊM TRỌNG] Ngân khố trống rỗng. Mất thanh khoản quốc gia.";
       SFX.lose();
     } else if (quarter >= 12) {
-      if (fStats.mental >= 70 && fStats.gpa >= 3.0 && fStats.stress <= 60)
+      if (fStats.cov > 90 && fStats.roic > 0 && fStats.cpi < 6)
         nextSt = "won_perfect";
-      else if (fStats.gpa >= 3.5 && fStats.mental <= 40) nextSt = "won_hustle";
-      else if (fStats.stress <= 40 && fStats.mental >= 80) nextSt = "won_chill";
-      else nextSt = "won_survive";
-      sLog = "[HỆ THỐNG] ✓ Hoàn tất 12 tuần học kỳ. Đánh giá thành tích.";
+      else if (fStats.cov >= 95 && fStats.roic <= 0) nextSt = "won_populist";
+      else if (fStats.cov <= 75 && fStats.roic >= 5) nextSt = "won_capitalist";
+      else nextSt = "won_normal";
+      sLog = "[HỆ THỐNG] ✓ Hoàn tất 12 quý điều hành. Đánh giá thành tích.";
       SFX.win();
     }
 
@@ -1116,7 +1108,7 @@ function PolicySimGame() {
         setGameState("policy");
         setLogs((p) => [
           ...p,
-          `› [ĐIỂM NGUYNG DỪNG PHẢN SỰ] Thời điểm lựa chọn thay đổi lối sống lâu dài.`,
+          `› [PHIÊN HỌP LƯỠNG VIỆN] Mở khoá ban hành Nghị Quyết vĩ mô.`,
         ]);
       } else {
         if (Math.random() < BLACK_SWAN_SPAWN_RATE && nQ < 12) {
@@ -1126,7 +1118,7 @@ function PolicySimGame() {
           setGameState("blackswan");
           setLogs((p) => [
             ...p,
-            `› [⚠️ CẢNH BÁO TỐI KHẨN CẤP] Biến cố bất ngờ xuất hiện, cần xử lý trước khi tiếp tục tuần hiện tại.`,
+            `› [⚠️ CẢNH BÁO TỐI KHẨN CẤP] Biến cố chen ngang xuất hiện, cần xử lý trước khi tiếp tục quý hiện tại.`,
           ]);
           SFX.alert();
         } else {
@@ -1134,7 +1126,7 @@ function PolicySimGame() {
           const ev = shuffledEvents[(eventIndex + 1) % shuffledEvents.length];
           setLogs((p) => [
             ...p,
-            `› TUẦN ${nQ}/12 — ${ev.title}`,
+            `› QUÝ ${nQ}/12 — Báo cáo từ ${ev.entity}: ${ev.title}`,
           ]);
         }
       }
@@ -1153,14 +1145,14 @@ function PolicySimGame() {
     });
     window.setTimeout(() => setFeedback(null), 900);
     let imp = { ...opt.impact };
-    if (activePolicies.includes("p_club") && imp.gpa > 0)
-      imp.gpa += POLICY_CLUB_GPA_BUFF;
+    if (activePolicies.includes("p_ppp") && imp.cov > 0)
+      imp.roic += POLICY_PPP_ROIC_BUFF;
 
     const ns = {
-      gpa: parseFloat((stats.gpa + imp.gpa).toFixed(2)),
-      mental: parseFloat((stats.mental + imp.mental).toFixed(1)),
-      money: parseFloat((stats.money + imp.money).toFixed(1)),
-      stress: parseFloat((stats.stress + imp.stress).toFixed(2)),
+      cpi: parseFloat((stats.cpi + imp.cpi).toFixed(2)),
+      cov: parseFloat((stats.cov + imp.cov).toFixed(1)),
+      roic: parseFloat((stats.roic + imp.roic).toFixed(2)),
+      bud: parseFloat((stats.bud + imp.bud).toFixed(1)),
     };
     showOutcome({
       kind: "Báo cáo sau quyết định",
@@ -1169,7 +1161,7 @@ function PolicySimGame() {
       before: stats,
       after: ns,
     });
-    const dLog = `   GPA ${stats.gpa}→${ns.gpa}  |  Mental ${stats.mental}→${ns.mental}%  |  Money ${stats.money}→${ns.money}  |  Stress ${stats.stress}→${ns.stress}`;
+    const dLog = `   CPI ${stats.cpi}→${ns.cpi}  |  An sinh ${stats.cov}→${ns.cov}%  |  NS ${stats.bud}→${ns.bud}`;
     window.setTimeout(() => {
       setExecutingLabel("");
       commitTurn(ns, [opt.logStr, dLog]);
@@ -1179,28 +1171,27 @@ function PolicySimGame() {
   const handlePolicy = (pol) => {
     SFX.law();
     setActivePolicies((p) => [...p, pol.id]);
-    setExecutingLabel(`Áp dụng: ${pol.title}...`);
+    setExecutingLabel(`Ban hành đạo luật: ${pol.title}...`);
     window.setTimeout(() => {
       setExecutingLabel("");
       setGameState("playing");
-      setLogs((p) => [...p, `[LỐI SỐNG] Áp dụng: ${pol.title}`]);
-      if (pol.id === "p_parttime") {
+      setLogs((p) => [...p, `[ĐẠO LUẬT] Ký sắc lệnh: ${pol.title}`]);
+      if (pol.id === "p_tax") {
         const ns = {
           ...stats,
-          money: stats.money + POLICY_PARTTIME_MONEY_BOOST,
-          stress: stats.stress + POLICY_PARTTIME_STRESS_PENALTY,
-          gpa: stats.gpa - POLICY_PARTTIME_GPA_PENALTY,
+          bud: stats.bud + POLICY_TAX_BUDGET_BOOST,
+          cov: stats.cov - POLICY_TAX_WELFARE_PENALTY,
         };
         showOutcome({
-          kind: "Hiệu lực lối sống",
+          kind: "Hiệu lực đạo luật",
           title: pol.title,
-          tone: getFeedbackTone({ gpa: -0.3, mental: 0, money: 8000, stress: 20 }),
+          tone: getFeedbackTone({ cpi: 0, cov: -3, roic: 0, bud: 40 }),
           before: stats,
           after: ns,
         });
         commitTurn(
           ns,
-          ["[THỰC THI] Tiền về ổn định +8M. Stress tăng và GPA hao do bận rộn."],
+          ["[THỰC THI] Ngân khố +40 tỷ. Sự phẫn nộ đẩy An sinh lùi 3%."],
           true,
         );
       }
@@ -1242,49 +1233,49 @@ function PolicySimGame() {
     const dict = {
       won_perfect: {
         i: "👑",
-        c: "#22c55e",
-        t: "Phủ định của Phủ định",
-        d: "T đã vượt qua mâu thuẫn và tìm thấy cân bằng thực sự. Không phải T cũ trở về — đây là T mới, ở tầm cao hơn.",
+        c: "#10b981",
+        t: "Kỹ Trị Xuất Chúng",
+        d: "Đẳng cấp điều hành kinh điển. Mác-Lênin cho rằng Nhà nước điều tiết tinh anh nhất là bảo vệ được song song tích luỹ vốn và bao bọc toàn dân.",
       },
-      won_hustle: {
-        i: "⚡",
+      won_populist: {
+        i: "🤝",
         c: "#f59e0b",
-        t: "Thống nhất trong Mâu thuẫn",
-        d: "GPA cao nhưng mental thấp — mâu thuẫn chưa được giải quyết triệt để. T thành công theo nghĩa hẹp nhưng còn nguyên vẹn mâu thuẫn cần giải quyết phía trước.",
+        t: "Nhà Lãnh Đạo Dân Tuý",
+        d: "Phúc lợi bủa vây mọi ngóc ngách, tuy nhiên dòng vốn cạn kiệt. Doanh nghiệp sẽ sớm không còn sức chống đỡ chu kỳ suy thoái tiếp theo.",
       },
-      won_chill: {
-        i: "🌿",
-        c: "#06b6d4",
-        t: "Lượng đổi Chất đổi",
-        d: "T tích lũy từ từ, đủ lượng rồi mới chuyển hóa chất. Không đỉnh cao nhưng bền vững — đây cũng là một con đường hợp quy luật biện chứng.",
+      won_capitalist: {
+        i: "🎩",
+        c: "#3b82f6",
+        t: "Vòng Xoáy Tư Bản",
+        d: "Tích tụ tư bản tối đa theo đúng luận điểm Lênin. Nhưng mặt trái là hố sâu bất bình đẳng và chỉ số an sinh lún sâu.",
       },
-      won_survive: {
+      won_normal: {
         i: "🎖️",
-        c: "#8b5cf6",
-        t: "Hiện thực hóa Khả năng",
-        d: "Từ khả năng trở thành hiện thực — T đã làm được. Không hoàn hảo, nhưng biến tiềm năng thành kết quả thực tế: đó là thắng lợi.",
+        c: "#f1f5f9",
+        t: "Thuyền Trưởng Bền Bỉ",
+        d: "Vượt 12 Quý bão tố. Không tột đỉnh vinh quang nhưng giữ được con tàu vượt trùng khơi.",
       },
     };
     const loss = {
-      gameover_stress: {
+      gameover_cpi: {
         i: "💥",
-        t: "Mâu thuẫn không được Giải",
-        d: "Stress tích lũy vượt quá ngưỡng chịu đựng. Mâu thuẫn giữa cống hiến và sức khỏe không được giải quyết biện chứng — kết quả là đứt gãy. Burnout toàn diện.",
+        t: "Bão Lạm Phát",
+        d: "Nền kinh tế bong bóng sụp đổ. Đồng tiền mất giá khiến toàn bộ nỗ lực an sinh biến thành tro bụi.",
       },
-      gameover_mental: {
-        i: "🪞",
-        t: "Hiện tượng che khuất Bản chất",
-        d: "Ngoài thì vẫn đang học, nhưng bên trong đã sụp đổ. Hiện tượng (vẻ ngoài ổn) che khuất bản chất (tình trạng thực). Khi bản chất không còn chịu đựng được nữa — hiện tượng cũng vỡ theo.",
-      },
-      gameover_gpa: {
+      gameover_cov: {
         i: "📉",
-        t: "Lượng không dẫn đến Chất",
-        d: "Học nhiều (lượng) nhưng không dẫn đến hiệu quả thực sự (chất). Phương pháp sai, hướng sai — tích lũy không tạo ra chuyển hóa. T cần nhìn lại toàn bộ cách tiếp cận.",
+        t: "Xã Hội Đứt Gãy",
+        d: "Bạn quên mất chức năng nền tảng của kinh tế Nhà nước không thuần tuý là tích luỹ.",
       },
-      gameover_money: {
+      gameover_roic: {
+        i: "💸",
+        t: "Phá Sản Doanh Nghiệp",
+        d: "Tiêu hao toàn bộ năng lượng tự chủ. Các Tập đoàn không còn là trụ cột mà trở thành hố đen nền kinh tế.",
+      },
+      gameover_bud: {
         i: "🏛️",
-        t: "Vật chất quyết định Ý thức",
-        d: "Điều kiện vật chất (tài chính) chạm đáy — không thể tiếp tục. Đây là minh chứng rõ ràng nhất của nguyên lý duy vật: tồn tại xã hội quyết định ý thức xã hội. Không có điều kiện vật chất, không có điều kiện học tập.",
+        t: "Vỡ Nợ Quốc Gia",
+        d: "Táo bạo nhưng không có điểm dừng. Bơm cứu trợ vô độ làm rỗng ruột Kho bạc Nhà nước.",
       },
     };
     const c = isWin ? dict[gameState] : { ...loss[gameState], c: "#ef4444" };
@@ -1313,7 +1304,7 @@ function PolicySimGame() {
               fontSize: "0.8rem",
             }}
           >
-            {isWin ? "HỌC KỲ HOÀN TẤT" : "PHẢI TẠM NGHỈ HỌC"}
+            {isWin ? "NHIỆM KỲ HOÀN TẤT" : "ĐÌNH CHỈ CÔNG TÁC"}
           </div>
           {style && (
             <div
@@ -1389,23 +1380,23 @@ function PolicySimGame() {
         >
           {[
             {
-              l: "GPA",
-              v: history[history.length - 1].gpa.toFixed(1),
-              c: "#22c55e",
-            },
-            {
-              l: "Sức khỏe tâm thần",
-              v: history[history.length - 1].mental.toFixed(0) + "%",
-              c: "#06b6d4",
-            },
-            {
-              l: "Tiền (triệu)",
-              v: (history[history.length - 1].money / 1000).toFixed(1),
+              l: "Lạm phát",
+              v: history[history.length - 1].cpi.toFixed(1) + "%",
               c: "#f59e0b",
             },
             {
-              l: "Stress",
-              v: history[history.length - 1].stress.toFixed(0) + "%",
+              l: "An sinh xã hội",
+              v: history[history.length - 1].cov.toFixed(0) + "%",
+              c: "#10b981",
+            },
+            {
+              l: "Chỉ số ROIC",
+              v: history[history.length - 1].roic.toFixed(1) + "%",
+              c: "#3b82f6",
+            },
+            {
+              l: "Ngân khố (Tỷ USD)",
+              v: history[history.length - 1].bud.toFixed(0),
               c: "#ef4444",
             },
           ].map((s) => (
@@ -1456,7 +1447,7 @@ function PolicySimGame() {
             (e.currentTarget.style.transform = "translateY(0)")
           }
         >
-          🔄 THỬ LẠI TỪ TUẦN 1
+          🔄 ỦY NHIỆM LẠI TỪ QUÝ 1
         </button>
       </div>
     );
@@ -1533,7 +1524,7 @@ function PolicySimGame() {
               fontSize: "0.8rem",
             }}
           >
-            NHÓM 4 MLN111
+            NHÓM 4 MLN122
           </div>
 
           <h1
@@ -1547,7 +1538,7 @@ function PolicySimGame() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            HUSTLE LOOP
+            MÔ PHỎNG VĨ MÔ
           </h1>
 
           <p
@@ -1560,8 +1551,10 @@ function PolicySimGame() {
               maxWidth: "90%",
             }}
           >
-            Bạn là Sinh viên T — năm 2 đại học. Phải cân bằng GPA, sức khỏe tâm thần,
-            tài chính và stress qua 12 tuần học kỳ. Mỗi quyết định phản ánh một khái niệm triết học.
+            Bạn là người điều hành vĩ mô trong 12 Quý. Nhiệm vụ của bạn là đưa
+            ra các quyết định chính sách đối phó với khủng hoảng và{" "}
+            <b>Thiên Nga Đen</b>, đồng thời duy trì cân bằng các chỉ số quốc
+            gia.
           </p>
 
           <div
@@ -1575,31 +1568,31 @@ function PolicySimGame() {
           >
             {[
               {
-                i: "📚",
-                l: "GPA",
-                d: "Điểm học kỳ",
-                w: "Thua nếu ≤ 1.0",
-                c: "#22c55e",
-              },
-              {
-                i: "🧠",
-                l: "MENTAL",
-                d: "Sức khỏe tâm thần",
-                w: "Thua nếu ≤ 20%",
-                c: "#06b6d4",
-              },
-              {
-                i: "💸",
-                l: "TÀI CHÍNH",
-                d: "Tiền tiết kiệm",
-                w: "Thua nếu ≤ 0",
+                i: "📈",
+                l: "LẠM PHÁT",
+                d: "Kiểm soát giá cả",
+                w: "Thua nếu ≥ 8.0%",
                 c: "#f59e0b",
               },
               {
-                i: "⚡",
-                l: "STRESS",
-                d: "Áp lực tích lũy",
-                w: "Thua nếu ≥ 100%",
+                i: "🏥",
+                l: "AN SINH",
+                d: "Phúc lợi xã hội",
+                w: "Thua nếu ≤ 70%",
+                c: "#10b981",
+              },
+              {
+                i: "💰",
+                l: "ROIC",
+                d: "Hiệu quả vốn",
+                w: "Thua nếu ≤ −5%",
+                c: "#3b82f6",
+              },
+              {
+                i: "🏦",
+                l: "NGÂN KHỐ",
+                d: "NSNN (Tỷ $)",
+                w: "Thua nếu ≤ 0",
                 c: "#ef4444",
               },
             ].map((k) => (
@@ -1710,19 +1703,20 @@ function PolicySimGame() {
               }}
             >
               <li style={{ marginBottom: "8px" }}>
-                Mỗi Tuần bạn sẽ đối mặt với 1 sự kiện, hoặc 1 biến cố{" "}
-                <b>bất ngờ</b> căng thẳng.
+                Mỗi Quý bạn sẽ đối mặt với một chính sách, hoặc một sự kiện{" "}
+                <b>Thiên Nga Đen</b> căng thẳng.
               </li>
               <li style={{ marginBottom: "8px" }}>
                 Quyết định đưa ra luôn phải đánh đổi: ví dụ bảo vệ{" "}
-                <b>Mental</b> thường lấy đi <b>GPA</b>.
+                <b>An sinh</b> thường lấy đi <b>Ngân khố</b>.
               </li>
               <li style={{ marginBottom: "8px" }}>
-                Ở <b>Tuần 4</b> và <b>Tuần 8</b>, bạn được chọn 1 <b>thay đổi lối sống</b> để hỗ trợ học kỳ.
+                Ở <b>Quý 4</b> và <b>Quý 8</b>, bạn được quyền ưu tiên ban hành
+                1 <b>Đạo luật Vĩ mô</b> để hỗ trợ nền kinh tế.
               </li>
               <li>
-                Mục tiêu: Vượt qua <b>12 tuần</b> mà không để chỉ số nào chạm
-                ngưỡng nguy hiểm. Tùy theo các chỉ số khi kết thúc, bạn sẽ đạt
+                Mục tiêu: Sống sót qua <b>12 Quý</b> mà không để chỉ số nào chạm
+                ngưỡng báo động đỏ. Tùy theo các chỉ số khi kết thúc, bạn sẽ đạt
                 được các danh hiệu khác nhau.
               </li>
             </ul>
@@ -1760,7 +1754,7 @@ function PolicySimGame() {
                 "0 20px 50px rgba(195,40,45,0.4)";
             }}
           >
-            BẮT ĐẦU HỌC KỲ
+            VÀO PHÒNG ĐIỀU HÀNH
           </button>
         </div>
       </div>
@@ -1792,7 +1786,7 @@ function PolicySimGame() {
           onClick={() => SFX.bgm(false)}
           onMouseOver={() => SFX.hover()}
         >
-          ← VỀ TRANG CHỦ
+          ← RÚT LUI
         </a>
 
         <div className="psim-hud-timeline">
@@ -1804,9 +1798,9 @@ function PolicySimGame() {
               <span
                 key={q}
                 className={`psim-hud-dot ${cls} ${isPolicy ? "policy" : ""}`}
-                title={isPolicy ? `Tuần ${q}: Thay đổi lối sống` : `Tuần ${q}`}
+                title={isPolicy ? `Quý ${q}: Ban hành đạo luật` : `Quý ${q}`}
               >
-                {isPolicy ? "📋" : q}
+                {isPolicy ? "⚖" : q}
               </span>
             );
           })}
@@ -1863,7 +1857,7 @@ function PolicySimGame() {
                 >
                   {ce.entity}
                 </span>
-                <span className="psim-quarter-chip">TUẦN {quarter} / 12</span>
+                <span className="psim-quarter-chip">QUÝ {quarter} / 12</span>
               </div>
               <h1 className="psim-cinema-title">{ce.title}</h1>
               <p className="psim-cinema-desc">{ce.desc || ce.description}</p>
@@ -1921,11 +1915,11 @@ function PolicySimGame() {
         {gameState === "policy" && (
           <div className="psim-cinema-policy">
             <div className="psim-policy-label">
-              📋 THAY ĐỔI LỐI SỐNG · TUẦN {quarter}
+              ⚖ PHIÊN HỌP CHÍNH SÁCH · QUÝ {quarter}
             </div>
-            <h1 className="psim-cinema-title">Lựa chọn Lối sống Lâu dài</h1>
+            <h1 className="psim-cinema-title">Ban hành Nghị quyết Vĩ mô</h1>
             <p className="psim-cinema-desc" style={{ marginBottom: "24px" }}>
-              Chọn 1 thay đổi lối sống. Hiệu lực kéo dài đến hết học kỳ.
+              Chọn 1 đạo luật. Hiệu lực kéo dài đến hết nhiệm kỳ.
             </p>
             <div className="psim-policy-grid">
               {MACRO_POLICIES.filter((p) => !activePolicies.includes(p.id)).map(
@@ -2175,7 +2169,7 @@ function App() {
 
         <section id="lyluan">
           <div className="container">
-            <div className="section-head">
+            <div className="section-head" data-reveal="">
               <p className="section-tag">Nền tảng lý thuyết</p>
               <h2 className="section-title">
                 Vì sao mô hình tập đoàn nhà nước từng là lựa chọn chiến lược?
@@ -2431,7 +2425,7 @@ function App() {
                   người hoạch định chính sách của một tập đoàn nhà nước, điều
                   chỉnh giá, đầu tư, trợ cấp trước các cú sốc vĩ mô.
                 </p>
-            <div className="teaser-actions">
+                <div className="teaser-actions">
                   <a href="#/game" className="btn-primary">
                     Vào trang chờ mini-game
                   </a>
@@ -2443,31 +2437,31 @@ function App() {
               <div className="teaser-visual" aria-hidden="true">
                 <div className="tv-grid">
                   <div className="tv-tile">
-                    <p className="tv-label">GPA</p>
-                    <p className="tv-value">3.2</p>
+                    <p className="tv-label">CPI</p>
+                    <p className="tv-value">3.8%</p>
                     <div className="tv-bar">
-                      <span style={{ width: "80%" }} />
+                      <span style={{ width: "62%" }} />
                     </div>
                   </div>
                   <div className="tv-tile tv-dark">
-                    <p className="tv-label">Mental</p>
-                    <p className="tv-value">65%</p>
+                    <p className="tv-label">Độ phủ</p>
+                    <p className="tv-value">94%</p>
                     <div className="tv-bar">
-                      <span style={{ width: "65%" }} />
+                      <span style={{ width: "88%" }} />
                     </div>
                   </div>
                   <div className="tv-tile">
-                    <p className="tv-label">Money</p>
-                    <p className="tv-value">3.5M</p>
+                    <p className="tv-label">ROIC</p>
+                    <p className="tv-value">5.1%</p>
                     <div className="tv-bar">
-                      <span style={{ width: "55%" }} />
+                      <span style={{ width: "45%" }} />
                     </div>
                   </div>
                   <div className="tv-tile tv-accent">
-                    <p className="tv-label">Stress</p>
-                    <p className="tv-value">45%</p>
+                    <p className="tv-label">Quý</p>
+                    <p className="tv-value">07 / 12</p>
                     <div className="tv-bar">
-                      <span style={{ width: "45%" }} />
+                      <span style={{ width: "58%" }} />
                     </div>
                   </div>
                 </div>
@@ -2492,7 +2486,11 @@ function App() {
                 const answer = quizAnswers[scenario.id];
 
                 return (
-                  <article className="scenario" key={scenario.id}>
+                  <article
+                    className="scenario"
+                    data-reveal=""
+                    key={scenario.id}
+                  >
                     <h4>{scenario.title}</h4>
                     <p>{scenario.description}</p>
                     <div className="choice-row">
@@ -2520,7 +2518,7 @@ function App() {
                 );
               })}
 
-              <div className="stats">
+              <div className="stats" data-reveal="">
                 <div className="stat">
                   <p className="stat-value">{quizStats.good}</p>
                   <p className="stat-label">Lựa chọn cân bằng</p>
@@ -2581,6 +2579,7 @@ function App() {
                 <img
                   src="https://img4.thuthuatphanmem.vn/uploads/2020/01/10/hinh-anh-cay-tre-xanh-nhin-tu-phia-duoi_053455576.jpg"
                   alt="Hình tượng tre Việt Nam, biểu trưng cho cân bằng giữa gốc rễ và độ linh hoạt"
+                  loading="lazy"
                 />
               </div>
               <div className="conclusion-text">
@@ -2669,4 +2668,3 @@ function App() {
 }
 
 export default App;
-
