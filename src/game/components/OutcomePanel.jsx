@@ -1,10 +1,25 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 const METRICS = [
-  { key: "cpi", label: "CPI", suffix: "%", goodWhen: (delta) => delta < 0 },
-  { key: "cov", label: "An sinh", suffix: "%", goodWhen: (delta) => delta > 0 },
-  { key: "roic", label: "ROIC", suffix: "%", goodWhen: (delta) => delta > 0 },
-  { key: "bud", label: "Ngân sách", suffix: " tỷ", goodWhen: (delta) => delta > 0 },
+  { key: "gpa", label: "GPA", suffix: "", goodWhen: (delta) => delta > 0 },
+  {
+    key: "mental",
+    label: "Tâm thần",
+    suffix: "%",
+    goodWhen: (delta) => delta > 0,
+  },
+  {
+    key: "money",
+    label: "Tiền (K)",
+    suffix: "",
+    goodWhen: (delta) => delta > 0,
+  },
+  {
+    key: "stress",
+    label: "Stress",
+    suffix: "%",
+    goodWhen: (delta) => delta < 0,
+  },
 ];
 
 function formatValue(value, suffix) {
@@ -38,10 +53,18 @@ export default function OutcomePanel({ outcome }) {
               const before = outcome.before?.[metric.key] ?? 0;
               const after = outcome.after?.[metric.key] ?? before;
               const delta = after - before;
-              const tone = delta === 0 ? "neutral" : metric.goodWhen(delta) ? "good" : "bad";
+              const tone =
+                delta === 0
+                  ? "neutral"
+                  : metric.goodWhen(delta)
+                    ? "good"
+                    : "bad";
 
               return (
-                <div className={`psim-outcome-metric is-${tone}`} key={metric.key}>
+                <div
+                  className={`psim-outcome-metric is-${tone}`}
+                  key={metric.key}
+                >
                   <span>{metric.label}</span>
                   <b>{formatValue(after, metric.suffix)}</b>
                   <i>{getDelta(before, after)}</i>

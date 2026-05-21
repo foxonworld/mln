@@ -2,24 +2,90 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const SCENE_BY_ENTITY = {
-  EVN: { background: "energy.webp", type: "power", label: "Lưới điện quốc gia", accent: "#f2c14e" },
-  PVN: { background: "oil.webp", type: "oil", label: "Giàn khoan dầu khí", accent: "#7dd3fc" },
-  VNPT: { background: "telecom.webp", type: "telecom", label: "Hạ tầng viễn thông", accent: "#86efac" },
-  NHNN: { background: "finance.webp", type: "economic", label: "Trung tâm tài chính", accent: "#f4a7aa" },
-  TKV: { background: "coal.webp", type: "coal", label: "Chuỗi cung ứng than", accent: "#f2c14e" },
-  VNA: { background: "aviation.webp", type: "aviation", label: "Mạng bay quốc gia", accent: "#7dd3fc" },
+  DEADLINE: {
+    background: "library.webp",
+    type: "telecom",
+    label: "Thư viện đêm khuya",
+    accent: "#818cf8",
+  },
+  "TÀI CHÍNH": {
+    background: "cafe.webp",
+    type: "economic",
+    label: "Cà phê làm việc",
+    accent: "#f59e0b",
+  },
+  "CƠ HỘI": {
+    background: "job.webp",
+    type: "aviation",
+    label: "Phỏng vấn internship",
+    accent: "#34d399",
+  },
+  "GIA ĐÌNH": {
+    background: "dorm.webp",
+    type: "coal",
+    label: "Ký túc xá",
+    accent: "#a78bfa",
+  },
+  "HỌC VỤ": {
+    background: "exam.webp",
+    type: "power",
+    label: "Phòng thi",
+    accent: "#60a5fa",
+  },
+  "KẾT QUẢ": {
+    background: "exam.webp",
+    type: "economic",
+    label: "Bảng điểm học kỳ",
+    accent: "#f87171",
+  },
 };
 
 const TYPE_DEFAULTS = {
-  storm: { background: "storm.webp", label: "Ứng phó thiên tai", accent: "#93c5fd" },
-  economic: { background: "finance.webp", label: "Thị trường tài chính", accent: "#ff5c6c" },
-  aviation: { background: "aviation.webp", label: "Hành lang hàng không", accent: "#7dd3fc" },
-  power: { background: "energy.webp", label: "Lưới điện quốc gia", accent: "#f2c14e" },
-  oil: { background: "oil.webp", label: "Dầu khí ngoài khơi", accent: "#7dd3fc" },
-  coal: { background: "coal.webp", label: "Mỏ than và nhiên liệu", accent: "#f2c14e" },
-  telecom: { background: "telecom.webp", label: "Mạng viễn thông", accent: "#86efac" },
-  shipping: { background: "shipping.webp", label: "Vận tải biển", accent: "#60a5fa" },
-  tech: { background: "telecom.webp", label: "Đột phá công nghệ", accent: "#86efac" },
+  storm: {
+    background: "storm.webp",
+    label: "Ứng phó thiên tai",
+    accent: "#93c5fd",
+  },
+  economic: {
+    background: "finance.webp",
+    label: "Thị trường tài chính",
+    accent: "#ff5c6c",
+  },
+  aviation: {
+    background: "aviation.webp",
+    label: "Hành lang hàng không",
+    accent: "#7dd3fc",
+  },
+  power: {
+    background: "energy.webp",
+    label: "Lưới điện quốc gia",
+    accent: "#f2c14e",
+  },
+  oil: {
+    background: "oil.webp",
+    label: "Dầu khí ngoài khơi",
+    accent: "#7dd3fc",
+  },
+  coal: {
+    background: "coal.webp",
+    label: "Mỏ than và nhiên liệu",
+    accent: "#f2c14e",
+  },
+  telecom: {
+    background: "telecom.webp",
+    label: "Mạng viễn thông",
+    accent: "#86efac",
+  },
+  shipping: {
+    background: "shipping.webp",
+    label: "Vận tải biển",
+    accent: "#60a5fa",
+  },
+  tech: {
+    background: "telecom.webp",
+    label: "Đột phá công nghệ",
+    accent: "#86efac",
+  },
 };
 
 const FALLBACK_GRADIENTS = {
@@ -31,16 +97,13 @@ const FALLBACK_GRADIENTS = {
     "radial-gradient(circle at 80% 8%, rgba(125,211,252,0.26), transparent 34%), linear-gradient(145deg, #061624 0%, #10233a 54%, #040914 100%)",
   power:
     "radial-gradient(circle at 78% 18%, rgba(242,193,78,0.24), transparent 34%), linear-gradient(135deg, #06170f 0%, #10231f 50%, #030912 100%)",
-  oil:
-    "radial-gradient(circle at 70% 18%, rgba(125,211,252,0.2), transparent 36%), linear-gradient(135deg, #071827 0%, #10283b 52%, #030912 100%)",
-  coal:
-    "radial-gradient(circle at 22% 16%, rgba(242,193,78,0.18), transparent 35%), linear-gradient(135deg, #16110b 0%, #241c14 48%, #070604 100%)",
+  oil: "radial-gradient(circle at 70% 18%, rgba(125,211,252,0.2), transparent 36%), linear-gradient(135deg, #071827 0%, #10283b 52%, #030912 100%)",
+  coal: "radial-gradient(circle at 22% 16%, rgba(242,193,78,0.18), transparent 35%), linear-gradient(135deg, #16110b 0%, #241c14 48%, #070604 100%)",
   telecom:
     "radial-gradient(circle at 70% 10%, rgba(134,239,172,0.2), transparent 36%), linear-gradient(135deg, #03151b 0%, #072820 56%, #02080c 100%)",
   shipping:
     "radial-gradient(circle at 74% 8%, rgba(96,165,250,0.22), transparent 36%), linear-gradient(135deg, #061629 0%, #0b233f 54%, #030814 100%)",
-  tech:
-    "radial-gradient(circle at 50% 12%, rgba(134,239,172,0.24), transparent 34%), linear-gradient(135deg, #04151c 0%, #0b2b27 54%, #02080c 100%)",
+  tech: "radial-gradient(circle at 50% 12%, rgba(134,239,172,0.24), transparent 34%), linear-gradient(135deg, #04151c 0%, #0b2b27 54%, #02080c 100%)",
 };
 
 const RAIN_DROPS = Array.from({ length: 58 }, (_, index) => ({
@@ -69,7 +132,8 @@ function normalizeScene(event) {
     entity: event?.entity || event?.sceneLabel || "HỆ THỐNG",
     type,
     intensity: event?.intensity || entityScene.intensity || "medium",
-    background: event?.background || entityScene.background || typeScene.background,
+    background:
+      event?.background || entityScene.background || typeScene.background,
     label: event?.sceneLabel || entityScene.label || typeScene.label,
     accent: event?.entityColor || entityScene.accent || typeScene.accent,
   };
@@ -209,7 +273,9 @@ function ShippingLayer() {
         <span />
         <span />
       </div>
-      <div className="psim-ship-alert" aria-hidden="true">!</div>
+      <div className="psim-ship-alert" aria-hidden="true">
+        !
+      </div>
     </>
   );
 }
@@ -244,7 +310,9 @@ function SignalMiniGame() {
           <span key={dot} className={charge > dot ? "is-lit" : ""} />
         ))}
       </div>
-      <span className="psim-mini-label">{complete ? "TÍN HIỆU ỔN ĐỊNH" : "KHÓA TÍN HIỆU"}</span>
+      <span className="psim-mini-label">
+        {complete ? "TÍN HIỆU ỔN ĐỊNH" : "KHÓA TÍN HIỆU"}
+      </span>
     </div>
   );
 }
